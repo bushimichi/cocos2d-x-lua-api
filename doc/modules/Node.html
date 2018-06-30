@@ -1,0 +1,5408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+
+
+<script>
+    function sortList(id) {
+        var list, i, switching, b, shouldSwitch;
+        list = document.getElementById(id);
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        // Loop through all list items:
+        for (i = 0; i < (b.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Check if the next item should
+            switch place with the current item: */
+            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+            /* If next item is alphabetically lower than current item,
+            mark as a switch and break the loop: */
+            shouldSwitch = true;
+            break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
+        }
+    };
+
+
+    function sortTable(id) {
+      var n=0;
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById(id);
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 0; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+</script>
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul id="id01">
+<li><a href="#Functions">Functions</a></li>
+</ul>
+<script>
+  sort_list('id01');
+</script>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/AbstractCheckButton.html">AbstractCheckButton</a></li>
+  <li><a href="../modules/Action.html">Action</a></li>
+  <li><a href="../modules/ActionCamera.html">ActionCamera</a></li>
+  <li><a href="../modules/ActionEase.html">ActionEase</a></li>
+  <li><a href="../modules/ActionFadeFrame.html">ActionFadeFrame</a></li>
+  <li><a href="../modules/ActionFloat.html">ActionFloat</a></li>
+  <li><a href="../modules/ActionFrame.html">ActionFrame</a></li>
+  <li><a href="../modules/ActionInstant.html">ActionInstant</a></li>
+  <li><a href="../modules/ActionInterval.html">ActionInterval</a></li>
+  <li><a href="../modules/ActionManager.html">ActionManager</a></li>
+  <li><a href="../modules/ActionManagerEx.html">ActionManagerEx</a></li>
+  <li><a href="../modules/ActionMoveFrame.html">ActionMoveFrame</a></li>
+  <li><a href="../modules/ActionObject.html">ActionObject</a></li>
+  <li><a href="../modules/ActionRotationFrame.html">ActionRotationFrame</a></li>
+  <li><a href="../modules/ActionScaleFrame.html">ActionScaleFrame</a></li>
+  <li><a href="../modules/ActionTimeline.html">ActionTimeline</a></li>
+  <li><a href="../modules/ActionTimelineCache.html">ActionTimelineCache</a></li>
+  <li><a href="../modules/ActionTimelineData.html">ActionTimelineData</a></li>
+  <li><a href="../modules/ActionTimelineNode.html">ActionTimelineNode</a></li>
+  <li><a href="../modules/ActionTintFrame.html">ActionTintFrame</a></li>
+  <li><a href="../modules/ActionTween.html">ActionTween</a></li>
+  <li><a href="../modules/AlphaFrame.html">AlphaFrame</a></li>
+  <li><a href="../modules/AmbientLight.html">AmbientLight</a></li>
+  <li><a href="../modules/AnchorPointFrame.html">AnchorPointFrame</a></li>
+  <li><a href="../modules/Animate.html">Animate</a></li>
+  <li><a href="../modules/Animate3D.html">Animate3D</a></li>
+  <li><a href="../modules/Animation.html">Animation</a></li>
+  <li><a href="../modules/Animation3D.html">Animation3D</a></li>
+  <li><a href="../modules/AnimationCache.html">AnimationCache</a></li>
+  <li><a href="../modules/AnimationData.html">AnimationData</a></li>
+  <li><a href="../modules/AnimationFrame.html">AnimationFrame</a></li>
+  <li><a href="../modules/Application.html">Application</a></li>
+  <li><a href="../modules/Armature.html">Armature</a></li>
+  <li><a href="../modules/ArmatureAnimation.html">ArmatureAnimation</a></li>
+  <li><a href="../modules/ArmatureData.html">ArmatureData</a></li>
+  <li><a href="../modules/ArmatureDataManager.html">ArmatureDataManager</a></li>
+  <li><a href="../modules/ArmatureDisplayData.html">ArmatureDisplayData</a></li>
+  <li><a href="../modules/AssetsManager.html">AssetsManager</a></li>
+  <li><a href="../modules/AssetsManagerEx.html">AssetsManagerEx</a></li>
+  <li><a href="../modules/AsyncTaskPool.html">AsyncTaskPool</a></li>
+  <li><a href="../modules/AtlasNode.html">AtlasNode</a></li>
+  <li><a href="../modules/AttachNode.html">AttachNode</a></li>
+  <li><a href="../modules/AudioEngine.html">AudioEngine</a></li>
+  <li><a href="../modules/AudioProfile.html">AudioProfile</a></li>
+  <li><a href="../modules/AutoPolygon.html">AutoPolygon</a></li>
+  <li><a href="../modules/BaseData.html">BaseData</a></li>
+  <li><a href="../modules/BaseLight.html">BaseLight</a></li>
+  <li><a href="../modules/BatchNode.html">BatchNode</a></li>
+  <li><a href="../modules/BezierBy.html">BezierBy</a></li>
+  <li><a href="../modules/BezierTo.html">BezierTo</a></li>
+  <li><a href="../modules/BillBoard.html">BillBoard</a></li>
+  <li><a href="../modules/BlendFuncFrame.html">BlendFuncFrame</a></li>
+  <li><a href="../modules/Blink.html">Blink</a></li>
+  <li><a href="../modules/Bone.html">Bone</a></li>
+  <li><a href="../modules/BoneData.html">BoneData</a></li>
+  <li><a href="../modules/BoneNode.html">BoneNode</a></li>
+  <li><a href="../modules/Bundle3D.html">Bundle3D</a></li>
+  <li><a href="../modules/Button.html">Button</a></li>
+  <li><a href="../modules/CCBAnimationManager.html">CCBAnimationManager</a></li>
+  <li><a href="../modules/CCBReader.html">CCBReader</a></li>
+  <li><a href="../modules/CSLoader.html">CSLoader</a></li>
+  <li><a href="../modules/CallFunc.html">CallFunc</a></li>
+  <li><a href="../modules/Camera.html">Camera</a></li>
+  <li><a href="../modules/CameraBackgroundBrush.html">CameraBackgroundBrush</a></li>
+  <li><a href="../modules/CameraBackgroundColorBrush.html">CameraBackgroundColorBrush</a></li>
+  <li><a href="../modules/CameraBackgroundDepthBrush.html">CameraBackgroundDepthBrush</a></li>
+  <li><a href="../modules/CameraBackgroundSkyBoxBrush.html">CameraBackgroundSkyBoxBrush</a></li>
+  <li><a href="../modules/CardinalSplineBy.html">CardinalSplineBy</a></li>
+  <li><a href="../modules/CardinalSplineTo.html">CardinalSplineTo</a></li>
+  <li><a href="../modules/CatmullRomBy.html">CatmullRomBy</a></li>
+  <li><a href="../modules/CatmullRomTo.html">CatmullRomTo</a></li>
+  <li><a href="../modules/CheckBox.html">CheckBox</a></li>
+  <li><a href="../modules/ClippingNode.html">ClippingNode</a></li>
+  <li><a href="../modules/ClippingRectangleNode.html">ClippingRectangleNode</a></li>
+  <li><a href="../modules/ColorFrame.html">ColorFrame</a></li>
+  <li><a href="../modules/ComAttribute.html">ComAttribute</a></li>
+  <li><a href="../modules/ComAudio.html">ComAudio</a></li>
+  <li><a href="../modules/ComController.html">ComController</a></li>
+  <li><a href="../modules/ComExtensionData.html">ComExtensionData</a></li>
+  <li><a href="../modules/ComRender.html">ComRender</a></li>
+  <li><a href="../modules/Component.html">Component</a></li>
+  <li><a href="../modules/ComponentLua.html">ComponentLua</a></li>
+  <li><a href="../modules/Console.html">Console</a></li>
+  <li><a href="../modules/ContourData.html">ContourData</a></li>
+  <li><a href="../modules/Control.html">Control</a></li>
+  <li><a href="../modules/ControlButton.html">ControlButton</a></li>
+  <li><a href="../modules/ControlColourPicker.html">ControlColourPicker</a></li>
+  <li><a href="../modules/ControlHuePicker.html">ControlHuePicker</a></li>
+  <li><a href="../modules/ControlPotentiometer.html">ControlPotentiometer</a></li>
+  <li><a href="../modules/ControlSaturationBrightnessPicker.html">ControlSaturationBrightnessPicker</a></li>
+  <li><a href="../modules/ControlSlider.html">ControlSlider</a></li>
+  <li><a href="../modules/ControlStepper.html">ControlStepper</a></li>
+  <li><a href="../modules/ControlSwitch.html">ControlSwitch</a></li>
+  <li><a href="../modules/Controller.html">Controller</a></li>
+  <li><a href="../modules/DelayTime.html">DelayTime</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/DirectionLight.html">DirectionLight</a></li>
+  <li><a href="../modules/Director.html">Director</a></li>
+  <li><a href="../modules/DisplayData.html">DisplayData</a></li>
+  <li><a href="../modules/DisplayManager.html">DisplayManager</a></li>
+  <li><a href="../modules/DrawNode.html">DrawNode</a></li>
+  <li><a href="../modules/EaseBackIn.html">EaseBackIn</a></li>
+  <li><a href="../modules/EaseBackInOut.html">EaseBackInOut</a></li>
+  <li><a href="../modules/EaseBackOut.html">EaseBackOut</a></li>
+  <li><a href="../modules/EaseBezierAction.html">EaseBezierAction</a></li>
+  <li><a href="../modules/EaseBounce.html">EaseBounce</a></li>
+  <li><a href="../modules/EaseBounceIn.html">EaseBounceIn</a></li>
+  <li><a href="../modules/EaseBounceInOut.html">EaseBounceInOut</a></li>
+  <li><a href="../modules/EaseBounceOut.html">EaseBounceOut</a></li>
+  <li><a href="../modules/EaseCircleActionIn.html">EaseCircleActionIn</a></li>
+  <li><a href="../modules/EaseCircleActionInOut.html">EaseCircleActionInOut</a></li>
+  <li><a href="../modules/EaseCircleActionOut.html">EaseCircleActionOut</a></li>
+  <li><a href="../modules/EaseCubicActionIn.html">EaseCubicActionIn</a></li>
+  <li><a href="../modules/EaseCubicActionInOut.html">EaseCubicActionInOut</a></li>
+  <li><a href="../modules/EaseCubicActionOut.html">EaseCubicActionOut</a></li>
+  <li><a href="../modules/EaseElastic.html">EaseElastic</a></li>
+  <li><a href="../modules/EaseElasticIn.html">EaseElasticIn</a></li>
+  <li><a href="../modules/EaseElasticInOut.html">EaseElasticInOut</a></li>
+  <li><a href="../modules/EaseElasticOut.html">EaseElasticOut</a></li>
+  <li><a href="../modules/EaseExponentialIn.html">EaseExponentialIn</a></li>
+  <li><a href="../modules/EaseExponentialInOut.html">EaseExponentialInOut</a></li>
+  <li><a href="../modules/EaseExponentialOut.html">EaseExponentialOut</a></li>
+  <li><a href="../modules/EaseIn.html">EaseIn</a></li>
+  <li><a href="../modules/EaseInOut.html">EaseInOut</a></li>
+  <li><a href="../modules/EaseOut.html">EaseOut</a></li>
+  <li><a href="../modules/EaseQuadraticActionIn.html">EaseQuadraticActionIn</a></li>
+  <li><a href="../modules/EaseQuadraticActionInOut.html">EaseQuadraticActionInOut</a></li>
+  <li><a href="../modules/EaseQuadraticActionOut.html">EaseQuadraticActionOut</a></li>
+  <li><a href="../modules/EaseQuarticActionIn.html">EaseQuarticActionIn</a></li>
+  <li><a href="../modules/EaseQuarticActionInOut.html">EaseQuarticActionInOut</a></li>
+  <li><a href="../modules/EaseQuarticActionOut.html">EaseQuarticActionOut</a></li>
+  <li><a href="../modules/EaseQuinticActionIn.html">EaseQuinticActionIn</a></li>
+  <li><a href="../modules/EaseQuinticActionInOut.html">EaseQuinticActionInOut</a></li>
+  <li><a href="../modules/EaseQuinticActionOut.html">EaseQuinticActionOut</a></li>
+  <li><a href="../modules/EaseRateAction.html">EaseRateAction</a></li>
+  <li><a href="../modules/EaseSineIn.html">EaseSineIn</a></li>
+  <li><a href="../modules/EaseSineInOut.html">EaseSineInOut</a></li>
+  <li><a href="../modules/EaseSineOut.html">EaseSineOut</a></li>
+  <li><a href="../modules/EditBox.html">EditBox</a></li>
+  <li><a href="../modules/Event.html">Event</a></li>
+  <li><a href="../modules/EventAcceleration.html">EventAcceleration</a></li>
+  <li><a href="../modules/EventAssetsManagerEx.html">EventAssetsManagerEx</a></li>
+  <li><a href="../modules/EventController.html">EventController</a></li>
+  <li><a href="../modules/EventCustom.html">EventCustom</a></li>
+  <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
+  <li><a href="../modules/EventFocus.html">EventFocus</a></li>
+  <li><a href="../modules/EventFrame.html">EventFrame</a></li>
+  <li><a href="../modules/EventKeyboard.html">EventKeyboard</a></li>
+  <li><a href="../modules/EventListener.html">EventListener</a></li>
+  <li><a href="../modules/EventListenerAcceleration.html">EventListenerAcceleration</a></li>
+  <li><a href="../modules/EventListenerAssetsManagerEx.html">EventListenerAssetsManagerEx</a></li>
+  <li><a href="../modules/EventListenerController.html">EventListenerController</a></li>
+  <li><a href="../modules/EventListenerCustom.html">EventListenerCustom</a></li>
+  <li><a href="../modules/EventListenerFocus.html">EventListenerFocus</a></li>
+  <li><a href="../modules/EventListenerKeyboard.html">EventListenerKeyboard</a></li>
+  <li><a href="../modules/EventListenerMouse.html">EventListenerMouse</a></li>
+  <li><a href="../modules/EventListenerPhysicsContact.html">EventListenerPhysicsContact</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithBodies.html">EventListenerPhysicsContactWithBodies</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithGroup.html">EventListenerPhysicsContactWithGroup</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithShapes.html">EventListenerPhysicsContactWithShapes</a></li>
+  <li><a href="../modules/EventListenerTouchAllAtOnce.html">EventListenerTouchAllAtOnce</a></li>
+  <li><a href="../modules/EventListenerTouchOneByOne.html">EventListenerTouchOneByOne</a></li>
+  <li><a href="../modules/EventMouse.html">EventMouse</a></li>
+  <li><a href="../modules/EventTouch.html">EventTouch</a></li>
+  <li><a href="../modules/FadeIn.html">FadeIn</a></li>
+  <li><a href="../modules/FadeOut.html">FadeOut</a></li>
+  <li><a href="../modules/FadeOutBLTiles.html">FadeOutBLTiles</a></li>
+  <li><a href="../modules/FadeOutDownTiles.html">FadeOutDownTiles</a></li>
+  <li><a href="../modules/FadeOutTRTiles.html">FadeOutTRTiles</a></li>
+  <li><a href="../modules/FadeOutUpTiles.html">FadeOutUpTiles</a></li>
+  <li><a href="../modules/FadeTo.html">FadeTo</a></li>
+  <li><a href="../modules/FileUtils.html">FileUtils</a></li>
+  <li><a href="../modules/FiniteTimeAction.html">FiniteTimeAction</a></li>
+  <li><a href="../modules/FlipX.html">FlipX</a></li>
+  <li><a href="../modules/FlipX3D.html">FlipX3D</a></li>
+  <li><a href="../modules/FlipY.html">FlipY</a></li>
+  <li><a href="../modules/FlipY3D.html">FlipY3D</a></li>
+  <li><a href="../modules/Follow.html">Follow</a></li>
+  <li><a href="../modules/Frame.html">Frame</a></li>
+  <li><a href="../modules/FrameData.html">FrameData</a></li>
+  <li><a href="../modules/GLProgram.html">GLProgram</a></li>
+  <li><a href="../modules/GLProgramCache.html">GLProgramCache</a></li>
+  <li><a href="../modules/GLProgramState.html">GLProgramState</a></li>
+  <li><a href="../modules/GLView.html">GLView</a></li>
+  <li><a href="../modules/GLViewImpl.html">GLViewImpl</a></li>
+  <li><a href="../modules/GUIReader.html">GUIReader</a></li>
+  <li><a href="../modules/Grid3D.html">Grid3D</a></li>
+  <li><a href="../modules/Grid3DAction.html">Grid3DAction</a></li>
+  <li><a href="../modules/GridAction.html">GridAction</a></li>
+  <li><a href="../modules/GridBase.html">GridBase</a></li>
+  <li><a href="../modules/HBox.html">HBox</a></li>
+  <li><a href="../modules/Helper.html">Helper</a></li>
+  <li><a href="../modules/Hide.html">Hide</a></li>
+  <li><a href="../modules/Image.html">Image</a></li>
+  <li><a href="../modules/ImageView.html">ImageView</a></li>
+  <li><a href="../modules/InnerActionFrame.html">InnerActionFrame</a></li>
+  <li><a href="../modules/JumpBy.html">JumpBy</a></li>
+  <li><a href="../modules/JumpTiles3D.html">JumpTiles3D</a></li>
+  <li><a href="../modules/JumpTo.html">JumpTo</a></li>
+  <li><a href="../modules/Label.html">Label</a></li>
+  <li><a href="../modules/LabelAtlas.html">LabelAtlas</a></li>
+  <li><a href="../modules/Layer.html">Layer</a></li>
+  <li><a href="../modules/LayerColor.html">LayerColor</a></li>
+  <li><a href="../modules/LayerGradient.html">LayerGradient</a></li>
+  <li><a href="../modules/LayerMultiplex.html">LayerMultiplex</a></li>
+  <li><a href="../modules/Layout.html">Layout</a></li>
+  <li><a href="../modules/LayoutComponent.html">LayoutComponent</a></li>
+  <li><a href="../modules/LayoutParameter.html">LayoutParameter</a></li>
+  <li><a href="../modules/Lens3D.html">Lens3D</a></li>
+  <li><a href="../modules/LinearLayoutParameter.html">LinearLayoutParameter</a></li>
+  <li><a href="../modules/Liquid.html">Liquid</a></li>
+  <li><a href="../modules/ListView.html">ListView</a></li>
+  <li><a href="../modules/LoadingBar.html">LoadingBar</a></li>
+  <li><a href="../modules/Manifest.html">Manifest</a></li>
+  <li><a href="../modules/Material.html">Material</a></li>
+  <li><a href="../modules/Menu.html">Menu</a></li>
+  <li><a href="../modules/MenuItem.html">MenuItem</a></li>
+  <li><a href="../modules/MenuItemAtlasFont.html">MenuItemAtlasFont</a></li>
+  <li><a href="../modules/MenuItemFont.html">MenuItemFont</a></li>
+  <li><a href="../modules/MenuItemImage.html">MenuItemImage</a></li>
+  <li><a href="../modules/MenuItemLabel.html">MenuItemLabel</a></li>
+  <li><a href="../modules/MenuItemSprite.html">MenuItemSprite</a></li>
+  <li><a href="../modules/MenuItemToggle.html">MenuItemToggle</a></li>
+  <li><a href="../modules/Mesh.html">Mesh</a></li>
+  <li><a href="../modules/MotionStreak.html">MotionStreak</a></li>
+  <li><a href="../modules/MotionStreak3D.html">MotionStreak3D</a></li>
+  <li><a href="../modules/MoveBy.html">MoveBy</a></li>
+  <li><a href="../modules/MoveTo.html">MoveTo</a></li>
+  <li><a href="../modules/MovementBoneData.html">MovementBoneData</a></li>
+  <li><a href="../modules/MovementData.html">MovementData</a></li>
+  <li><a href="../modules/NavMesh.html">NavMesh</a></li>
+  <li><a href="../modules/NavMeshAgent.html">NavMeshAgent</a></li>
+  <li><a href="../modules/NavMeshObstacle.html">NavMeshObstacle</a></li>
+  <li><strong>Node</strong></li>
+  <li><a href="../modules/NodeGrid.html">NodeGrid</a></li>
+  <li><a href="../modules/OrbitCamera.html">OrbitCamera</a></li>
+  <li><a href="../modules/PUParticleSystem3D.html">PUParticleSystem3D</a></li>
+  <li><a href="../modules/PageTurn3D.html">PageTurn3D</a></li>
+  <li><a href="../modules/PageView.html">PageView</a></li>
+  <li><a href="../modules/ParallaxNode.html">ParallaxNode</a></li>
+  <li><a href="../modules/ParticleBatchNode.html">ParticleBatchNode</a></li>
+  <li><a href="../modules/ParticleData.html">ParticleData</a></li>
+  <li><a href="../modules/ParticleDisplayData.html">ParticleDisplayData</a></li>
+  <li><a href="../modules/ParticleExplosion.html">ParticleExplosion</a></li>
+  <li><a href="../modules/ParticleFire.html">ParticleFire</a></li>
+  <li><a href="../modules/ParticleFireworks.html">ParticleFireworks</a></li>
+  <li><a href="../modules/ParticleFlower.html">ParticleFlower</a></li>
+  <li><a href="../modules/ParticleGalaxy.html">ParticleGalaxy</a></li>
+  <li><a href="../modules/ParticleMeteor.html">ParticleMeteor</a></li>
+  <li><a href="../modules/ParticleRain.html">ParticleRain</a></li>
+  <li><a href="../modules/ParticleSmoke.html">ParticleSmoke</a></li>
+  <li><a href="../modules/ParticleSnow.html">ParticleSnow</a></li>
+  <li><a href="../modules/ParticleSpiral.html">ParticleSpiral</a></li>
+  <li><a href="../modules/ParticleSun.html">ParticleSun</a></li>
+  <li><a href="../modules/ParticleSystem.html">ParticleSystem</a></li>
+  <li><a href="../modules/ParticleSystem3D.html">ParticleSystem3D</a></li>
+  <li><a href="../modules/ParticleSystemQuad.html">ParticleSystemQuad</a></li>
+  <li><a href="../modules/Pass.html">Pass</a></li>
+  <li><a href="../modules/Physics3D6DofConstraint.html">Physics3D6DofConstraint</a></li>
+  <li><a href="../modules/Physics3DComponent.html">Physics3DComponent</a></li>
+  <li><a href="../modules/Physics3DConeTwistConstraint.html">Physics3DConeTwistConstraint</a></li>
+  <li><a href="../modules/Physics3DConstraint.html">Physics3DConstraint</a></li>
+  <li><a href="../modules/Physics3DHingeConstraint.html">Physics3DHingeConstraint</a></li>
+  <li><a href="../modules/Physics3DObject.html">Physics3DObject</a></li>
+  <li><a href="../modules/Physics3DPointToPointConstraint.html">Physics3DPointToPointConstraint</a></li>
+  <li><a href="../modules/Physics3DRigidBody.html">Physics3DRigidBody</a></li>
+  <li><a href="../modules/Physics3DShape.html">Physics3DShape</a></li>
+  <li><a href="../modules/Physics3DSliderConstraint.html">Physics3DSliderConstraint</a></li>
+  <li><a href="../modules/Physics3DWorld.html">Physics3DWorld</a></li>
+  <li><a href="../modules/PhysicsBody.html">PhysicsBody</a></li>
+  <li><a href="../modules/PhysicsContact.html">PhysicsContact</a></li>
+  <li><a href="../modules/PhysicsContactPostSolve.html">PhysicsContactPostSolve</a></li>
+  <li><a href="../modules/PhysicsContactPreSolve.html">PhysicsContactPreSolve</a></li>
+  <li><a href="../modules/PhysicsJoint.html">PhysicsJoint</a></li>
+  <li><a href="../modules/PhysicsJointDistance.html">PhysicsJointDistance</a></li>
+  <li><a href="../modules/PhysicsJointFixed.html">PhysicsJointFixed</a></li>
+  <li><a href="../modules/PhysicsJointGear.html">PhysicsJointGear</a></li>
+  <li><a href="../modules/PhysicsJointGroove.html">PhysicsJointGroove</a></li>
+  <li><a href="../modules/PhysicsJointLimit.html">PhysicsJointLimit</a></li>
+  <li><a href="../modules/PhysicsJointMotor.html">PhysicsJointMotor</a></li>
+  <li><a href="../modules/PhysicsJointPin.html">PhysicsJointPin</a></li>
+  <li><a href="../modules/PhysicsJointRatchet.html">PhysicsJointRatchet</a></li>
+  <li><a href="../modules/PhysicsJointRotaryLimit.html">PhysicsJointRotaryLimit</a></li>
+  <li><a href="../modules/PhysicsJointRotarySpring.html">PhysicsJointRotarySpring</a></li>
+  <li><a href="../modules/PhysicsJointSpring.html">PhysicsJointSpring</a></li>
+  <li><a href="../modules/PhysicsShape.html">PhysicsShape</a></li>
+  <li><a href="../modules/PhysicsShapeBox.html">PhysicsShapeBox</a></li>
+  <li><a href="../modules/PhysicsShapeCircle.html">PhysicsShapeCircle</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeBox.html">PhysicsShapeEdgeBox</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeChain.html">PhysicsShapeEdgeChain</a></li>
+  <li><a href="../modules/PhysicsShapeEdgePolygon.html">PhysicsShapeEdgePolygon</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeSegment.html">PhysicsShapeEdgeSegment</a></li>
+  <li><a href="../modules/PhysicsShapePolygon.html">PhysicsShapePolygon</a></li>
+  <li><a href="../modules/PhysicsSprite3D.html">PhysicsSprite3D</a></li>
+  <li><a href="../modules/PhysicsWorld.html">PhysicsWorld</a></li>
+  <li><a href="../modules/Place.html">Place</a></li>
+  <li><a href="../modules/PlayableFrame.html">PlayableFrame</a></li>
+  <li><a href="../modules/PointLight.html">PointLight</a></li>
+  <li><a href="../modules/PolygonInfo.html">PolygonInfo</a></li>
+  <li><a href="../modules/PositionFrame.html">PositionFrame</a></li>
+  <li><a href="../modules/ProgressFromTo.html">ProgressFromTo</a></li>
+  <li><a href="../modules/ProgressTimer.html">ProgressTimer</a></li>
+  <li><a href="../modules/ProgressTo.html">ProgressTo</a></li>
+  <li><a href="../modules/Properties.html">Properties</a></li>
+  <li><a href="../modules/ProtectedNode.html">ProtectedNode</a></li>
+  <li><a href="../modules/RadioButton.html">RadioButton</a></li>
+  <li><a href="../modules/RadioButtonGroup.html">RadioButtonGroup</a></li>
+  <li><a href="../modules/Ref.html">Ref</a></li>
+  <li><a href="../modules/RelativeBox.html">RelativeBox</a></li>
+  <li><a href="../modules/RelativeLayoutParameter.html">RelativeLayoutParameter</a></li>
+  <li><a href="../modules/RemoveSelf.html">RemoveSelf</a></li>
+  <li><a href="../modules/RenderState.html">RenderState</a></li>
+  <li><a href="../modules/RenderTexture.html">RenderTexture</a></li>
+  <li><a href="../modules/Repeat.html">Repeat</a></li>
+  <li><a href="../modules/RepeatForever.html">RepeatForever</a></li>
+  <li><a href="../modules/ReuseGrid.html">ReuseGrid</a></li>
+  <li><a href="../modules/RichElement.html">RichElement</a></li>
+  <li><a href="../modules/RichElementCustomNode.html">RichElementCustomNode</a></li>
+  <li><a href="../modules/RichElementImage.html">RichElementImage</a></li>
+  <li><a href="../modules/RichElementNewLine.html">RichElementNewLine</a></li>
+  <li><a href="../modules/RichElementText.html">RichElementText</a></li>
+  <li><a href="../modules/RichText.html">RichText</a></li>
+  <li><a href="../modules/Ripple3D.html">Ripple3D</a></li>
+  <li><a href="../modules/RotateBy.html">RotateBy</a></li>
+  <li><a href="../modules/RotateTo.html">RotateTo</a></li>
+  <li><a href="../modules/RotationFrame.html">RotationFrame</a></li>
+  <li><a href="../modules/RotationSkewFrame.html">RotationSkewFrame</a></li>
+  <li><a href="../modules/Scale9Sprite.html">Scale9Sprite</a></li>
+  <li><a href="../modules/ScaleBy.html">ScaleBy</a></li>
+  <li><a href="../modules/ScaleFrame.html">ScaleFrame</a></li>
+  <li><a href="../modules/ScaleTo.html">ScaleTo</a></li>
+  <li><a href="../modules/Scene.html">Scene</a></li>
+  <li><a href="../modules/SceneReader.html">SceneReader</a></li>
+  <li><a href="../modules/Scheduler.html">Scheduler</a></li>
+  <li><a href="../modules/ScrollView.html">ScrollView</a></li>
+  <li><a href="../modules/Sequence.html">Sequence</a></li>
+  <li><a href="../modules/Shaky3D.html">Shaky3D</a></li>
+  <li><a href="../modules/ShakyTiles3D.html">ShakyTiles3D</a></li>
+  <li><a href="../modules/ShatteredTiles3D.html">ShatteredTiles3D</a></li>
+  <li><a href="../modules/Show.html">Show</a></li>
+  <li><a href="../modules/ShuffleTiles.html">ShuffleTiles</a></li>
+  <li><a href="../modules/SimpleAudioEngine.html">SimpleAudioEngine</a></li>
+  <li><a href="../modules/Skeleton3D.html">Skeleton3D</a></li>
+  <li><a href="../modules/SkeletonAnimation.html">SkeletonAnimation</a></li>
+  <li><a href="../modules/SkeletonNode.html">SkeletonNode</a></li>
+  <li><a href="../modules/SkeletonRenderer.html">SkeletonRenderer</a></li>
+  <li><a href="../modules/SkewBy.html">SkewBy</a></li>
+  <li><a href="../modules/SkewFrame.html">SkewFrame</a></li>
+  <li><a href="../modules/SkewTo.html">SkewTo</a></li>
+  <li><a href="../modules/Skin.html">Skin</a></li>
+  <li><a href="../modules/Skybox.html">Skybox</a></li>
+  <li><a href="../modules/Slider.html">Slider</a></li>
+  <li><a href="../modules/Spawn.html">Spawn</a></li>
+  <li><a href="../modules/Speed.html">Speed</a></li>
+  <li><a href="../modules/SplitCols.html">SplitCols</a></li>
+  <li><a href="../modules/SplitRows.html">SplitRows</a></li>
+  <li><a href="../modules/SpotLight.html">SpotLight</a></li>
+  <li><a href="../modules/Sprite.html">Sprite</a></li>
+  <li><a href="../modules/Sprite3D.html">Sprite3D</a></li>
+  <li><a href="../modules/Sprite3DCache.html">Sprite3DCache</a></li>
+  <li><a href="../modules/Sprite3DMaterial.html">Sprite3DMaterial</a></li>
+  <li><a href="../modules/SpriteBatchNode.html">SpriteBatchNode</a></li>
+  <li><a href="../modules/SpriteDisplayData.html">SpriteDisplayData</a></li>
+  <li><a href="../modules/SpriteFrame.html">SpriteFrame</a></li>
+  <li><a href="../modules/SpriteFrameCache.html">SpriteFrameCache</a></li>
+  <li><a href="../modules/StopGrid.html">StopGrid</a></li>
+  <li><a href="../modules/TMXLayer.html">TMXLayer</a></li>
+  <li><a href="../modules/TMXLayerInfo.html">TMXLayerInfo</a></li>
+  <li><a href="../modules/TMXMapInfo.html">TMXMapInfo</a></li>
+  <li><a href="../modules/TMXObjectGroup.html">TMXObjectGroup</a></li>
+  <li><a href="../modules/TMXTiledMap.html">TMXTiledMap</a></li>
+  <li><a href="../modules/TMXTilesetInfo.html">TMXTilesetInfo</a></li>
+  <li><a href="../modules/TabControl.html">TabControl</a></li>
+  <li><a href="../modules/TabHeader.html">TabHeader</a></li>
+  <li><a href="../modules/TableView.html">TableView</a></li>
+  <li><a href="../modules/TableViewCell.html">TableViewCell</a></li>
+  <li><a href="../modules/TargetedAction.html">TargetedAction</a></li>
+  <li><a href="../modules/Technique.html">Technique</a></li>
+  <li><a href="../modules/Terrain.html">Terrain</a></li>
+  <li><a href="../modules/Text.html">Text</a></li>
+  <li><a href="../modules/TextAtlas.html">TextAtlas</a></li>
+  <li><a href="../modules/TextBMFont.html">TextBMFont</a></li>
+  <li><a href="../modules/TextField.html">TextField</a></li>
+  <li><a href="../modules/Texture2D.html">Texture2D</a></li>
+  <li><a href="../modules/TextureCache.html">TextureCache</a></li>
+  <li><a href="../modules/TextureCube.html">TextureCube</a></li>
+  <li><a href="../modules/TextureData.html">TextureData</a></li>
+  <li><a href="../modules/TextureFrame.html">TextureFrame</a></li>
+  <li><a href="../modules/TileMapAtlas.html">TileMapAtlas</a></li>
+  <li><a href="../modules/TiledGrid3D.html">TiledGrid3D</a></li>
+  <li><a href="../modules/TiledGrid3DAction.html">TiledGrid3DAction</a></li>
+  <li><a href="../modules/Timeline.html">Timeline</a></li>
+  <li><a href="../modules/Timer.html">Timer</a></li>
+  <li><a href="../modules/TintBy.html">TintBy</a></li>
+  <li><a href="../modules/TintTo.html">TintTo</a></li>
+  <li><a href="../modules/ToggleVisibility.html">ToggleVisibility</a></li>
+  <li><a href="../modules/Touch.html">Touch</a></li>
+  <li><a href="../modules/TransitionCrossFade.html">TransitionCrossFade</a></li>
+  <li><a href="../modules/TransitionEaseScene.html">TransitionEaseScene</a></li>
+  <li><a href="../modules/TransitionFade.html">TransitionFade</a></li>
+  <li><a href="../modules/TransitionFadeBL.html">TransitionFadeBL</a></li>
+  <li><a href="../modules/TransitionFadeDown.html">TransitionFadeDown</a></li>
+  <li><a href="../modules/TransitionFadeTR.html">TransitionFadeTR</a></li>
+  <li><a href="../modules/TransitionFadeUp.html">TransitionFadeUp</a></li>
+  <li><a href="../modules/TransitionFlipAngular.html">TransitionFlipAngular</a></li>
+  <li><a href="../modules/TransitionFlipX.html">TransitionFlipX</a></li>
+  <li><a href="../modules/TransitionFlipY.html">TransitionFlipY</a></li>
+  <li><a href="../modules/TransitionJumpZoom.html">TransitionJumpZoom</a></li>
+  <li><a href="../modules/TransitionMoveInB.html">TransitionMoveInB</a></li>
+  <li><a href="../modules/TransitionMoveInL.html">TransitionMoveInL</a></li>
+  <li><a href="../modules/TransitionMoveInR.html">TransitionMoveInR</a></li>
+  <li><a href="../modules/TransitionMoveInT.html">TransitionMoveInT</a></li>
+  <li><a href="../modules/TransitionPageTurn.html">TransitionPageTurn</a></li>
+  <li><a href="../modules/TransitionProgress.html">TransitionProgress</a></li>
+  <li><a href="../modules/TransitionProgressHorizontal.html">TransitionProgressHorizontal</a></li>
+  <li><a href="../modules/TransitionProgressInOut.html">TransitionProgressInOut</a></li>
+  <li><a href="../modules/TransitionProgressOutIn.html">TransitionProgressOutIn</a></li>
+  <li><a href="../modules/TransitionProgressRadialCCW.html">TransitionProgressRadialCCW</a></li>
+  <li><a href="../modules/TransitionProgressRadialCW.html">TransitionProgressRadialCW</a></li>
+  <li><a href="../modules/TransitionProgressVertical.html">TransitionProgressVertical</a></li>
+  <li><a href="../modules/TransitionRotoZoom.html">TransitionRotoZoom</a></li>
+  <li><a href="../modules/TransitionScene.html">TransitionScene</a></li>
+  <li><a href="../modules/TransitionSceneOriented.html">TransitionSceneOriented</a></li>
+  <li><a href="../modules/TransitionShrinkGrow.html">TransitionShrinkGrow</a></li>
+  <li><a href="../modules/TransitionSlideInB.html">TransitionSlideInB</a></li>
+  <li><a href="../modules/TransitionSlideInL.html">TransitionSlideInL</a></li>
+  <li><a href="../modules/TransitionSlideInR.html">TransitionSlideInR</a></li>
+  <li><a href="../modules/TransitionSlideInT.html">TransitionSlideInT</a></li>
+  <li><a href="../modules/TransitionSplitCols.html">TransitionSplitCols</a></li>
+  <li><a href="../modules/TransitionSplitRows.html">TransitionSplitRows</a></li>
+  <li><a href="../modules/TransitionTurnOffTiles.html">TransitionTurnOffTiles</a></li>
+  <li><a href="../modules/TransitionZoomFlipAngular.html">TransitionZoomFlipAngular</a></li>
+  <li><a href="../modules/TransitionZoomFlipX.html">TransitionZoomFlipX</a></li>
+  <li><a href="../modules/TransitionZoomFlipY.html">TransitionZoomFlipY</a></li>
+  <li><a href="../modules/TurnOffTiles.html">TurnOffTiles</a></li>
+  <li><a href="../modules/Tween.html">Tween</a></li>
+  <li><a href="../modules/Twirl.html">Twirl</a></li>
+  <li><a href="../modules/UserDefault.html">UserDefault</a></li>
+  <li><a href="../modules/VBox.html">VBox</a></li>
+  <li><a href="../modules/VideoPlayer.html">VideoPlayer</a></li>
+  <li><a href="../modules/VisibleFrame.html">VisibleFrame</a></li>
+  <li><a href="../modules/Waves.html">Waves</a></li>
+  <li><a href="../modules/Waves3D.html">Waves3D</a></li>
+  <li><a href="../modules/WavesTiles3D.html">WavesTiles3D</a></li>
+  <li><a href="../modules/WebView.html">WebView</a></li>
+  <li><a href="../modules/Widget.html">Widget</a></li>
+  <li><a href="../modules/ZOrderFrame.html">ZOrderFrame</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/sp.html">sp</a></li>
+  <li><a href="../modules/ccs.html">ccs</a></li>
+  <li><a href="../modules/ccui.html">ccui</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Node</code></h1>
+<p></p>
+<p></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Parent</strong>: _module cc</li>
+        <li><strong>Extend</strong>: Ref</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list" id="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#addChild">addChild (self, int, string)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeComponent">removeComponent (self, string)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPhysicsBody">setPhysicsBody (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getDescription">getDescription (self)</a></td>
+	<td class="summary">Gets the description string.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setRotationSkewY">setRotationSkewY (self, float)</a></td>
+	<td class="summary">Sets the Y rotation (angle) of the node in degrees which performs a vertical rotational skew.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality,<br>
+ while the second one uses the real skew function.<br>
+ 0 is the default rotation angle.<br>
+ Positive values rotate node clockwise, and negative values for anti-clockwise.<br>
+ param rotationY    The Y rotation in degrees.<br>
+ warning The physics body doesn't support this.<br>
+ js setRotationY</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setOpacityModifyRGB">setOpacityModifyRGB (self, bool)</a></td>
+	<td class="summary">If you want the opacity affect the color property, then set to true.<br>
+ param value A boolean value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setCascadeOpacityEnabled">setCascadeOpacityEnabled (self, bool)</a></td>
+	<td class="summary">Change node's cascadeOpacity property.<br>
+ param cascadeOpacityEnabled True to enable cascadeOpacity, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getChildren">getChildren (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setOnExitCallback">setOnExitCallback (self, function)</a></td>
+	<td class="summary">Set the callback of event onExit.<br>
+ param callback A std::function<void()> callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setActionManager">setActionManager (self)</a></td>
+	<td class="summary">Sets the ActionManager object that is used by all actions.<br>
+ warning If you set a new ActionManager, then previously created actions will be removed.<br>
+ param actionManager     A ActionManager object that is used by all actions.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#convertToWorldSpaceAR">convertToWorldSpaceAR (self, vec2_table)</a></td>
+	<td class="summary">Converts a local Vec2 to world space coordinates.The result is in Points.<br>
+ treating the returned/received node point as anchor relative.<br>
+ param nodePoint A given coordinate.<br>
+ return A point in world space coordinates, anchor relative.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isIgnoreAnchorPointForPosition">isIgnoreAnchorPointForPosition (self)</a></td>
+	<td class="summary">Gets whether the anchor point will be (0,0) when you position this node.<br>
+ see `setIgnoreAnchorPointForPosition(bool)`<br>
+ return true if the anchor point will be (0,0) when you position this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getChildByName">getChildByName (self, string)</a></td>
+	<td class="summary">Gets a child from the container with its name.<br>
+ param name   An identifier to find the child node.<br>
+ return a Node object whose name equals to the input parameter.<br>
+ since v3.2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateDisplayedOpacity">updateDisplayedOpacity (self, unsigned)</a></td>
+	<td class="summary">Update the displayed opacity of node with it's parent opacity;<br>
+ param parentOpacity The opacity of parent node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#init">init (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCameraMask">getCameraMask (self)</a></td>
+	<td class="summary">get & set camera mask, the node is visible by the camera whose camera flag & node's camera mask is true</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setRotation">setRotation (self, float)</a></td>
+	<td class="summary">Sets the rotation (angle) of the node in degrees.<br>
+ 0 is the default rotation angle.<br>
+ Positive values rotate node clockwise, and negative values for anti-clockwise.<br>
+ param rotation     The rotation of the node in degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScaleZ">setScaleZ (self, float)</a></td>
+	<td class="summary">Changes the scale factor on Z axis of this node<br>
+ The Default value is 1.0 if you haven't changed it before.<br>
+ param scaleZ   The scale factor on Z axis.<br>
+ warning The physics body doesn't support this.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScaleY">setScaleY (self, float)</a></td>
+	<td class="summary">Sets the scale (y) of the node.<br>
+ It is a scaling factor that multiplies the height of the node and its children.<br>
+ param scaleY   The scale factor on Y axis.<br>
+ warning The physics body doesn't support this.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScaleX">setScaleX (self, float)</a></td>
+	<td class="summary">Sets the scale (x) of the node.<br>
+ It is a scaling factor that multiplies the width of the node and its children.<br>
+ param scaleX   The scale factor on X axis.<br>
+ warning The physics body doesn't support this.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setRotationSkewX">setRotationSkewX (self, float)</a></td>
+	<td class="summary">Sets the X rotation (angle) of the node in degrees which performs a horizontal rotational skew.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality,<br>
+ while the second one uses the real skew function.<br>
+ 0 is the default rotation angle.<br>
+ Positive values rotate node clockwise, and negative values for anti-clockwise.<br>
+ param rotationX    The X rotation in degrees which performs a horizontal rotational skew.<br>
+ warning The physics body doesn't support this.<br>
+ js setRotationX</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setonEnterTransitionDidFinishCallback">setonEnterTransitionDidFinishCallback (self, function)</a></td>
+	<td class="summary">Set the callback of event EnterTransitionDidFinish.<br>
+ param callback A std::function<void()> callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeAllComponents">removeAllComponents (self)</a></td>
+	<td class="summary">Removes all components</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#_setLocalZOrder">_setLocalZOrder (self, int)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setCameraMask">setCameraMask (self, unsigned, bool)</a></td>
+	<td class="summary">Modify the camera mask for current node.<br>
+ If applyChildren is true, then it will modify the camera mask of its children recursively.<br>
+ param mask A unsigned short bit for mask.<br>
+ param applyChildren A boolean value to determine whether the mask bit should apply to its children or not.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getTag">getTag (self)</a></td>
+	<td class="summary">Returns a tag that is used to identify the node easily.<br>
+ return An integer that identifies the node.<br>
+ Please use `getTag()` instead.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getGLProgram">getGLProgram (self)</a></td>
+	<td class="summary">/ @{/ @name GLProgram<br>
+ Return the GLProgram (shader) currently used for this node.<br>
+ return The GLProgram (shader) currently used for this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNodeToWorldTransform">getNodeToWorldTransform (self)</a></td>
+	<td class="summary">Returns the world affine transform matrix.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPosition3D">getPosition3D (self)</a></td>
+	<td class="summary">Returns the position (X,Y,Z) in its parent's coordinate system.<br>
+ return The position (X, Y, and Z) in its parent's coordinate system.<br>
+ js NA</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeChild">removeChild (self, bool)</a></td>
+	<td class="summary">Removes a child from the container.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#convertToWorldSpace">convertToWorldSpace (self, vec2_table)</a></td>
+	<td class="summary">Converts a Vec2 to world space coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScene">getScene (self)</a></td>
+	<td class="summary">Returns the Scene that contains the Node.<br>
+ It returns `nullptr` if the node doesn't belong to any Scene.<br>
+ This function recursively calls parent->getScene() until parent is a Scene object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getEventDispatcher">getEventDispatcher (self)</a></td>
+	<td class="summary">Get the event dispatcher of scene.<br>
+ return The event dispatcher of scene.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setSkewX">setSkewX (self, float)</a></td>
+	<td class="summary">Changes the X skew angle of the node in degrees.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality<br>
+ while the second one uses the real skew function.<br>
+ This angle describes the shear distortion in the X direction.<br>
+ Thus, it is the angle between the Y coordinate and the left edge of the shape<br>
+ The default skewX angle is 0.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setGLProgramState">setGLProgramState (self)</a></td>
+	<td class="summary">Set the GLProgramState for this node.<br>
+ param glProgramState The GLProgramState for this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setOnEnterCallback">setOnEnterCallback (self, function)</a></td>
+	<td class="summary">Set the callback of event onEnter.<br>
+ param callback A std::function<void()> callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stopActionsByFlags">stopActionsByFlags (self, unsigned)</a></td>
+	<td class="summary">Removes all actions from the running action list by its flags.<br>
+ param flags   A flag field that removes actions based on bitwise AND.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setNormalizedPosition">setNormalizedPosition (self, vec2_table)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setonExitTransitionDidStartCallback">setonExitTransitionDidStartCallback (self, function)</a></td>
+	<td class="summary">Set the callback of event ExitTransitionDidStart.<br>
+ param callback A std::function<void()> callback.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#convertTouchToNodeSpace">convertTouchToNodeSpace (self)</a></td>
+	<td class="summary">convenience methods which take a Touch instead of Vec2.<br>
+ param touch A given touch.<br>
+ return A point in world space coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeAllChildrenWithCleanup">removeAllChildrenWithCleanup (self, bool)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNodeToParentAffineTransform">getNodeToParentAffineTransform (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isCascadeOpacityEnabled">isCascadeOpacityEnabled (self)</a></td>
+	<td class="summary">Whether cascadeOpacity is enabled or not.<br>
+ return A boolean value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setParent">setParent (self)</a></td>
+	<td class="summary">Sets the parent node.<br>
+ param parent    A pointer to the parent node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getName">getName (self)</a></td>
+	<td class="summary">Returns a string that is used to identify the node.<br>
+ return A string that identifies the node.<br>
+ since v3.2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#resume">resume (self)</a></td>
+	<td class="summary">Resumes all scheduled selectors, actions and event listeners.<br>
+ This method is called internally by onEnter.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getRotation3D">getRotation3D (self)</a></td>
+	<td class="summary">Returns the rotation (X,Y,Z) in degrees.<br>
+ return The rotation of the node in 3d.<br>
+ js NA</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNodeToParentTransform">getNodeToParentTransform (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#convertTouchToNodeSpaceAR">convertTouchToNodeSpaceAR (self)</a></td>
+	<td class="summary">converts a Touch (world coordinates) into a local coordinate.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#convertToNodeSpace">convertToNodeSpace (self, vec2_table)</a></td>
+	<td class="summary">Converts a Vec2 to node (local) space coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPositionNormalized">setPositionNormalized (self, vec2_table)</a></td>
+	<td class="summary">Sets the position (x,y) using values between 0 and 1.<br>
+ The positions in pixels is calculated like the following:<br>
+ code pseudo code<br>
+ void setNormalizedPosition(Vec2 pos) {<br>
+ Size s = getParent()->getContentSize();<br>
+ _position = pos * s;<br>
+ }<br>
+ endcode<br>
+ param position The normalized position (x,y) of the node, using value between 0 and 1.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pause">pause (self)</a></td>
+	<td class="summary">Pauses all scheduled selectors, actions and event listeners.<br>
+ This method is called internally by onExit.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isOpacityModifyRGB">isOpacityModifyRGB (self)</a></td>
+	<td class="summary">If node opacity will modify the RGB color value, then you should override this method and return true.<br>
+ return A boolean value, true indicates that opacity will modify color; false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPosition">setPosition (self, float, float)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stopActionByTag">stopActionByTag (self, int)</a></td>
+	<td class="summary">Removes an action from the running action list by its tag.<br>
+ param tag   A tag that indicates the action to be removed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#reorderChild">reorderChild (self, int)</a></td>
+	<td class="summary">Reorders a child according to a new z value.<br>
+ param child     An already added child node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setSkewY">setSkewY (self, float)</a></td>
+	<td class="summary">Changes the Y skew angle of the node in degrees.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality<br>
+ while the second one uses the real skew function.<br>
+ This angle describes the shear distortion in the Y direction.<br>
+ Thus, it is the angle between the X coordinate and the bottom edge of the shape.<br>
+ The default skewY angle is 0.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPositionZ">setPositionZ (self, float)</a></td>
+	<td class="summary">Sets the 'z' coordinate in the position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setRotation3D">setRotation3D (self, vec3_table)</a></td>
+	<td class="summary">Sets the rotation (X,Y,Z) in degrees.<br>
+ Useful for 3d rotations.<br>
+ warning The physics body doesn't support this.<br>
+ param rotation The rotation of the node in 3d.<br>
+ js NA</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPositionX">setPositionX (self, float)</a></td>
+	<td class="summary">Gets/Sets x or y coordinate individually for position.<br>
+ These methods are used in Lua and Javascript Bindings<br>
+ Sets the x coordinate of the node in its parent's coordinate system.<br>
+ param x The x coordinate of the node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setNodeToParentTransform">setNodeToParentTransform (self, mat4_table)</a></td>
+	<td class="summary">Sets the transformation matrix manually.<br>
+ param transform A given transformation matrix.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getAnchorPoint">getAnchorPoint (self)</a></td>
+	<td class="summary">Returns the anchor point in percent.<br>
+ see `setAnchorPoint(const Vec2&)`<br>
+ return The anchor point of node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNumberOfRunningActions">getNumberOfRunningActions (self)</a></td>
+	<td class="summary">Returns the numbers of actions that are running plus the ones that are schedule to run (actions in actionsToAdd and actions arrays).<br>
+ Composable actions are counted as 1 action.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateTransform">updateTransform (self)</a></td>
+	<td class="summary">Calls children's updateTransform() method recursively.<br>
+ This method is moved from Sprite, so it's no longer specific to Sprite.<br>
+ As the result, you apply SpriteBatchNode's optimization on your customed Node.<br>
+ e.g., `batchNode->addChild(myCustomNode)`, while you can only addChild(sprite) before.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setGLProgram">setGLProgram (self)</a></td>
+	<td class="summary">Sets the shader program for this node<br>
+ Since v2.0, each rendering node must set its shader program.<br>
+ It should be set in initialize phase.<br>
+ code<br>
+ node->setGLProgram(GLProgramCache::getInstance()->getProgram(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR));<br>
+ endcode<br>
+ param glprogram The shader program.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isVisible">isVisible (self)</a></td>
+	<td class="summary">Determines if the node is visible.<br>
+ see `setVisible(bool)`<br>
+ return true if the node is visible, false if the node is hidden.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getChildrenCount">getChildrenCount (self)</a></td>
+	<td class="summary">Returns the amount of children.<br>
+ return The amount of children.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#convertToNodeSpaceAR">convertToNodeSpaceAR (self, vec2_table)</a></td>
+	<td class="summary">Converts a Vec2 to node (local) space coordinates.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#addComponent">addComponent (self)</a></td>
+	<td class="summary">Adds a component.<br>
+ param component A given component.<br>
+ return True if added success.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#runAction">runAction (self)</a></td>
+	<td class="summary">Executes an action, and returns the action that is executed.<br>
+ This node becomes the action's target.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#visit">visit (self, mat4_table, unsigned)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getRotation">getRotation (self)</a></td>
+	<td class="summary">Returns the rotation of the node in degrees.<br>
+ see `setRotation(float)`<br>
+ return The rotation of the node in degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPhysicsBody">getPhysicsBody (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getAnchorPointInPoints">getAnchorPointInPoints (self)</a></td>
+	<td class="summary">Returns the anchorPoint in absolute pixels.<br>
+ warning You can only read it.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeChildByName">removeChildByName (self, string, bool)</a></td>
+	<td class="summary">Removes a child from the container by tag value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getGLProgramState">getGLProgramState (self)</a></td>
+	<td class="summary">Return the GLProgramState currently used for this node.<br>
+ return The GLProgramState currently used for this node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScheduler">setScheduler (self)</a></td>
+	<td class="summary">Sets a Scheduler object that is used to schedule all "updates" and timers.<br>
+ warning If you set a new Scheduler, then previously created timers/update are going to be removed.<br>
+ param scheduler     A Scheduler object that is used to schedule all "update" and timers.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stopAllActions">stopAllActions (self)</a></td>
+	<td class="summary">Stops and removes all actions from the running action list .</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getSkewX">getSkewX (self)</a></td>
+	<td class="summary">Returns the X skew angle of the node in degrees.<br>
+ see `setSkewX(float)`<br>
+ return The X skew angle of the node in degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getSkewY">getSkewY (self)</a></td>
+	<td class="summary">Returns the Y skew angle of the node in degrees.<br>
+ see `setSkewY(float)`<br>
+ return The Y skew angle of the node in degrees.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getDisplayedColor">getDisplayedColor (self)</a></td>
+	<td class="summary">Query node's displayed color.<br>
+ return A Color3B color value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getActionByTag">getActionByTag (self, int)</a></td>
+	<td class="summary">Gets an action from the running action list by its tag.<br>
+ see `setTag(int)`, `getTag()`.<br>
+ return The action object with the given tag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setName">setName (self, string)</a></td>
+	<td class="summary">Changes the name that is used to identify the node easily.<br>
+ param name A string that identifies the node.<br>
+ since v3.2</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#update">update (self, float)</a></td>
+	<td class="summary">Update method will be called automatically every frame if "scheduleUpdate" is called, and the node is "live".<br>
+ param delta In seconds.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getDisplayedOpacity">getDisplayedOpacity (self)</a></td>
+	<td class="summary">Return the node's display opacity.<br>
+ The difference between opacity and displayedOpacity is:<br>
+ The displayedOpacity is what's the final rendering opacity of node.<br>
+ return A GLubyte value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getLocalZOrder">getLocalZOrder (self)</a></td>
+	<td class="summary">Gets the local Z order of this node.<br>
+ see `setLocalZOrder(int)`<br>
+ return The local (relative to its siblings) Z order.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScheduler">getScheduler (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getParentToNodeAffineTransform">getParentToNodeAffineTransform (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPositionNormalized">getPositionNormalized (self)</a></td>
+	<td class="summary">Returns the normalized position.<br>
+ return The normalized position.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setColor">setColor (self, color3b_table)</a></td>
+	<td class="summary">Change the color of node.<br>
+ param color A Color3B color value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isRunning">isRunning (self)</a></td>
+	<td class="summary">Returns whether or not the node is "running".<br>
+ If the node is running it will accept event callbacks like onEnter(), onExit(), update().<br>
+ return Whether or not the node is running.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getParent">getParent (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPositionZ">getPositionZ (self)</a></td>
+	<td class="summary">Gets position Z coordinate of this node.<br>
+ see setPositionZ(float)<br>
+ return The position Z coordinate of this node.<br>
+ js getVertexZ</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPositionY">getPositionY (self)</a></td>
+	<td class="summary">Gets the y coordinate of the node in its parent's coordinate system.<br>
+ return The y coordinate of the node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPositionX">getPositionX (self)</a></td>
+	<td class="summary">Gets the x coordinate of the node in its parent's coordinate system.<br>
+ return The x coordinate of the node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeChildByTag">removeChildByTag (self, int, bool)</a></td>
+	<td class="summary">Removes a child from the container by tag value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPositionY">setPositionY (self, float)</a></td>
+	<td class="summary">Sets the y coordinate of the node in its parent's coordinate system.<br>
+ param y The y coordinate of the node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNodeToWorldAffineTransform">getNodeToWorldAffineTransform (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateDisplayedColor">updateDisplayedColor (self, color3b_table)</a></td>
+	<td class="summary">Update node's displayed color with its parent color.<br>
+ param parentColor A Color3B color value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setVisible">setVisible (self, bool)</a></td>
+	<td class="summary">Sets whether the node is visible.<br>
+ The default value is true, a node is default to visible.<br>
+ param visible   true if the node is visible, false if the node is hidden.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getParentToNodeTransform">getParentToNodeTransform (self)</a></td>
+	<td class="summary">Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates.<br>
+ The matrix is in Pixels.<br>
+ return The transformation matrix.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isScheduled">isScheduled (self, string)</a></td>
+	<td class="summary">Checks whether a lambda function is scheduled.<br>
+ param key      key of the callback<br>
+ return Whether the lambda function selector is scheduled.<br>
+ js NA<br>
+ lua NA</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setGlobalZOrder">setGlobalZOrder (self, float)</a></td>
+	<td class="summary">Defines the order in which the nodes are renderer.<br>
+ Nodes that have a Global Z Order lower, are renderer first.<br>
+ In case two or more nodes have the same Global Z Order, the order is not guaranteed.<br>
+ The only exception if the Nodes have a Global Z Order == 0.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScale">setScale (self, float, float)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getChildByTag">getChildByTag (self, int)</a></td>
+	<td class="summary">Gets a child from the container with its tag.<br>
+ param tag   An identifier to find the child node.<br>
+ return a Node object whose tag equals to the input parameter.<br>
+ Please use `getChildByName()` instead.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaleZ">getScaleZ (self)</a></td>
+	<td class="summary">Returns the scale factor on Z axis of this node<br>
+ see `setScaleZ(float)`<br>
+ return The scale factor on Z axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaleY">getScaleY (self)</a></td>
+	<td class="summary">Returns the scale factor on Y axis of this node<br>
+ see `setScaleY(float)`<br>
+ return The scale factor on Y axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaleX">getScaleX (self)</a></td>
+	<td class="summary">Returns the scale factor on X axis of this node<br>
+ see setScaleX(float)<br>
+ return The scale factor on X axis.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setLocalZOrder">setLocalZOrder (self, int)</a></td>
+	<td class="summary">LocalZOrder is the 'key' used to sort the node relative to its siblings.<br>
+ The Node's parent will sort all its children based on the LocalZOrder value.<br>
+ If two nodes have the same LocalZOrder, then the node that was added first to the children's array will be in front of the other node in the array.<br>
+ Also, the Scene Graph is traversed using the "In-Order" tree traversal algorithm ( http:en.wikipedia.org/wiki/Tree_traversal#In-order )<br>
+ And Nodes that have LocalZOrder values < 0 are the "left" subtree<br>
+ While Nodes with LocalZOrder >=0 are the "right" subtree.<br>
+ see `setGlobalZOrder`<br>
+ see `setVertexZ`<br>
+ param localZOrder The local Z order value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getWorldToNodeAffineTransform">getWorldToNodeAffineTransform (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setCascadeColorEnabled">setCascadeColorEnabled (self, bool)</a></td>
+	<td class="summary">If you want node's color affect the children node's color, then set it to true.<br>
+ Otherwise, set it to false.<br>
+ param cascadeColorEnabled A boolean value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setOpacity">setOpacity (self, unsigned)</a></td>
+	<td class="summary">Change node opacity.<br>
+ param opacity A GLubyte opacity value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cleanup">cleanup (self)</a></td>
+	<td class="summary">Stops all running actions and schedulers</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getComponent">getComponent (self, string)</a></td>
+	<td class="summary">/ @{/ @name component functions<br>
+ Gets a component by its name.<br>
+ param name A given name of component.<br>
+ return The Component by name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getContentSize">getContentSize (self)</a></td>
+	<td class="summary">Returns the untransformed size of the node.<br>
+ see `setContentSize(const Size&)`<br>
+ return The untransformed size of the node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stopAllActionsByTag">stopAllActionsByTag (self, int)</a></td>
+	<td class="summary">Removes all actions from the running action list by its tag.<br>
+ param tag   A tag that indicates the action to be removed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getColor">getColor (self)</a></td>
+	<td class="summary">Query node's color value.<br>
+ return A Color3B color value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getBoundingBox">getBoundingBox (self)</a></td>
+	<td class="summary">Returns an AABB (axis-aligned bounding-box) in its parent's coordinate system.<br>
+ return An AABB (axis-aligned bounding-box) in its parent's coordinate system</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setIgnoreAnchorPointForPosition">setIgnoreAnchorPointForPosition (self, bool)</a></td>
+	<td class="summary">Sets whether the anchor point will be (0,0) when you position this node.<br>
+ This is an internal method, only used by Layer and Scene.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setEventDispatcher">setEventDispatcher (self)</a></td>
+	<td class="summary">Set event dispatcher for scene.<br>
+ param dispatcher The event dispatcher of scene.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getGlobalZOrder">getGlobalZOrder (self)</a></td>
+	<td class="summary">Returns the Node's Global Z Order.<br>
+ see `setGlobalZOrder(int)`<br>
+ return The node's global Z order</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#draw">draw (self, mat4_table, unsigned)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setUserObject">setUserObject (self)</a></td>
+	<td class="summary">Returns a user assigned Object.<br>
+ Similar to UserData, but instead of holding a void* it holds an object.<br>
+ The UserObject will be retained once in this method,<br>
+ and the previous UserObject (if existed) will be released.<br>
+ The UserObject will be released in Node's destructor.<br>
+ param userObject    A user assigned Object.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeFromParentAndCleanup">removeFromParentAndCleanup (self, bool)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPosition3D">setPosition3D (self, vec3_table)</a></td>
+	<td class="summary">Sets the position (X, Y, and Z) in its parent's coordinate system.<br>
+ param position The position (X, Y, and Z) in its parent's coordinate system.<br>
+ js NA</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNumberOfRunningActionsByTag">getNumberOfRunningActionsByTag (self, int)</a></td>
+	<td class="summary">Returns the numbers of actions that are running plus the ones that are<br>
+ schedule to run (actions in actionsToAdd and actions arrays) with a<br>
+ specific tag.<br>
+ Composable actions are counted as 1 action.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#sortAllChildren">sortAllChildren (self)</a></td>
+	<td class="summary">Sorts the children array once before drawing, instead of every time when a child is added or reordered.<br>
+ This approach can improves the performance massively.<br>
+ note Don't call this manually unless a child added needs to be removed in the same frame.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getWorldToNodeTransform">getWorldToNodeTransform (self)</a></td>
+	<td class="summary">Returns the inverse world affine transform matrix.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScale">getScale (self)</a></td>
+	<td class="summary">Gets the scale factor of the node,  when X and Y have the same scale factor.<br>
+ warning Assert when `_scaleX != _scaleY`<br>
+ see setScale(float)<br>
+ return The scale factor of the node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getOpacity">getOpacity (self)</a></td>
+	<td class="summary">Return the node's opacity.<br>
+ return A GLubyte value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateOrderOfArrival">updateOrderOfArrival (self)</a></td>
+	<td class="summary">!!! ONLY FOR INTERNAL USE<br>
+ Sets the arrival order when this node has a same ZOrder with other children.<br>
+ A node which called addChild subsequently will take a larger arrival order,<br>
+ If two children have the same Z order, the child with larger arrival order will be drawn later.<br>
+ warning This method is used internally for localZOrder sorting, don't change this manually<br>
+ param orderOfArrival   The arrival order.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getNormalizedPosition">getNormalizedPosition (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getRotationSkewX">getRotationSkewX (self)</a></td>
+	<td class="summary">Gets the X rotation (angle) of the node in degrees which performs a horizontal rotation skew.<br>
+ see `setRotationSkewX(float)`<br>
+ return The X rotation in degrees.<br>
+ js getRotationX</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getRotationSkewY">getRotationSkewY (self)</a></td>
+	<td class="summary">Gets the Y rotation (angle) of the node in degrees which performs a vertical rotational skew.<br>
+ see `setRotationSkewY(float)`<br>
+ return The Y rotation in degrees.<br>
+ js getRotationY</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setTag">setTag (self, int)</a></td>
+	<td class="summary">Changes the tag that is used to identify the node easily.<br>
+ Please refer to getTag for the sample code.<br>
+ param tag   A integer that identifies the node.<br>
+ Please use `setName()` instead.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isCascadeColorEnabled">isCascadeColorEnabled (self)</a></td>
+	<td class="summary">Query whether cascadeColor is enabled or not.<br>
+ return Whether cascadeColor is enabled or not.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#stopAction">stopAction (self)</a></td>
+	<td class="summary">Stops and removes an action from the running action list.<br>
+ param action    The action object to be removed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getActionManager">getActionManager (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#create">create (self)</a></td>
+	<td class="summary">Allocates and initializes a node.<br>
+ return A initialized node which is marked as "autorelease".</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node">Node (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+</table>
+<script>
+  sortTable("function_list");
+</script>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "addChild"></a>
+    <strong>addChild (self, int, string)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         localZOrder
+        </li>
+        <li><span class="parameter">string</span>
+         name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeComponent"></a>
+    <strong>removeComponent (self, string)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPhysicsBody"></a>
+    <strong>setPhysicsBody (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getDescription"></a>
+    <strong>getDescription (self)</strong>
+    </dt>
+    <dd>
+    Gets the description string.  It makes debugging easier.<br>
+ return A string<br>
+ js NA<br>
+ lua NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setRotationSkewY"></a>
+    <strong>setRotationSkewY (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the Y rotation (angle) of the node in degrees which performs a vertical rotational skew.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality,<br>
+ while the second one uses the real skew function.<br>
+ 0 is the default rotation angle.<br>
+ Positive values rotate node clockwise, and negative values for anti-clockwise.<br>
+ param rotationY    The Y rotation in degrees.<br>
+ warning The physics body doesn't support this.<br>
+ js setRotationY
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         rotationY
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setOpacityModifyRGB"></a>
+    <strong>setOpacityModifyRGB (self, bool)</strong>
+    </dt>
+    <dd>
+    If you want the opacity affect the color property, then set to true.<br>
+ param value A boolean value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setCascadeOpacityEnabled"></a>
+    <strong>setCascadeOpacityEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    Change node's cascadeOpacity property.<br>
+ param cascadeOpacityEnabled True to enable cascadeOpacity, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         cascadeOpacityEnabled
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getChildren"></a>
+    <strong>getChildren (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        array_table#array_table ret (return value: array_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setOnExitCallback"></a>
+    <strong>setOnExitCallback (self, function)</strong>
+    </dt>
+    <dd>
+    Set the callback of event onExit.<br>
+ param callback A std::function<void()> callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">function</span>
+         callback
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setActionManager"></a>
+    <strong>setActionManager (self)</strong>
+    </dt>
+    <dd>
+    Sets the ActionManager object that is used by all actions.<br>
+ warning If you set a new ActionManager, then previously created actions will be removed.<br>
+ param actionManager     A ActionManager object that is used by all actions.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "convertToWorldSpaceAR"></a>
+    <strong>convertToWorldSpaceAR (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Converts a local Vec2 to world space coordinates.The result is in Points.<br>
+ treating the returned/received node point as anchor relative.<br>
+ param nodePoint A given coordinate.<br>
+ return A point in world space coordinates, anchor relative.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         nodePoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isIgnoreAnchorPointForPosition"></a>
+    <strong>isIgnoreAnchorPointForPosition (self)</strong>
+    </dt>
+    <dd>
+    Gets whether the anchor point will be (0,0) when you position this node.<br>
+ see `setIgnoreAnchorPointForPosition(bool)`<br>
+ return true if the anchor point will be (0,0) when you position this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getChildByName"></a>
+    <strong>getChildByName (self, string)</strong>
+    </dt>
+    <dd>
+    Gets a child from the container with its name.<br>
+ param name   An identifier to find the child node.<br>
+ return a Node object whose name equals to the input parameter.<br>
+ since v3.2
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node ret (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateDisplayedOpacity"></a>
+    <strong>updateDisplayedOpacity (self, unsigned)</strong>
+    </dt>
+    <dd>
+    Update the displayed opacity of node with it's parent opacity;<br>
+ param parentOpacity The opacity of parent node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">unsigned</span>
+         char parentOpacity
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "init"></a>
+    <strong>init (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getCameraMask"></a>
+    <strong>getCameraMask (self)</strong>
+    </dt>
+    <dd>
+    get & set camera mask, the node is visible by the camera whose camera flag & node's camera mask is true
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        unsigned short#unsigned short ret (return value: unsigned short)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setRotation"></a>
+    <strong>setRotation (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the rotation (angle) of the node in degrees.<br>
+ 0 is the default rotation angle.<br>
+ Positive values rotate node clockwise, and negative values for anti-clockwise.<br>
+ param rotation     The rotation of the node in degrees.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         rotation
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScaleZ"></a>
+    <strong>setScaleZ (self, float)</strong>
+    </dt>
+    <dd>
+    Changes the scale factor on Z axis of this node<br>
+ The Default value is 1.0 if you haven't changed it before.<br>
+ param scaleZ   The scale factor on Z axis.<br>
+ warning The physics body doesn't support this.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaleZ
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScaleY"></a>
+    <strong>setScaleY (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the scale (y) of the node.<br>
+ It is a scaling factor that multiplies the height of the node and its children.<br>
+ param scaleY   The scale factor on Y axis.<br>
+ warning The physics body doesn't support this.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaleY
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScaleX"></a>
+    <strong>setScaleX (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the scale (x) of the node.<br>
+ It is a scaling factor that multiplies the width of the node and its children.<br>
+ param scaleX   The scale factor on X axis.<br>
+ warning The physics body doesn't support this.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaleX
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setRotationSkewX"></a>
+    <strong>setRotationSkewX (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the X rotation (angle) of the node in degrees which performs a horizontal rotational skew.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality,<br>
+ while the second one uses the real skew function.<br>
+ 0 is the default rotation angle.<br>
+ Positive values rotate node clockwise, and negative values for anti-clockwise.<br>
+ param rotationX    The X rotation in degrees which performs a horizontal rotational skew.<br>
+ warning The physics body doesn't support this.<br>
+ js setRotationX
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         rotationX
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setonEnterTransitionDidFinishCallback"></a>
+    <strong>setonEnterTransitionDidFinishCallback (self, function)</strong>
+    </dt>
+    <dd>
+    Set the callback of event EnterTransitionDidFinish.<br>
+ param callback A std::function<void()> callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">function</span>
+         callback
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeAllComponents"></a>
+    <strong>removeAllComponents (self)</strong>
+    </dt>
+    <dd>
+    Removes all components
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "_setLocalZOrder"></a>
+    <strong>_setLocalZOrder (self, int)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         z
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setCameraMask"></a>
+    <strong>setCameraMask (self, unsigned, bool)</strong>
+    </dt>
+    <dd>
+    Modify the camera mask for current node.<br>
+ If applyChildren is true, then it will modify the camera mask of its children recursively.<br>
+ param mask A unsigned short bit for mask.<br>
+ param applyChildren A boolean value to determine whether the mask bit should apply to its children or not.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">unsigned</span>
+         short mask
+        </li>
+        <li><span class="parameter">bool</span>
+         applyChildren
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getTag"></a>
+    <strong>getTag (self)</strong>
+    </dt>
+    <dd>
+    Returns a tag that is used to identify the node easily.<br>
+ return An integer that identifies the node.<br>
+ Please use `getTag()` instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getGLProgram"></a>
+    <strong>getGLProgram (self)</strong>
+    </dt>
+    <dd>
+    / @{/ @name GLProgram<br>
+ Return the GLProgram (shader) currently used for this node.<br>
+ return The GLProgram (shader) currently used for this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        GLProgram#GLProgram ret (return value: cc.GLProgram)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNodeToWorldTransform"></a>
+    <strong>getNodeToWorldTransform (self)</strong>
+    </dt>
+    <dd>
+    Returns the world affine transform matrix.  The matrix is in Pixels.<br>
+ return transformation matrix, in pixels.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        mat4_table#mat4_table ret (return value: mat4_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPosition3D"></a>
+    <strong>getPosition3D (self)</strong>
+    </dt>
+    <dd>
+    Returns the position (X,Y,Z) in its parent's coordinate system.<br>
+ return The position (X, Y, and Z) in its parent's coordinate system.<br>
+ js NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec3_table#vec3_table ret (return value: vec3_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeChild"></a>
+    <strong>removeChild (self, bool)</strong>
+    </dt>
+    <dd>
+    Removes a child from the container.  It will also cleanup all running actions depending on the cleanup parameter.<br>
+ param child     The child node which will be removed.<br>
+ param cleanup   True if all running actions and callbacks on the child node will be cleanup, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         cleanup
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "convertToWorldSpace"></a>
+    <strong>convertToWorldSpace (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Converts a Vec2 to world space coordinates.  The result is in Points.<br>
+ param nodePoint A given coordinate.<br>
+ return A point in world space coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         nodePoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScene"></a>
+    <strong>getScene (self)</strong>
+    </dt>
+    <dd>
+    Returns the Scene that contains the Node.<br>
+ It returns `nullptr` if the node doesn't belong to any Scene.<br>
+ This function recursively calls parent->getScene() until parent is a Scene object.  The results are not cached. It is that the user caches the results in case this functions is being used inside a loop.<br>
+ return The Scene that contains the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Scene#Scene ret (return value: cc.Scene)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getEventDispatcher"></a>
+    <strong>getEventDispatcher (self)</strong>
+    </dt>
+    <dd>
+    Get the event dispatcher of scene.<br>
+ return The event dispatcher of scene.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        EventDispatcher#EventDispatcher ret (return value: cc.EventDispatcher)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setSkewX"></a>
+    <strong>setSkewX (self, float)</strong>
+    </dt>
+    <dd>
+    Changes the X skew angle of the node in degrees.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality<br>
+ while the second one uses the real skew function.<br>
+ This angle describes the shear distortion in the X direction.<br>
+ Thus, it is the angle between the Y coordinate and the left edge of the shape<br>
+ The default skewX angle is 0.  Positive values distort the node in a CW direction.<br>
+ param skewX The X skew angle of the node in degrees.<br>
+ warning The physics body doesn't support this.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         skewX
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setGLProgramState"></a>
+    <strong>setGLProgramState (self)</strong>
+    </dt>
+    <dd>
+    Set the GLProgramState for this node.<br>
+ param glProgramState The GLProgramState for this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setOnEnterCallback"></a>
+    <strong>setOnEnterCallback (self, function)</strong>
+    </dt>
+    <dd>
+    Set the callback of event onEnter.<br>
+ param callback A std::function<void()> callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">function</span>
+         callback
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stopActionsByFlags"></a>
+    <strong>stopActionsByFlags (self, unsigned)</strong>
+    </dt>
+    <dd>
+    Removes all actions from the running action list by its flags.<br>
+ param flags   A flag field that removes actions based on bitwise AND.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">unsigned</span>
+         int flags
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setNormalizedPosition"></a>
+    <strong>setNormalizedPosition (self, vec2_table)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         position
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setonExitTransitionDidStartCallback"></a>
+    <strong>setonExitTransitionDidStartCallback (self, function)</strong>
+    </dt>
+    <dd>
+    Set the callback of event ExitTransitionDidStart.<br>
+ param callback A std::function<void()> callback.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">function</span>
+         callback
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "convertTouchToNodeSpace"></a>
+    <strong>convertTouchToNodeSpace (self)</strong>
+    </dt>
+    <dd>
+    convenience methods which take a Touch instead of Vec2.<br>
+ param touch A given touch.<br>
+ return A point in world space coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeAllChildrenWithCleanup"></a>
+    <strong>removeAllChildrenWithCleanup (self, bool)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         cleanup
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNodeToParentAffineTransform"></a>
+    <strong>getNodeToParentAffineTransform (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isCascadeOpacityEnabled"></a>
+    <strong>isCascadeOpacityEnabled (self)</strong>
+    </dt>
+    <dd>
+    Whether cascadeOpacity is enabled or not.<br>
+ return A boolean value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setParent"></a>
+    <strong>setParent (self)</strong>
+    </dt>
+    <dd>
+    Sets the parent node.<br>
+ param parent    A pointer to the parent node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getName"></a>
+    <strong>getName (self)</strong>
+    </dt>
+    <dd>
+    Returns a string that is used to identify the node.<br>
+ return A string that identifies the node.<br>
+ since v3.2
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "resume"></a>
+    <strong>resume (self)</strong>
+    </dt>
+    <dd>
+    Resumes all scheduled selectors, actions and event listeners.<br>
+ This method is called internally by onEnter.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getRotation3D"></a>
+    <strong>getRotation3D (self)</strong>
+    </dt>
+    <dd>
+    Returns the rotation (X,Y,Z) in degrees.<br>
+ return The rotation of the node in 3d.<br>
+ js NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec3_table#vec3_table ret (return value: vec3_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNodeToParentTransform"></a>
+    <strong>getNodeToParentTransform (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        mat4_table#mat4_table ret (return value: mat4_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "convertTouchToNodeSpaceAR"></a>
+    <strong>convertTouchToNodeSpaceAR (self)</strong>
+    </dt>
+    <dd>
+    converts a Touch (world coordinates) into a local coordinate.  This method is AR (Anchor Relative).<br>
+ param touch A given touch.<br>
+ return A point in world space coordinates, anchor relative.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "convertToNodeSpace"></a>
+    <strong>convertToNodeSpace (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Converts a Vec2 to node (local) space coordinates.  The result is in Points.<br>
+ param worldPoint A given coordinate.<br>
+ return A point in node (local) space coordinates.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         worldPoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPositionNormalized"></a>
+    <strong>setPositionNormalized (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Sets the position (x,y) using values between 0 and 1.<br>
+ The positions in pixels is calculated like the following:<br>
+ code pseudo code<br>
+ void setNormalizedPosition(Vec2 pos) {<br>
+ Size s = getParent()->getContentSize();<br>
+ _position = pos * s;<br>
+ }<br>
+ endcode<br>
+ param position The normalized position (x,y) of the node, using value between 0 and 1.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         position
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pause"></a>
+    <strong>pause (self)</strong>
+    </dt>
+    <dd>
+    Pauses all scheduled selectors, actions and event listeners.<br>
+ This method is called internally by onExit.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isOpacityModifyRGB"></a>
+    <strong>isOpacityModifyRGB (self)</strong>
+    </dt>
+    <dd>
+    If node opacity will modify the RGB color value, then you should override this method and return true.<br>
+ return A boolean value, true indicates that opacity will modify color; false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPosition"></a>
+    <strong>setPosition (self, float, float)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         y
+        </li>
+        <li><span class="parameter">float</span>
+         y
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stopActionByTag"></a>
+    <strong>stopActionByTag (self, int)</strong>
+    </dt>
+    <dd>
+    Removes an action from the running action list by its tag.<br>
+ param tag   A tag that indicates the action to be removed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "reorderChild"></a>
+    <strong>reorderChild (self, int)</strong>
+    </dt>
+    <dd>
+    Reorders a child according to a new z value.<br>
+ param child     An already added child node.  It MUST be already added.<br>
+ param localZOrder Z order for drawing priority. Please refer to setLocalZOrder(int).
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         localZOrder
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setSkewY"></a>
+    <strong>setSkewY (self, float)</strong>
+    </dt>
+    <dd>
+    Changes the Y skew angle of the node in degrees.<br>
+ The difference between `setRotationalSkew()` and `setSkew()` is that the first one simulate Flash's skew functionality<br>
+ while the second one uses the real skew function.<br>
+ This angle describes the shear distortion in the Y direction.<br>
+ Thus, it is the angle between the X coordinate and the bottom edge of the shape.<br>
+ The default skewY angle is 0.  Positive values distort the node in a CCW direction.<br>
+ param skewY    The Y skew angle of the node in degrees.<br>
+ warning The physics body doesn't support this.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         skewY
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPositionZ"></a>
+    <strong>setPositionZ (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the 'z' coordinate in the position.  It is the OpenGL Z vertex value.<br>
+ The OpenGL depth buffer and depth testing are disabled by default. You need to turn them on.<br>
+ In order to use this property correctly.<br>
+ `setPositionZ()` also sets the `setGlobalZValue()` with the positionZ as value.<br>
+ see `setGlobalZValue()`<br>
+ param positionZ  OpenGL Z vertex of this node.<br>
+ js setVertexZ
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         positionZ
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setRotation3D"></a>
+    <strong>setRotation3D (self, vec3_table)</strong>
+    </dt>
+    <dd>
+    Sets the rotation (X,Y,Z) in degrees.<br>
+ Useful for 3d rotations.<br>
+ warning The physics body doesn't support this.<br>
+ param rotation The rotation of the node in 3d.<br>
+ js NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec3_table</span>
+         rotation
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPositionX"></a>
+    <strong>setPositionX (self, float)</strong>
+    </dt>
+    <dd>
+    Gets/Sets x or y coordinate individually for position.<br>
+ These methods are used in Lua and Javascript Bindings<br>
+ Sets the x coordinate of the node in its parent's coordinate system.<br>
+ param x The x coordinate of the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         x
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setNodeToParentTransform"></a>
+    <strong>setNodeToParentTransform (self, mat4_table)</strong>
+    </dt>
+    <dd>
+    Sets the transformation matrix manually.<br>
+ param transform A given transformation matrix.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">mat4_table</span>
+         transform
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getAnchorPoint"></a>
+    <strong>getAnchorPoint (self)</strong>
+    </dt>
+    <dd>
+    Returns the anchor point in percent.<br>
+ see `setAnchorPoint(const Vec2&)`<br>
+ return The anchor point of node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNumberOfRunningActions"></a>
+    <strong>getNumberOfRunningActions (self)</strong>
+    </dt>
+    <dd>
+    Returns the numbers of actions that are running plus the ones that are schedule to run (actions in actionsToAdd and actions arrays).<br>
+ Composable actions are counted as 1 action.  Example:<br>
+ If you are running 1 Sequence of 7 actions, it will return 1.<br>
+ If you are running 7 Sequences of 2 actions, it will return 7.<br>
+ return The number of actions that are running plus the ones that are schedule to run.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateTransform"></a>
+    <strong>updateTransform (self)</strong>
+    </dt>
+    <dd>
+    Calls children's updateTransform() method recursively.<br>
+ This method is moved from Sprite, so it's no longer specific to Sprite.<br>
+ As the result, you apply SpriteBatchNode's optimization on your customed Node.<br>
+ e.g., `batchNode->addChild(myCustomNode)`, while you can only addChild(sprite) before.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setGLProgram"></a>
+    <strong>setGLProgram (self)</strong>
+    </dt>
+    <dd>
+    Sets the shader program for this node<br>
+ Since v2.0, each rendering node must set its shader program.<br>
+ It should be set in initialize phase.<br>
+ code<br>
+ node->setGLProgram(GLProgramCache::getInstance()->getProgram(GLProgram::SHADER_NAME_POSITION_TEXTURE_COLOR));<br>
+ endcode<br>
+ param glprogram The shader program.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isVisible"></a>
+    <strong>isVisible (self)</strong>
+    </dt>
+    <dd>
+    Determines if the node is visible.<br>
+ see `setVisible(bool)`<br>
+ return true if the node is visible, false if the node is hidden.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getChildrenCount"></a>
+    <strong>getChildrenCount (self)</strong>
+    </dt>
+    <dd>
+    Returns the amount of children.<br>
+ return The amount of children.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "convertToNodeSpaceAR"></a>
+    <strong>convertToNodeSpaceAR (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Converts a Vec2 to node (local) space coordinates.  The result is in Points.<br>
+ treating the returned/received node point as anchor relative.<br>
+ param worldPoint A given coordinate.<br>
+ return A point in node (local) space coordinates, anchor relative.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         worldPoint
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "addComponent"></a>
+    <strong>addComponent (self)</strong>
+    </dt>
+    <dd>
+    Adds a component.<br>
+ param component A given component.<br>
+ return True if added success.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "runAction"></a>
+    <strong>runAction (self)</strong>
+    </dt>
+    <dd>
+    Executes an action, and returns the action that is executed.<br>
+ This node becomes the action's target.  Refer to Action::getTarget().<br>
+ warning Actions don't retain their target.<br>
+ param action An Action pointer.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Action#Action ret (return value: cc.Action)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "visit"></a>
+    <strong>visit (self, mat4_table, unsigned)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">mat4_table</span>
+         parentTransform
+        </li>
+        <li><span class="parameter">unsigned</span>
+         int parentFlags
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getRotation"></a>
+    <strong>getRotation (self)</strong>
+    </dt>
+    <dd>
+    Returns the rotation of the node in degrees.<br>
+ see `setRotation(float)`<br>
+ return The rotation of the node in degrees.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPhysicsBody"></a>
+    <strong>getPhysicsBody (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        PhysicsBody#PhysicsBody ret (return value: cc.PhysicsBody)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getAnchorPointInPoints"></a>
+    <strong>getAnchorPointInPoints (self)</strong>
+    </dt>
+    <dd>
+    Returns the anchorPoint in absolute pixels.<br>
+ warning You can only read it.  If you wish to modify it, use anchorPoint instead.<br>
+ see `getAnchorPoint()`<br>
+ return The anchor point in absolute pixels.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeChildByName"></a>
+    <strong>removeChildByName (self, string, bool)</strong>
+    </dt>
+    <dd>
+    Removes a child from the container by tag value.  It will also cleanup all running actions depending on the cleanup parameter.<br>
+ param name       A string that identifies a child node.<br>
+ param cleanup   True if all running actions and callbacks on the child node will be cleanup, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         name
+        </li>
+        <li><span class="parameter">bool</span>
+         cleanup
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getGLProgramState"></a>
+    <strong>getGLProgramState (self)</strong>
+    </dt>
+    <dd>
+    Return the GLProgramState currently used for this node.<br>
+ return The GLProgramState currently used for this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        GLProgramState#GLProgramState ret (return value: cc.GLProgramState)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScheduler"></a>
+    <strong>setScheduler (self)</strong>
+    </dt>
+    <dd>
+    Sets a Scheduler object that is used to schedule all "updates" and timers.<br>
+ warning If you set a new Scheduler, then previously created timers/update are going to be removed.<br>
+ param scheduler     A Scheduler object that is used to schedule all "update" and timers.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stopAllActions"></a>
+    <strong>stopAllActions (self)</strong>
+    </dt>
+    <dd>
+    Stops and removes all actions from the running action list .
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getSkewX"></a>
+    <strong>getSkewX (self)</strong>
+    </dt>
+    <dd>
+    Returns the X skew angle of the node in degrees.<br>
+ see `setSkewX(float)`<br>
+ return The X skew angle of the node in degrees.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getSkewY"></a>
+    <strong>getSkewY (self)</strong>
+    </dt>
+    <dd>
+    Returns the Y skew angle of the node in degrees.<br>
+ see `setSkewY(float)`<br>
+ return The Y skew angle of the node in degrees.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getDisplayedColor"></a>
+    <strong>getDisplayedColor (self)</strong>
+    </dt>
+    <dd>
+    Query node's displayed color.<br>
+ return A Color3B color value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        color3b_table#color3b_table ret (return value: color3b_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getActionByTag"></a>
+    <strong>getActionByTag (self, int)</strong>
+    </dt>
+    <dd>
+    Gets an action from the running action list by its tag.<br>
+ see `setTag(int)`, `getTag()`.<br>
+ return The action object with the given tag.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Action#Action ret (return value: cc.Action)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setName"></a>
+    <strong>setName (self, string)</strong>
+    </dt>
+    <dd>
+    Changes the name that is used to identify the node easily.<br>
+ param name A string that identifies the node.<br>
+ since v3.2
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "update"></a>
+    <strong>update (self, float)</strong>
+    </dt>
+    <dd>
+    Update method will be called automatically every frame if "scheduleUpdate" is called, and the node is "live".<br>
+ param delta In seconds.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         delta
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getDisplayedOpacity"></a>
+    <strong>getDisplayedOpacity (self)</strong>
+    </dt>
+    <dd>
+    Return the node's display opacity.<br>
+ The difference between opacity and displayedOpacity is:<br>
+ The displayedOpacity is what's the final rendering opacity of node.<br>
+ return A GLubyte value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        unsigned char#unsigned char ret (return value: unsigned char)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getLocalZOrder"></a>
+    <strong>getLocalZOrder (self)</strong>
+    </dt>
+    <dd>
+    Gets the local Z order of this node.<br>
+ see `setLocalZOrder(int)`<br>
+ return The local (relative to its siblings) Z order.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScheduler"></a>
+    <strong>getScheduler (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Scheduler#Scheduler ret (return value: cc.Scheduler)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getParentToNodeAffineTransform"></a>
+    <strong>getParentToNodeAffineTransform (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPositionNormalized"></a>
+    <strong>getPositionNormalized (self)</strong>
+    </dt>
+    <dd>
+    Returns the normalized position.<br>
+ return The normalized position.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setColor"></a>
+    <strong>setColor (self, color3b_table)</strong>
+    </dt>
+    <dd>
+    Change the color of node.<br>
+ param color A Color3B color value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">color3b_table</span>
+         color
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isRunning"></a>
+    <strong>isRunning (self)</strong>
+    </dt>
+    <dd>
+    Returns whether or not the node is "running".<br>
+ If the node is running it will accept event callbacks like onEnter(), onExit(), update().<br>
+ return Whether or not the node is running.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getParent"></a>
+    <strong>getParent (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node ret (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPositionZ"></a>
+    <strong>getPositionZ (self)</strong>
+    </dt>
+    <dd>
+    Gets position Z coordinate of this node.<br>
+ see setPositionZ(float)<br>
+ return The position Z coordinate of this node.<br>
+ js getVertexZ
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPositionY"></a>
+    <strong>getPositionY (self)</strong>
+    </dt>
+    <dd>
+    Gets the y coordinate of the node in its parent's coordinate system.<br>
+ return The y coordinate of the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPositionX"></a>
+    <strong>getPositionX (self)</strong>
+    </dt>
+    <dd>
+    Gets the x coordinate of the node in its parent's coordinate system.<br>
+ return The x coordinate of the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeChildByTag"></a>
+    <strong>removeChildByTag (self, int, bool)</strong>
+    </dt>
+    <dd>
+    Removes a child from the container by tag value.  It will also cleanup all running actions depending on the cleanup parameter.<br>
+ param tag       An integer number that identifies a child node.<br>
+ param cleanup   True if all running actions and callbacks on the child node will be cleanup, false otherwise.<br>
+ Please use `removeChildByName` instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+        <li><span class="parameter">bool</span>
+         cleanup
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPositionY"></a>
+    <strong>setPositionY (self, float)</strong>
+    </dt>
+    <dd>
+    Sets the y coordinate of the node in its parent's coordinate system.<br>
+ param y The y coordinate of the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         y
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNodeToWorldAffineTransform"></a>
+    <strong>getNodeToWorldAffineTransform (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateDisplayedColor"></a>
+    <strong>updateDisplayedColor (self, color3b_table)</strong>
+    </dt>
+    <dd>
+    Update node's displayed color with its parent color.<br>
+ param parentColor A Color3B color value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">color3b_table</span>
+         parentColor
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setVisible"></a>
+    <strong>setVisible (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the node is visible.<br>
+ The default value is true, a node is default to visible.<br>
+ param visible   true if the node is visible, false if the node is hidden.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         visible
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getParentToNodeTransform"></a>
+    <strong>getParentToNodeTransform (self)</strong>
+    </dt>
+    <dd>
+    Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates.<br>
+ The matrix is in Pixels.<br>
+ return The transformation matrix.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        mat4_table#mat4_table ret (return value: mat4_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isScheduled"></a>
+    <strong>isScheduled (self, string)</strong>
+    </dt>
+    <dd>
+    Checks whether a lambda function is scheduled.<br>
+ param key      key of the callback<br>
+ return Whether the lambda function selector is scheduled.<br>
+ js NA<br>
+ lua NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         key
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setGlobalZOrder"></a>
+    <strong>setGlobalZOrder (self, float)</strong>
+    </dt>
+    <dd>
+    Defines the order in which the nodes are renderer.<br>
+ Nodes that have a Global Z Order lower, are renderer first.<br>
+ In case two or more nodes have the same Global Z Order, the order is not guaranteed.<br>
+ The only exception if the Nodes have a Global Z Order == 0.  In that case, the Scene Graph order is used.<br>
+ By default, all nodes have a Global Z Order = 0. That means that by default, the Scene Graph order is used to render the nodes.<br>
+ Global Z Order is useful when you need to render nodes in an order different than the Scene Graph order.<br>
+ Limitations: Global Z Order can't be used by Nodes that have SpriteBatchNode as one of their ancestors.<br>
+ And if ClippingNode is one of the ancestors, then "global Z order" will be relative to the ClippingNode.<br>
+ see `setLocalZOrder()`<br>
+ see `setVertexZ()`<br>
+ since v3.0<br>
+ param globalZOrder The global Z order value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         globalZOrder
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScale"></a>
+    <strong>setScale (self, float, float)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaleY
+        </li>
+        <li><span class="parameter">float</span>
+         scaleY
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getChildByTag"></a>
+    <strong>getChildByTag (self, int)</strong>
+    </dt>
+    <dd>
+    Gets a child from the container with its tag.<br>
+ param tag   An identifier to find the child node.<br>
+ return a Node object whose tag equals to the input parameter.<br>
+ Please use `getChildByName()` instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node ret (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScaleZ"></a>
+    <strong>getScaleZ (self)</strong>
+    </dt>
+    <dd>
+    Returns the scale factor on Z axis of this node<br>
+ see `setScaleZ(float)`<br>
+ return The scale factor on Z axis.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScaleY"></a>
+    <strong>getScaleY (self)</strong>
+    </dt>
+    <dd>
+    Returns the scale factor on Y axis of this node<br>
+ see `setScaleY(float)`<br>
+ return The scale factor on Y axis.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScaleX"></a>
+    <strong>getScaleX (self)</strong>
+    </dt>
+    <dd>
+    Returns the scale factor on X axis of this node<br>
+ see setScaleX(float)<br>
+ return The scale factor on X axis.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setLocalZOrder"></a>
+    <strong>setLocalZOrder (self, int)</strong>
+    </dt>
+    <dd>
+    LocalZOrder is the 'key' used to sort the node relative to its siblings.<br>
+ The Node's parent will sort all its children based on the LocalZOrder value.<br>
+ If two nodes have the same LocalZOrder, then the node that was added first to the children's array will be in front of the other node in the array.<br>
+ Also, the Scene Graph is traversed using the "In-Order" tree traversal algorithm ( http:en.wikipedia.org/wiki/Tree_traversal#In-order )<br>
+ And Nodes that have LocalZOrder values < 0 are the "left" subtree<br>
+ While Nodes with LocalZOrder >=0 are the "right" subtree.<br>
+ see `setGlobalZOrder`<br>
+ see `setVertexZ`<br>
+ param localZOrder The local Z order value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         localZOrder
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getWorldToNodeAffineTransform"></a>
+    <strong>getWorldToNodeAffineTransform (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        AffineTransform#AffineTransform ret (return value: cc.AffineTransform)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setCascadeColorEnabled"></a>
+    <strong>setCascadeColorEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    If you want node's color affect the children node's color, then set it to true.<br>
+ Otherwise, set it to false.<br>
+ param cascadeColorEnabled A boolean value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         cascadeColorEnabled
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setOpacity"></a>
+    <strong>setOpacity (self, unsigned)</strong>
+    </dt>
+    <dd>
+    Change node opacity.<br>
+ param opacity A GLubyte opacity value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">unsigned</span>
+         char opacity
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cleanup"></a>
+    <strong>cleanup (self)</strong>
+    </dt>
+    <dd>
+    Stops all running actions and schedulers
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getComponent"></a>
+    <strong>getComponent (self, string)</strong>
+    </dt>
+    <dd>
+    / @{/ @name component functions<br>
+ Gets a component by its name.<br>
+ param name A given name of component.<br>
+ return The Component by name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         name
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Component#Component ret (return value: cc.Component)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getContentSize"></a>
+    <strong>getContentSize (self)</strong>
+    </dt>
+    <dd>
+    Returns the untransformed size of the node.<br>
+ see `setContentSize(const Size&)`<br>
+ return The untransformed size of the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        size_table#size_table ret (return value: size_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stopAllActionsByTag"></a>
+    <strong>stopAllActionsByTag (self, int)</strong>
+    </dt>
+    <dd>
+    Removes all actions from the running action list by its tag.<br>
+ param tag   A tag that indicates the action to be removed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getColor"></a>
+    <strong>getColor (self)</strong>
+    </dt>
+    <dd>
+    Query node's color value.<br>
+ return A Color3B color value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        color3b_table#color3b_table ret (return value: color3b_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getBoundingBox"></a>
+    <strong>getBoundingBox (self)</strong>
+    </dt>
+    <dd>
+    Returns an AABB (axis-aligned bounding-box) in its parent's coordinate system.<br>
+ return An AABB (axis-aligned bounding-box) in its parent's coordinate system
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        rect_table#rect_table ret (return value: rect_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setIgnoreAnchorPointForPosition"></a>
+    <strong>setIgnoreAnchorPointForPosition (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the anchor point will be (0,0) when you position this node.<br>
+ This is an internal method, only used by Layer and Scene.  Don't call it outside framework.<br>
+ The default value is false, while in Layer and Scene are true.<br>
+ param ignore    true if anchor point will be (0,0) when you position this node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         ignore
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setEventDispatcher"></a>
+    <strong>setEventDispatcher (self)</strong>
+    </dt>
+    <dd>
+    Set event dispatcher for scene.<br>
+ param dispatcher The event dispatcher of scene.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getGlobalZOrder"></a>
+    <strong>getGlobalZOrder (self)</strong>
+    </dt>
+    <dd>
+    Returns the Node's Global Z Order.<br>
+ see `setGlobalZOrder(int)`<br>
+ return The node's global Z order
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "draw"></a>
+    <strong>draw (self, mat4_table, unsigned)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">mat4_table</span>
+         transform
+        </li>
+        <li><span class="parameter">unsigned</span>
+         int flags
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setUserObject"></a>
+    <strong>setUserObject (self)</strong>
+    </dt>
+    <dd>
+    Returns a user assigned Object.<br>
+ Similar to UserData, but instead of holding a void* it holds an object.<br>
+ The UserObject will be retained once in this method,<br>
+ and the previous UserObject (if existed) will be released.<br>
+ The UserObject will be released in Node's destructor.<br>
+ param userObject    A user assigned Object.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeFromParentAndCleanup"></a>
+    <strong>removeFromParentAndCleanup (self, bool)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         cleanup
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPosition3D"></a>
+    <strong>setPosition3D (self, vec3_table)</strong>
+    </dt>
+    <dd>
+    Sets the position (X, Y, and Z) in its parent's coordinate system.<br>
+ param position The position (X, Y, and Z) in its parent's coordinate system.<br>
+ js NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec3_table</span>
+         position
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNumberOfRunningActionsByTag"></a>
+    <strong>getNumberOfRunningActionsByTag (self, int)</strong>
+    </dt>
+    <dd>
+    Returns the numbers of actions that are running plus the ones that are<br>
+ schedule to run (actions in actionsToAdd and actions arrays) with a<br>
+ specific tag.<br>
+ Composable actions are counted as 1 action.  Example:<br>
+ If you are running 1 Sequence of 7 actions, it will return 1.<br>
+ If you are running 7 Sequences of 2 actions, it will return 7.<br>
+ param  tag The tag that will be searched.<br>
+ return The number of actions that are running plus the<br>
+ ones that are schedule to run with specific tag.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "sortAllChildren"></a>
+    <strong>sortAllChildren (self)</strong>
+    </dt>
+    <dd>
+    Sorts the children array once before drawing, instead of every time when a child is added or reordered.<br>
+ This approach can improves the performance massively.<br>
+ note Don't call this manually unless a child added needs to be removed in the same frame.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getWorldToNodeTransform"></a>
+    <strong>getWorldToNodeTransform (self)</strong>
+    </dt>
+    <dd>
+    Returns the inverse world affine transform matrix.  The matrix is in Pixels.<br>
+ return The transformation matrix.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        mat4_table#mat4_table ret (return value: mat4_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScale"></a>
+    <strong>getScale (self)</strong>
+    </dt>
+    <dd>
+    Gets the scale factor of the node,  when X and Y have the same scale factor.<br>
+ warning Assert when `_scaleX != _scaleY`<br>
+ see setScale(float)<br>
+ return The scale factor of the node.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getOpacity"></a>
+    <strong>getOpacity (self)</strong>
+    </dt>
+    <dd>
+    Return the node's opacity.<br>
+ return A GLubyte value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        unsigned char#unsigned char ret (return value: unsigned char)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateOrderOfArrival"></a>
+    <strong>updateOrderOfArrival (self)</strong>
+    </dt>
+    <dd>
+    !!! ONLY FOR INTERNAL USE<br>
+ Sets the arrival order when this node has a same ZOrder with other children.<br>
+ A node which called addChild subsequently will take a larger arrival order,<br>
+ If two children have the same Z order, the child with larger arrival order will be drawn later.<br>
+ warning This method is used internally for localZOrder sorting, don't change this manually<br>
+ param orderOfArrival   The arrival order.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getNormalizedPosition"></a>
+    <strong>getNormalizedPosition (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getRotationSkewX"></a>
+    <strong>getRotationSkewX (self)</strong>
+    </dt>
+    <dd>
+    Gets the X rotation (angle) of the node in degrees which performs a horizontal rotation skew.<br>
+ see `setRotationSkewX(float)`<br>
+ return The X rotation in degrees.<br>
+ js getRotationX
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getRotationSkewY"></a>
+    <strong>getRotationSkewY (self)</strong>
+    </dt>
+    <dd>
+    Gets the Y rotation (angle) of the node in degrees which performs a vertical rotational skew.<br>
+ see `setRotationSkewY(float)`<br>
+ return The Y rotation in degrees.<br>
+ js getRotationY
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setTag"></a>
+    <strong>setTag (self, int)</strong>
+    </dt>
+    <dd>
+    Changes the tag that is used to identify the node easily.<br>
+ Please refer to getTag for the sample code.<br>
+ param tag   A integer that identifies the node.<br>
+ Please use `setName()` instead.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isCascadeColorEnabled"></a>
+    <strong>isCascadeColorEnabled (self)</strong>
+    </dt>
+    <dd>
+    Query whether cascadeColor is enabled or not.<br>
+ return Whether cascadeColor is enabled or not.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "stopAction"></a>
+    <strong>stopAction (self)</strong>
+    </dt>
+    <dd>
+    Stops and removes an action from the running action list.<br>
+ param action    The action object to be removed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getActionManager"></a>
+    <strong>getActionManager (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        ActionManager#ActionManager ret (return value: cc.ActionManager)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "create"></a>
+    <strong>create (self)</strong>
+    </dt>
+    <dd>
+    Allocates and initializes a node.<br>
+ return A initialized node which is marked as "autorelease".
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node ret (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node"></a>
+    <strong>Node (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node self (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2018-06-30 21:43:43 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

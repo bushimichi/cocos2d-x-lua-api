@@ -1,0 +1,3240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+
+
+<script>
+    function sortList(id) {
+        var list, i, switching, b, shouldSwitch;
+        list = document.getElementById(id);
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        // Loop through all list items:
+        for (i = 0; i < (b.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Check if the next item should
+            switch place with the current item: */
+            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+            /* If next item is alphabetically lower than current item,
+            mark as a switch and break the loop: */
+            shouldSwitch = true;
+            break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
+        }
+    };
+
+
+    function sortTable(id) {
+      var n=0;
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById(id);
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 0; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+</script>
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul id="id01">
+<li><a href="#Functions">Functions</a></li>
+</ul>
+<script>
+  sort_list('id01');
+</script>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/AbstractCheckButton.html">AbstractCheckButton</a></li>
+  <li><a href="../modules/Action.html">Action</a></li>
+  <li><a href="../modules/ActionCamera.html">ActionCamera</a></li>
+  <li><a href="../modules/ActionEase.html">ActionEase</a></li>
+  <li><a href="../modules/ActionFadeFrame.html">ActionFadeFrame</a></li>
+  <li><a href="../modules/ActionFloat.html">ActionFloat</a></li>
+  <li><a href="../modules/ActionFrame.html">ActionFrame</a></li>
+  <li><a href="../modules/ActionInstant.html">ActionInstant</a></li>
+  <li><a href="../modules/ActionInterval.html">ActionInterval</a></li>
+  <li><a href="../modules/ActionManager.html">ActionManager</a></li>
+  <li><a href="../modules/ActionManagerEx.html">ActionManagerEx</a></li>
+  <li><a href="../modules/ActionMoveFrame.html">ActionMoveFrame</a></li>
+  <li><a href="../modules/ActionObject.html">ActionObject</a></li>
+  <li><a href="../modules/ActionRotationFrame.html">ActionRotationFrame</a></li>
+  <li><a href="../modules/ActionScaleFrame.html">ActionScaleFrame</a></li>
+  <li><a href="../modules/ActionTimeline.html">ActionTimeline</a></li>
+  <li><a href="../modules/ActionTimelineCache.html">ActionTimelineCache</a></li>
+  <li><a href="../modules/ActionTimelineData.html">ActionTimelineData</a></li>
+  <li><a href="../modules/ActionTimelineNode.html">ActionTimelineNode</a></li>
+  <li><a href="../modules/ActionTintFrame.html">ActionTintFrame</a></li>
+  <li><a href="../modules/ActionTween.html">ActionTween</a></li>
+  <li><a href="../modules/AlphaFrame.html">AlphaFrame</a></li>
+  <li><a href="../modules/AmbientLight.html">AmbientLight</a></li>
+  <li><a href="../modules/AnchorPointFrame.html">AnchorPointFrame</a></li>
+  <li><a href="../modules/Animate.html">Animate</a></li>
+  <li><a href="../modules/Animate3D.html">Animate3D</a></li>
+  <li><a href="../modules/Animation.html">Animation</a></li>
+  <li><a href="../modules/Animation3D.html">Animation3D</a></li>
+  <li><a href="../modules/AnimationCache.html">AnimationCache</a></li>
+  <li><a href="../modules/AnimationData.html">AnimationData</a></li>
+  <li><a href="../modules/AnimationFrame.html">AnimationFrame</a></li>
+  <li><a href="../modules/Application.html">Application</a></li>
+  <li><a href="../modules/Armature.html">Armature</a></li>
+  <li><a href="../modules/ArmatureAnimation.html">ArmatureAnimation</a></li>
+  <li><a href="../modules/ArmatureData.html">ArmatureData</a></li>
+  <li><a href="../modules/ArmatureDataManager.html">ArmatureDataManager</a></li>
+  <li><a href="../modules/ArmatureDisplayData.html">ArmatureDisplayData</a></li>
+  <li><a href="../modules/AssetsManager.html">AssetsManager</a></li>
+  <li><a href="../modules/AssetsManagerEx.html">AssetsManagerEx</a></li>
+  <li><a href="../modules/AsyncTaskPool.html">AsyncTaskPool</a></li>
+  <li><a href="../modules/AtlasNode.html">AtlasNode</a></li>
+  <li><a href="../modules/AttachNode.html">AttachNode</a></li>
+  <li><a href="../modules/AudioEngine.html">AudioEngine</a></li>
+  <li><a href="../modules/AudioProfile.html">AudioProfile</a></li>
+  <li><a href="../modules/AutoPolygon.html">AutoPolygon</a></li>
+  <li><a href="../modules/BaseData.html">BaseData</a></li>
+  <li><a href="../modules/BaseLight.html">BaseLight</a></li>
+  <li><a href="../modules/BatchNode.html">BatchNode</a></li>
+  <li><a href="../modules/BezierBy.html">BezierBy</a></li>
+  <li><a href="../modules/BezierTo.html">BezierTo</a></li>
+  <li><a href="../modules/BillBoard.html">BillBoard</a></li>
+  <li><a href="../modules/BlendFuncFrame.html">BlendFuncFrame</a></li>
+  <li><a href="../modules/Blink.html">Blink</a></li>
+  <li><a href="../modules/Bone.html">Bone</a></li>
+  <li><a href="../modules/BoneData.html">BoneData</a></li>
+  <li><a href="../modules/BoneNode.html">BoneNode</a></li>
+  <li><a href="../modules/Bundle3D.html">Bundle3D</a></li>
+  <li><a href="../modules/Button.html">Button</a></li>
+  <li><a href="../modules/CCBAnimationManager.html">CCBAnimationManager</a></li>
+  <li><a href="../modules/CCBReader.html">CCBReader</a></li>
+  <li><a href="../modules/CSLoader.html">CSLoader</a></li>
+  <li><a href="../modules/CallFunc.html">CallFunc</a></li>
+  <li><a href="../modules/Camera.html">Camera</a></li>
+  <li><a href="../modules/CameraBackgroundBrush.html">CameraBackgroundBrush</a></li>
+  <li><a href="../modules/CameraBackgroundColorBrush.html">CameraBackgroundColorBrush</a></li>
+  <li><a href="../modules/CameraBackgroundDepthBrush.html">CameraBackgroundDepthBrush</a></li>
+  <li><a href="../modules/CameraBackgroundSkyBoxBrush.html">CameraBackgroundSkyBoxBrush</a></li>
+  <li><a href="../modules/CardinalSplineBy.html">CardinalSplineBy</a></li>
+  <li><a href="../modules/CardinalSplineTo.html">CardinalSplineTo</a></li>
+  <li><a href="../modules/CatmullRomBy.html">CatmullRomBy</a></li>
+  <li><a href="../modules/CatmullRomTo.html">CatmullRomTo</a></li>
+  <li><a href="../modules/CheckBox.html">CheckBox</a></li>
+  <li><a href="../modules/ClippingNode.html">ClippingNode</a></li>
+  <li><a href="../modules/ClippingRectangleNode.html">ClippingRectangleNode</a></li>
+  <li><a href="../modules/ColorFrame.html">ColorFrame</a></li>
+  <li><a href="../modules/ComAttribute.html">ComAttribute</a></li>
+  <li><a href="../modules/ComAudio.html">ComAudio</a></li>
+  <li><a href="../modules/ComController.html">ComController</a></li>
+  <li><a href="../modules/ComExtensionData.html">ComExtensionData</a></li>
+  <li><a href="../modules/ComRender.html">ComRender</a></li>
+  <li><a href="../modules/Component.html">Component</a></li>
+  <li><a href="../modules/ComponentLua.html">ComponentLua</a></li>
+  <li><a href="../modules/Console.html">Console</a></li>
+  <li><a href="../modules/ContourData.html">ContourData</a></li>
+  <li><a href="../modules/Control.html">Control</a></li>
+  <li><a href="../modules/ControlButton.html">ControlButton</a></li>
+  <li><a href="../modules/ControlColourPicker.html">ControlColourPicker</a></li>
+  <li><a href="../modules/ControlHuePicker.html">ControlHuePicker</a></li>
+  <li><a href="../modules/ControlPotentiometer.html">ControlPotentiometer</a></li>
+  <li><a href="../modules/ControlSaturationBrightnessPicker.html">ControlSaturationBrightnessPicker</a></li>
+  <li><a href="../modules/ControlSlider.html">ControlSlider</a></li>
+  <li><a href="../modules/ControlStepper.html">ControlStepper</a></li>
+  <li><a href="../modules/ControlSwitch.html">ControlSwitch</a></li>
+  <li><a href="../modules/Controller.html">Controller</a></li>
+  <li><a href="../modules/DelayTime.html">DelayTime</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/DirectionLight.html">DirectionLight</a></li>
+  <li><a href="../modules/Director.html">Director</a></li>
+  <li><a href="../modules/DisplayData.html">DisplayData</a></li>
+  <li><a href="../modules/DisplayManager.html">DisplayManager</a></li>
+  <li><a href="../modules/DrawNode.html">DrawNode</a></li>
+  <li><a href="../modules/EaseBackIn.html">EaseBackIn</a></li>
+  <li><a href="../modules/EaseBackInOut.html">EaseBackInOut</a></li>
+  <li><a href="../modules/EaseBackOut.html">EaseBackOut</a></li>
+  <li><a href="../modules/EaseBezierAction.html">EaseBezierAction</a></li>
+  <li><a href="../modules/EaseBounce.html">EaseBounce</a></li>
+  <li><a href="../modules/EaseBounceIn.html">EaseBounceIn</a></li>
+  <li><a href="../modules/EaseBounceInOut.html">EaseBounceInOut</a></li>
+  <li><a href="../modules/EaseBounceOut.html">EaseBounceOut</a></li>
+  <li><a href="../modules/EaseCircleActionIn.html">EaseCircleActionIn</a></li>
+  <li><a href="../modules/EaseCircleActionInOut.html">EaseCircleActionInOut</a></li>
+  <li><a href="../modules/EaseCircleActionOut.html">EaseCircleActionOut</a></li>
+  <li><a href="../modules/EaseCubicActionIn.html">EaseCubicActionIn</a></li>
+  <li><a href="../modules/EaseCubicActionInOut.html">EaseCubicActionInOut</a></li>
+  <li><a href="../modules/EaseCubicActionOut.html">EaseCubicActionOut</a></li>
+  <li><a href="../modules/EaseElastic.html">EaseElastic</a></li>
+  <li><a href="../modules/EaseElasticIn.html">EaseElasticIn</a></li>
+  <li><a href="../modules/EaseElasticInOut.html">EaseElasticInOut</a></li>
+  <li><a href="../modules/EaseElasticOut.html">EaseElasticOut</a></li>
+  <li><a href="../modules/EaseExponentialIn.html">EaseExponentialIn</a></li>
+  <li><a href="../modules/EaseExponentialInOut.html">EaseExponentialInOut</a></li>
+  <li><a href="../modules/EaseExponentialOut.html">EaseExponentialOut</a></li>
+  <li><a href="../modules/EaseIn.html">EaseIn</a></li>
+  <li><a href="../modules/EaseInOut.html">EaseInOut</a></li>
+  <li><a href="../modules/EaseOut.html">EaseOut</a></li>
+  <li><a href="../modules/EaseQuadraticActionIn.html">EaseQuadraticActionIn</a></li>
+  <li><a href="../modules/EaseQuadraticActionInOut.html">EaseQuadraticActionInOut</a></li>
+  <li><a href="../modules/EaseQuadraticActionOut.html">EaseQuadraticActionOut</a></li>
+  <li><a href="../modules/EaseQuarticActionIn.html">EaseQuarticActionIn</a></li>
+  <li><a href="../modules/EaseQuarticActionInOut.html">EaseQuarticActionInOut</a></li>
+  <li><a href="../modules/EaseQuarticActionOut.html">EaseQuarticActionOut</a></li>
+  <li><a href="../modules/EaseQuinticActionIn.html">EaseQuinticActionIn</a></li>
+  <li><a href="../modules/EaseQuinticActionInOut.html">EaseQuinticActionInOut</a></li>
+  <li><a href="../modules/EaseQuinticActionOut.html">EaseQuinticActionOut</a></li>
+  <li><a href="../modules/EaseRateAction.html">EaseRateAction</a></li>
+  <li><a href="../modules/EaseSineIn.html">EaseSineIn</a></li>
+  <li><a href="../modules/EaseSineInOut.html">EaseSineInOut</a></li>
+  <li><a href="../modules/EaseSineOut.html">EaseSineOut</a></li>
+  <li><a href="../modules/EditBox.html">EditBox</a></li>
+  <li><a href="../modules/Event.html">Event</a></li>
+  <li><a href="../modules/EventAcceleration.html">EventAcceleration</a></li>
+  <li><a href="../modules/EventAssetsManagerEx.html">EventAssetsManagerEx</a></li>
+  <li><a href="../modules/EventController.html">EventController</a></li>
+  <li><a href="../modules/EventCustom.html">EventCustom</a></li>
+  <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
+  <li><a href="../modules/EventFocus.html">EventFocus</a></li>
+  <li><a href="../modules/EventFrame.html">EventFrame</a></li>
+  <li><a href="../modules/EventKeyboard.html">EventKeyboard</a></li>
+  <li><a href="../modules/EventListener.html">EventListener</a></li>
+  <li><a href="../modules/EventListenerAcceleration.html">EventListenerAcceleration</a></li>
+  <li><a href="../modules/EventListenerAssetsManagerEx.html">EventListenerAssetsManagerEx</a></li>
+  <li><a href="../modules/EventListenerController.html">EventListenerController</a></li>
+  <li><a href="../modules/EventListenerCustom.html">EventListenerCustom</a></li>
+  <li><a href="../modules/EventListenerFocus.html">EventListenerFocus</a></li>
+  <li><a href="../modules/EventListenerKeyboard.html">EventListenerKeyboard</a></li>
+  <li><a href="../modules/EventListenerMouse.html">EventListenerMouse</a></li>
+  <li><a href="../modules/EventListenerPhysicsContact.html">EventListenerPhysicsContact</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithBodies.html">EventListenerPhysicsContactWithBodies</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithGroup.html">EventListenerPhysicsContactWithGroup</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithShapes.html">EventListenerPhysicsContactWithShapes</a></li>
+  <li><a href="../modules/EventListenerTouchAllAtOnce.html">EventListenerTouchAllAtOnce</a></li>
+  <li><a href="../modules/EventListenerTouchOneByOne.html">EventListenerTouchOneByOne</a></li>
+  <li><a href="../modules/EventMouse.html">EventMouse</a></li>
+  <li><a href="../modules/EventTouch.html">EventTouch</a></li>
+  <li><a href="../modules/FadeIn.html">FadeIn</a></li>
+  <li><a href="../modules/FadeOut.html">FadeOut</a></li>
+  <li><a href="../modules/FadeOutBLTiles.html">FadeOutBLTiles</a></li>
+  <li><a href="../modules/FadeOutDownTiles.html">FadeOutDownTiles</a></li>
+  <li><a href="../modules/FadeOutTRTiles.html">FadeOutTRTiles</a></li>
+  <li><a href="../modules/FadeOutUpTiles.html">FadeOutUpTiles</a></li>
+  <li><a href="../modules/FadeTo.html">FadeTo</a></li>
+  <li><a href="../modules/FileUtils.html">FileUtils</a></li>
+  <li><a href="../modules/FiniteTimeAction.html">FiniteTimeAction</a></li>
+  <li><a href="../modules/FlipX.html">FlipX</a></li>
+  <li><a href="../modules/FlipX3D.html">FlipX3D</a></li>
+  <li><a href="../modules/FlipY.html">FlipY</a></li>
+  <li><a href="../modules/FlipY3D.html">FlipY3D</a></li>
+  <li><a href="../modules/Follow.html">Follow</a></li>
+  <li><a href="../modules/Frame.html">Frame</a></li>
+  <li><a href="../modules/FrameData.html">FrameData</a></li>
+  <li><a href="../modules/GLProgram.html">GLProgram</a></li>
+  <li><a href="../modules/GLProgramCache.html">GLProgramCache</a></li>
+  <li><a href="../modules/GLProgramState.html">GLProgramState</a></li>
+  <li><a href="../modules/GLView.html">GLView</a></li>
+  <li><a href="../modules/GLViewImpl.html">GLViewImpl</a></li>
+  <li><a href="../modules/GUIReader.html">GUIReader</a></li>
+  <li><a href="../modules/Grid3D.html">Grid3D</a></li>
+  <li><a href="../modules/Grid3DAction.html">Grid3DAction</a></li>
+  <li><a href="../modules/GridAction.html">GridAction</a></li>
+  <li><a href="../modules/GridBase.html">GridBase</a></li>
+  <li><a href="../modules/HBox.html">HBox</a></li>
+  <li><a href="../modules/Helper.html">Helper</a></li>
+  <li><a href="../modules/Hide.html">Hide</a></li>
+  <li><a href="../modules/Image.html">Image</a></li>
+  <li><a href="../modules/ImageView.html">ImageView</a></li>
+  <li><a href="../modules/InnerActionFrame.html">InnerActionFrame</a></li>
+  <li><a href="../modules/JumpBy.html">JumpBy</a></li>
+  <li><a href="../modules/JumpTiles3D.html">JumpTiles3D</a></li>
+  <li><a href="../modules/JumpTo.html">JumpTo</a></li>
+  <li><a href="../modules/Label.html">Label</a></li>
+  <li><a href="../modules/LabelAtlas.html">LabelAtlas</a></li>
+  <li><a href="../modules/Layer.html">Layer</a></li>
+  <li><a href="../modules/LayerColor.html">LayerColor</a></li>
+  <li><a href="../modules/LayerGradient.html">LayerGradient</a></li>
+  <li><a href="../modules/LayerMultiplex.html">LayerMultiplex</a></li>
+  <li><a href="../modules/Layout.html">Layout</a></li>
+  <li><a href="../modules/LayoutComponent.html">LayoutComponent</a></li>
+  <li><a href="../modules/LayoutParameter.html">LayoutParameter</a></li>
+  <li><a href="../modules/Lens3D.html">Lens3D</a></li>
+  <li><a href="../modules/LinearLayoutParameter.html">LinearLayoutParameter</a></li>
+  <li><a href="../modules/Liquid.html">Liquid</a></li>
+  <li><a href="../modules/ListView.html">ListView</a></li>
+  <li><a href="../modules/LoadingBar.html">LoadingBar</a></li>
+  <li><a href="../modules/Manifest.html">Manifest</a></li>
+  <li><a href="../modules/Material.html">Material</a></li>
+  <li><a href="../modules/Menu.html">Menu</a></li>
+  <li><a href="../modules/MenuItem.html">MenuItem</a></li>
+  <li><a href="../modules/MenuItemAtlasFont.html">MenuItemAtlasFont</a></li>
+  <li><a href="../modules/MenuItemFont.html">MenuItemFont</a></li>
+  <li><a href="../modules/MenuItemImage.html">MenuItemImage</a></li>
+  <li><a href="../modules/MenuItemLabel.html">MenuItemLabel</a></li>
+  <li><a href="../modules/MenuItemSprite.html">MenuItemSprite</a></li>
+  <li><a href="../modules/MenuItemToggle.html">MenuItemToggle</a></li>
+  <li><a href="../modules/Mesh.html">Mesh</a></li>
+  <li><a href="../modules/MotionStreak.html">MotionStreak</a></li>
+  <li><a href="../modules/MotionStreak3D.html">MotionStreak3D</a></li>
+  <li><a href="../modules/MoveBy.html">MoveBy</a></li>
+  <li><a href="../modules/MoveTo.html">MoveTo</a></li>
+  <li><a href="../modules/MovementBoneData.html">MovementBoneData</a></li>
+  <li><a href="../modules/MovementData.html">MovementData</a></li>
+  <li><a href="../modules/NavMesh.html">NavMesh</a></li>
+  <li><a href="../modules/NavMeshAgent.html">NavMeshAgent</a></li>
+  <li><a href="../modules/NavMeshObstacle.html">NavMeshObstacle</a></li>
+  <li><a href="../modules/Node.html">Node</a></li>
+  <li><a href="../modules/NodeGrid.html">NodeGrid</a></li>
+  <li><a href="../modules/OrbitCamera.html">OrbitCamera</a></li>
+  <li><a href="../modules/PUParticleSystem3D.html">PUParticleSystem3D</a></li>
+  <li><a href="../modules/PageTurn3D.html">PageTurn3D</a></li>
+  <li><a href="../modules/PageView.html">PageView</a></li>
+  <li><a href="../modules/ParallaxNode.html">ParallaxNode</a></li>
+  <li><a href="../modules/ParticleBatchNode.html">ParticleBatchNode</a></li>
+  <li><a href="../modules/ParticleData.html">ParticleData</a></li>
+  <li><a href="../modules/ParticleDisplayData.html">ParticleDisplayData</a></li>
+  <li><a href="../modules/ParticleExplosion.html">ParticleExplosion</a></li>
+  <li><a href="../modules/ParticleFire.html">ParticleFire</a></li>
+  <li><a href="../modules/ParticleFireworks.html">ParticleFireworks</a></li>
+  <li><a href="../modules/ParticleFlower.html">ParticleFlower</a></li>
+  <li><a href="../modules/ParticleGalaxy.html">ParticleGalaxy</a></li>
+  <li><a href="../modules/ParticleMeteor.html">ParticleMeteor</a></li>
+  <li><a href="../modules/ParticleRain.html">ParticleRain</a></li>
+  <li><a href="../modules/ParticleSmoke.html">ParticleSmoke</a></li>
+  <li><a href="../modules/ParticleSnow.html">ParticleSnow</a></li>
+  <li><a href="../modules/ParticleSpiral.html">ParticleSpiral</a></li>
+  <li><a href="../modules/ParticleSun.html">ParticleSun</a></li>
+  <li><a href="../modules/ParticleSystem.html">ParticleSystem</a></li>
+  <li><a href="../modules/ParticleSystem3D.html">ParticleSystem3D</a></li>
+  <li><a href="../modules/ParticleSystemQuad.html">ParticleSystemQuad</a></li>
+  <li><a href="../modules/Pass.html">Pass</a></li>
+  <li><a href="../modules/Physics3D6DofConstraint.html">Physics3D6DofConstraint</a></li>
+  <li><a href="../modules/Physics3DComponent.html">Physics3DComponent</a></li>
+  <li><a href="../modules/Physics3DConeTwistConstraint.html">Physics3DConeTwistConstraint</a></li>
+  <li><a href="../modules/Physics3DConstraint.html">Physics3DConstraint</a></li>
+  <li><a href="../modules/Physics3DHingeConstraint.html">Physics3DHingeConstraint</a></li>
+  <li><a href="../modules/Physics3DObject.html">Physics3DObject</a></li>
+  <li><a href="../modules/Physics3DPointToPointConstraint.html">Physics3DPointToPointConstraint</a></li>
+  <li><a href="../modules/Physics3DRigidBody.html">Physics3DRigidBody</a></li>
+  <li><a href="../modules/Physics3DShape.html">Physics3DShape</a></li>
+  <li><a href="../modules/Physics3DSliderConstraint.html">Physics3DSliderConstraint</a></li>
+  <li><a href="../modules/Physics3DWorld.html">Physics3DWorld</a></li>
+  <li><a href="../modules/PhysicsBody.html">PhysicsBody</a></li>
+  <li><a href="../modules/PhysicsContact.html">PhysicsContact</a></li>
+  <li><a href="../modules/PhysicsContactPostSolve.html">PhysicsContactPostSolve</a></li>
+  <li><a href="../modules/PhysicsContactPreSolve.html">PhysicsContactPreSolve</a></li>
+  <li><a href="../modules/PhysicsJoint.html">PhysicsJoint</a></li>
+  <li><a href="../modules/PhysicsJointDistance.html">PhysicsJointDistance</a></li>
+  <li><a href="../modules/PhysicsJointFixed.html">PhysicsJointFixed</a></li>
+  <li><a href="../modules/PhysicsJointGear.html">PhysicsJointGear</a></li>
+  <li><a href="../modules/PhysicsJointGroove.html">PhysicsJointGroove</a></li>
+  <li><a href="../modules/PhysicsJointLimit.html">PhysicsJointLimit</a></li>
+  <li><a href="../modules/PhysicsJointMotor.html">PhysicsJointMotor</a></li>
+  <li><a href="../modules/PhysicsJointPin.html">PhysicsJointPin</a></li>
+  <li><a href="../modules/PhysicsJointRatchet.html">PhysicsJointRatchet</a></li>
+  <li><a href="../modules/PhysicsJointRotaryLimit.html">PhysicsJointRotaryLimit</a></li>
+  <li><a href="../modules/PhysicsJointRotarySpring.html">PhysicsJointRotarySpring</a></li>
+  <li><a href="../modules/PhysicsJointSpring.html">PhysicsJointSpring</a></li>
+  <li><a href="../modules/PhysicsShape.html">PhysicsShape</a></li>
+  <li><a href="../modules/PhysicsShapeBox.html">PhysicsShapeBox</a></li>
+  <li><a href="../modules/PhysicsShapeCircle.html">PhysicsShapeCircle</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeBox.html">PhysicsShapeEdgeBox</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeChain.html">PhysicsShapeEdgeChain</a></li>
+  <li><a href="../modules/PhysicsShapeEdgePolygon.html">PhysicsShapeEdgePolygon</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeSegment.html">PhysicsShapeEdgeSegment</a></li>
+  <li><a href="../modules/PhysicsShapePolygon.html">PhysicsShapePolygon</a></li>
+  <li><a href="../modules/PhysicsSprite3D.html">PhysicsSprite3D</a></li>
+  <li><a href="../modules/PhysicsWorld.html">PhysicsWorld</a></li>
+  <li><a href="../modules/Place.html">Place</a></li>
+  <li><a href="../modules/PlayableFrame.html">PlayableFrame</a></li>
+  <li><a href="../modules/PointLight.html">PointLight</a></li>
+  <li><a href="../modules/PolygonInfo.html">PolygonInfo</a></li>
+  <li><a href="../modules/PositionFrame.html">PositionFrame</a></li>
+  <li><a href="../modules/ProgressFromTo.html">ProgressFromTo</a></li>
+  <li><a href="../modules/ProgressTimer.html">ProgressTimer</a></li>
+  <li><a href="../modules/ProgressTo.html">ProgressTo</a></li>
+  <li><a href="../modules/Properties.html">Properties</a></li>
+  <li><a href="../modules/ProtectedNode.html">ProtectedNode</a></li>
+  <li><a href="../modules/RadioButton.html">RadioButton</a></li>
+  <li><a href="../modules/RadioButtonGroup.html">RadioButtonGroup</a></li>
+  <li><a href="../modules/Ref.html">Ref</a></li>
+  <li><a href="../modules/RelativeBox.html">RelativeBox</a></li>
+  <li><a href="../modules/RelativeLayoutParameter.html">RelativeLayoutParameter</a></li>
+  <li><a href="../modules/RemoveSelf.html">RemoveSelf</a></li>
+  <li><a href="../modules/RenderState.html">RenderState</a></li>
+  <li><a href="../modules/RenderTexture.html">RenderTexture</a></li>
+  <li><a href="../modules/Repeat.html">Repeat</a></li>
+  <li><a href="../modules/RepeatForever.html">RepeatForever</a></li>
+  <li><a href="../modules/ReuseGrid.html">ReuseGrid</a></li>
+  <li><a href="../modules/RichElement.html">RichElement</a></li>
+  <li><a href="../modules/RichElementCustomNode.html">RichElementCustomNode</a></li>
+  <li><a href="../modules/RichElementImage.html">RichElementImage</a></li>
+  <li><a href="../modules/RichElementNewLine.html">RichElementNewLine</a></li>
+  <li><a href="../modules/RichElementText.html">RichElementText</a></li>
+  <li><a href="../modules/RichText.html">RichText</a></li>
+  <li><a href="../modules/Ripple3D.html">Ripple3D</a></li>
+  <li><a href="../modules/RotateBy.html">RotateBy</a></li>
+  <li><a href="../modules/RotateTo.html">RotateTo</a></li>
+  <li><a href="../modules/RotationFrame.html">RotationFrame</a></li>
+  <li><a href="../modules/RotationSkewFrame.html">RotationSkewFrame</a></li>
+  <li><a href="../modules/Scale9Sprite.html">Scale9Sprite</a></li>
+  <li><a href="../modules/ScaleBy.html">ScaleBy</a></li>
+  <li><a href="../modules/ScaleFrame.html">ScaleFrame</a></li>
+  <li><a href="../modules/ScaleTo.html">ScaleTo</a></li>
+  <li><a href="../modules/Scene.html">Scene</a></li>
+  <li><a href="../modules/SceneReader.html">SceneReader</a></li>
+  <li><a href="../modules/Scheduler.html">Scheduler</a></li>
+  <li><a href="../modules/ScrollView.html">ScrollView</a></li>
+  <li><a href="../modules/Sequence.html">Sequence</a></li>
+  <li><a href="../modules/Shaky3D.html">Shaky3D</a></li>
+  <li><a href="../modules/ShakyTiles3D.html">ShakyTiles3D</a></li>
+  <li><a href="../modules/ShatteredTiles3D.html">ShatteredTiles3D</a></li>
+  <li><a href="../modules/Show.html">Show</a></li>
+  <li><a href="../modules/ShuffleTiles.html">ShuffleTiles</a></li>
+  <li><a href="../modules/SimpleAudioEngine.html">SimpleAudioEngine</a></li>
+  <li><a href="../modules/Skeleton3D.html">Skeleton3D</a></li>
+  <li><a href="../modules/SkeletonAnimation.html">SkeletonAnimation</a></li>
+  <li><a href="../modules/SkeletonNode.html">SkeletonNode</a></li>
+  <li><a href="../modules/SkeletonRenderer.html">SkeletonRenderer</a></li>
+  <li><a href="../modules/SkewBy.html">SkewBy</a></li>
+  <li><a href="../modules/SkewFrame.html">SkewFrame</a></li>
+  <li><a href="../modules/SkewTo.html">SkewTo</a></li>
+  <li><a href="../modules/Skin.html">Skin</a></li>
+  <li><a href="../modules/Skybox.html">Skybox</a></li>
+  <li><a href="../modules/Slider.html">Slider</a></li>
+  <li><a href="../modules/Spawn.html">Spawn</a></li>
+  <li><a href="../modules/Speed.html">Speed</a></li>
+  <li><a href="../modules/SplitCols.html">SplitCols</a></li>
+  <li><a href="../modules/SplitRows.html">SplitRows</a></li>
+  <li><a href="../modules/SpotLight.html">SpotLight</a></li>
+  <li><a href="../modules/Sprite.html">Sprite</a></li>
+  <li><a href="../modules/Sprite3D.html">Sprite3D</a></li>
+  <li><a href="../modules/Sprite3DCache.html">Sprite3DCache</a></li>
+  <li><a href="../modules/Sprite3DMaterial.html">Sprite3DMaterial</a></li>
+  <li><a href="../modules/SpriteBatchNode.html">SpriteBatchNode</a></li>
+  <li><a href="../modules/SpriteDisplayData.html">SpriteDisplayData</a></li>
+  <li><a href="../modules/SpriteFrame.html">SpriteFrame</a></li>
+  <li><a href="../modules/SpriteFrameCache.html">SpriteFrameCache</a></li>
+  <li><a href="../modules/StopGrid.html">StopGrid</a></li>
+  <li><a href="../modules/TMXLayer.html">TMXLayer</a></li>
+  <li><a href="../modules/TMXLayerInfo.html">TMXLayerInfo</a></li>
+  <li><a href="../modules/TMXMapInfo.html">TMXMapInfo</a></li>
+  <li><a href="../modules/TMXObjectGroup.html">TMXObjectGroup</a></li>
+  <li><a href="../modules/TMXTiledMap.html">TMXTiledMap</a></li>
+  <li><a href="../modules/TMXTilesetInfo.html">TMXTilesetInfo</a></li>
+  <li><a href="../modules/TabControl.html">TabControl</a></li>
+  <li><a href="../modules/TabHeader.html">TabHeader</a></li>
+  <li><a href="../modules/TableView.html">TableView</a></li>
+  <li><a href="../modules/TableViewCell.html">TableViewCell</a></li>
+  <li><a href="../modules/TargetedAction.html">TargetedAction</a></li>
+  <li><a href="../modules/Technique.html">Technique</a></li>
+  <li><a href="../modules/Terrain.html">Terrain</a></li>
+  <li><a href="../modules/Text.html">Text</a></li>
+  <li><a href="../modules/TextAtlas.html">TextAtlas</a></li>
+  <li><a href="../modules/TextBMFont.html">TextBMFont</a></li>
+  <li><a href="../modules/TextField.html">TextField</a></li>
+  <li><a href="../modules/Texture2D.html">Texture2D</a></li>
+  <li><a href="../modules/TextureCache.html">TextureCache</a></li>
+  <li><a href="../modules/TextureCube.html">TextureCube</a></li>
+  <li><a href="../modules/TextureData.html">TextureData</a></li>
+  <li><a href="../modules/TextureFrame.html">TextureFrame</a></li>
+  <li><a href="../modules/TileMapAtlas.html">TileMapAtlas</a></li>
+  <li><a href="../modules/TiledGrid3D.html">TiledGrid3D</a></li>
+  <li><a href="../modules/TiledGrid3DAction.html">TiledGrid3DAction</a></li>
+  <li><a href="../modules/Timeline.html">Timeline</a></li>
+  <li><a href="../modules/Timer.html">Timer</a></li>
+  <li><a href="../modules/TintBy.html">TintBy</a></li>
+  <li><a href="../modules/TintTo.html">TintTo</a></li>
+  <li><a href="../modules/ToggleVisibility.html">ToggleVisibility</a></li>
+  <li><a href="../modules/Touch.html">Touch</a></li>
+  <li><a href="../modules/TransitionCrossFade.html">TransitionCrossFade</a></li>
+  <li><a href="../modules/TransitionEaseScene.html">TransitionEaseScene</a></li>
+  <li><a href="../modules/TransitionFade.html">TransitionFade</a></li>
+  <li><a href="../modules/TransitionFadeBL.html">TransitionFadeBL</a></li>
+  <li><a href="../modules/TransitionFadeDown.html">TransitionFadeDown</a></li>
+  <li><a href="../modules/TransitionFadeTR.html">TransitionFadeTR</a></li>
+  <li><a href="../modules/TransitionFadeUp.html">TransitionFadeUp</a></li>
+  <li><a href="../modules/TransitionFlipAngular.html">TransitionFlipAngular</a></li>
+  <li><a href="../modules/TransitionFlipX.html">TransitionFlipX</a></li>
+  <li><a href="../modules/TransitionFlipY.html">TransitionFlipY</a></li>
+  <li><a href="../modules/TransitionJumpZoom.html">TransitionJumpZoom</a></li>
+  <li><a href="../modules/TransitionMoveInB.html">TransitionMoveInB</a></li>
+  <li><a href="../modules/TransitionMoveInL.html">TransitionMoveInL</a></li>
+  <li><a href="../modules/TransitionMoveInR.html">TransitionMoveInR</a></li>
+  <li><a href="../modules/TransitionMoveInT.html">TransitionMoveInT</a></li>
+  <li><a href="../modules/TransitionPageTurn.html">TransitionPageTurn</a></li>
+  <li><a href="../modules/TransitionProgress.html">TransitionProgress</a></li>
+  <li><a href="../modules/TransitionProgressHorizontal.html">TransitionProgressHorizontal</a></li>
+  <li><a href="../modules/TransitionProgressInOut.html">TransitionProgressInOut</a></li>
+  <li><a href="../modules/TransitionProgressOutIn.html">TransitionProgressOutIn</a></li>
+  <li><a href="../modules/TransitionProgressRadialCCW.html">TransitionProgressRadialCCW</a></li>
+  <li><a href="../modules/TransitionProgressRadialCW.html">TransitionProgressRadialCW</a></li>
+  <li><a href="../modules/TransitionProgressVertical.html">TransitionProgressVertical</a></li>
+  <li><a href="../modules/TransitionRotoZoom.html">TransitionRotoZoom</a></li>
+  <li><a href="../modules/TransitionScene.html">TransitionScene</a></li>
+  <li><a href="../modules/TransitionSceneOriented.html">TransitionSceneOriented</a></li>
+  <li><a href="../modules/TransitionShrinkGrow.html">TransitionShrinkGrow</a></li>
+  <li><a href="../modules/TransitionSlideInB.html">TransitionSlideInB</a></li>
+  <li><a href="../modules/TransitionSlideInL.html">TransitionSlideInL</a></li>
+  <li><a href="../modules/TransitionSlideInR.html">TransitionSlideInR</a></li>
+  <li><a href="../modules/TransitionSlideInT.html">TransitionSlideInT</a></li>
+  <li><a href="../modules/TransitionSplitCols.html">TransitionSplitCols</a></li>
+  <li><a href="../modules/TransitionSplitRows.html">TransitionSplitRows</a></li>
+  <li><a href="../modules/TransitionTurnOffTiles.html">TransitionTurnOffTiles</a></li>
+  <li><a href="../modules/TransitionZoomFlipAngular.html">TransitionZoomFlipAngular</a></li>
+  <li><a href="../modules/TransitionZoomFlipX.html">TransitionZoomFlipX</a></li>
+  <li><a href="../modules/TransitionZoomFlipY.html">TransitionZoomFlipY</a></li>
+  <li><a href="../modules/TurnOffTiles.html">TurnOffTiles</a></li>
+  <li><a href="../modules/Tween.html">Tween</a></li>
+  <li><a href="../modules/Twirl.html">Twirl</a></li>
+  <li><a href="../modules/UserDefault.html">UserDefault</a></li>
+  <li><a href="../modules/VBox.html">VBox</a></li>
+  <li><a href="../modules/VideoPlayer.html">VideoPlayer</a></li>
+  <li><a href="../modules/VisibleFrame.html">VisibleFrame</a></li>
+  <li><a href="../modules/Waves.html">Waves</a></li>
+  <li><a href="../modules/Waves3D.html">Waves3D</a></li>
+  <li><a href="../modules/WavesTiles3D.html">WavesTiles3D</a></li>
+  <li><a href="../modules/WebView.html">WebView</a></li>
+  <li><strong>Widget</strong></li>
+  <li><a href="../modules/ZOrderFrame.html">ZOrderFrame</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/sp.html">sp</a></li>
+  <li><a href="../modules/ccs.html">ccs</a></li>
+  <li><a href="../modules/ccui.html">ccui</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>Widget</code></h1>
+<p></p>
+<p></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Parent</strong>: _module ccui</li>
+        <li><strong>Extend</strong>: ProtectedNode,LayoutParameterProtocol</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list" id="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#setLayoutComponentEnabled">setLayoutComponentEnabled (self, bool)</a></td>
+	<td class="summary">Toggle layout component enable.<br>
+ param enable Layout Component of a widget</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setSizePercent">setSizePercent (self, vec2_table)</a></td>
+	<td class="summary">Changes the percent that is widget's percent size<br>
+ param percent that is widget's percent size</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCustomSize">getCustomSize (self)</a></td>
+	<td class="summary">Get the user defined widget size.<br>
+ return User defined size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getLeftBoundary">getLeftBoundary (self)</a></td>
+	<td class="summary">Gets the left boundary position of this widget in parent's coordination system.<br>
+ return The left boundary position of this widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setFlippedX">setFlippedX (self, bool)</a></td>
+	<td class="summary">Sets whether the widget should be flipped horizontally or not.<br>
+ param flippedX true if the widget should be flipped horizontally, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setCallbackName">setCallbackName (self, string)</a></td>
+	<td class="summary">Set callback name.<br>
+ param callbackName A string representation of callback name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getVirtualRenderer">getVirtualRenderer (self)</a></td>
+	<td class="summary">Gets the inner Renderer node of widget.<br>
+ For example, a button's Virtual Renderer is it's texture renderer.<br>
+ return Node pointer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPropagateTouchEvents">setPropagateTouchEvents (self, bool)</a></td>
+	<td class="summary">brief Allow widget touch events to propagate to its parents.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isUnifySizeEnabled">isUnifySizeEnabled (self)</a></td>
+	<td class="summary">Query whether unify size enable state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getSizePercent">getSizePercent (self)</a></td>
+	<td class="summary">Get size percent of widget.<br>
+ return Percent size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPositionPercent">setPositionPercent (self, vec2_table)</a></td>
+	<td class="summary">Set the percent(x,y) of the widget in OpenGL coordinates<br>
+ param percent  The percent (x,y) of the widget in OpenGL coordinates</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setSwallowTouches">setSwallowTouches (self, bool)</a></td>
+	<td class="summary">Toggle widget swallow touch option.<br>
+ brief Specify widget to swallow touches or not<br>
+ param swallow True to swallow touch, false otherwise.<br>
+ since v3.3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getLayoutSize">getLayoutSize (self)</a></td>
+	<td class="summary">Get the content size of widget.<br>
+ warning This API exists mainly for keeping back compatibility.<br>
+ return</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setHighlighted">setHighlighted (self, bool)</a></td>
+	<td class="summary">Sets whether the widget is highlighted<br>
+ The default value is false, a widget is default to not highlighted<br>
+ param highlight   true if the widget is highlighted, false if the widget is not highlighted.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPositionType">setPositionType (self, int)</a></td>
+	<td class="summary">Changes the position type of the widget<br>
+ see `PositionType`<br>
+ param type  the position type of widget</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isIgnoreContentAdaptWithSize">isIgnoreContentAdaptWithSize (self)</a></td>
+	<td class="summary">Query whether the widget ignores user defined content size or not<br>
+ return True means ignore user defined content size, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getVirtualRendererSize">getVirtualRendererSize (self)</a></td>
+	<td class="summary">Get the virtual renderer's size<br>
+ return Widget virtual renderer size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isHighlighted">isHighlighted (self)</a></td>
+	<td class="summary">Determines if the widget is highlighted<br>
+ return true if the widget is highlighted, false if the widget is not highlighted.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getLayoutParameter">getLayoutParameter (self)</a></td>
+	<td class="summary">Gets LayoutParameter of widget.<br>
+ see LayoutParameter<br>
+ return LayoutParameter</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPositionType">getPositionType (self)</a></td>
+	<td class="summary">Gets the position type of the widget<br>
+ see `PositionType`<br>
+ return type  the position type of widget</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getTopBoundary">getTopBoundary (self)</a></td>
+	<td class="summary">Gets the top boundary position of this widget in parent's coordination system.<br>
+ return The top boundary position of this widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ignoreContentAdaptWithSize">ignoreContentAdaptWithSize (self, bool)</a></td>
+	<td class="summary">Toggle whether ignore user defined content size for widget.<br>
+ Set true will ignore user defined content size which means <br>
+ the widget size is always equal to the return value of `getVirtualRendererSize`.<br>
+ param ignore set member variable _ignoreSize to ignore</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#findNextFocusedWidget">findNextFocusedWidget (self, int)</a></td>
+	<td class="summary">When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isEnabled">isEnabled (self)</a></td>
+	<td class="summary">Determines if the widget is enabled or not.<br>
+ return true if the widget is enabled, false if the widget is disabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isFocused">isFocused (self)</a></td>
+	<td class="summary">Query whether widget is focused or not.<br>
+ return  whether the widget is focused or not</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getTouchBeganPosition">getTouchBeganPosition (self)</a></td>
+	<td class="summary">Gets the touch began point of widget when widget is selected.<br>
+ return the touch began point.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isTouchEnabled">isTouchEnabled (self)</a></td>
+	<td class="summary">Determines if the widget is touch enabled<br>
+ return true if the widget is touch enabled, false if the widget is touch disabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCallbackName">getCallbackName (self)</a></td>
+	<td class="summary">Query callback name.<br>
+ return The callback name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getActionTag">getActionTag (self)</a></td>
+	<td class="summary">Get the action tag.<br>
+ return Action tag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getWorldPosition">getWorldPosition (self)</a></td>
+	<td class="summary">Gets position of widget in world space.<br>
+ return Position of widget in world space.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isFocusEnabled">isFocusEnabled (self)</a></td>
+	<td class="summary">Query widget's focus enable state.<br>
+ return true represent the widget could accept focus, false represent the widget couldn't accept focus</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setFocused">setFocused (self, bool)</a></td>
+	<td class="summary">Toggle widget focus status.<br>
+ param focus  pass true to let the widget get focus or pass false to let the widget lose focus</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setActionTag">setActionTag (self, int)</a></td>
+	<td class="summary">Set the tag of action.<br>
+ param tag  A integer tag value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setTouchEnabled">setTouchEnabled (self, bool)</a></td>
+	<td class="summary">Sets whether the widget is touch enabled.<br>
+ The default value is false, a widget is default to touch disabled.<br>
+ param enabled   True if the widget is touch enabled, false if the widget is touch disabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setFlippedY">setFlippedY (self, bool)</a></td>
+	<td class="summary">Sets whether the widget should be flipped vertically or not.<br>
+ param flippedY true if the widget should be flipped vertically, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setEnabled">setEnabled (self, bool)</a></td>
+	<td class="summary">Sets whether the widget is enabled<br>
+ true if the widget is enabled, widget may be touched , false if the widget is disabled, widget cannot be touched.<br>
+ Note: If you want to change the widget's appearance  to disabled state, you should also call  `setBright(false)`.<br>
+ The default value is true, a widget is default to enable touch.<br>
+ param enabled Set to true to enable touch, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getRightBoundary">getRightBoundary (self)</a></td>
+	<td class="summary">Gets the right boundary position of this widget in parent's coordination system.<br>
+ return The right boundary position of this widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setBrightStyle">setBrightStyle (self, int)</a></td>
+	<td class="summary">To set the bright style of widget.<br>
+ see BrightStyle<br>
+ param style   BrightStyle::NORMAL means the widget is in normal state, BrightStyle::HIGHLIGHT means the widget is in highlight state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setLayoutParameter">setLayoutParameter (self)</a></td>
+	<td class="summary">Sets a LayoutParameter to widget.<br>
+ see LayoutParameter<br>
+ param parameter LayoutParameter pointer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#clone">clone (self)</a></td>
+	<td class="summary">Create a new widget copy of the original one.<br>
+ return A cloned widget copy of original.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setFocusEnabled">setFocusEnabled (self, bool)</a></td>
+	<td class="summary">Allow widget to accept focus.<br>
+ param enable pass true/false to enable/disable the focus ability of a widget</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getBottomBoundary">getBottomBoundary (self)</a></td>
+	<td class="summary">Gets the bottom boundary position of this widget in parent's coordination system.<br>
+ return The bottom boundary position of this widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isBright">isBright (self)</a></td>
+	<td class="summary">Determines if the widget is bright<br>
+ return true if the widget is bright, false if the widget is dark.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#dispatchFocusEvent">dispatchFocusEvent (self)</a></td>
+	<td class="summary">Dispatch a EventFocus through a EventDispatcher<br>
+ param widgetLoseFocus  The widget which lose its focus<br>
+ param widgetGetFocus he widget which get its focus</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setUnifySizeEnabled">setUnifySizeEnabled (self, bool)</a></td>
+	<td class="summary">Toggle use unify size.<br>
+ param enable True to use unify size, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isPropagateTouchEvents">isPropagateTouchEvents (self)</a></td>
+	<td class="summary">Return whether the widget is propagate touch events to its parents or not<br>
+ return whether touch event propagation is allowed or not.<br>
+ since v3.3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#hitTest">hitTest (self, vec2_table, vec3_table)</a></td>
+	<td class="summary">Checks a point is in widget's content space.<br>
+ This function is used for determining touch area of widget.<br>
+ param pt        The point in `Vec2`.<br>
+ param camera    The camera look at widget, used to convert GL screen point to near/far plane.<br>
+ param p         Point to a Vec3 for store the intersect point, if don't need them set to nullptr.<br>
+ return true if the point is in widget's content space, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isLayoutComponentEnabled">isLayoutComponentEnabled (self)</a></td>
+	<td class="summary">Query whether layout component is enabled or not.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#requestFocus">requestFocus (self)</a></td>
+	<td class="summary">when a widget calls this method, it will get focus immediately.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateSizeAndPosition">updateSizeAndPosition (self, size_table)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#onFocusChange">onFocusChange (self)</a></td>
+	<td class="summary">This method is called when a focus change event happens<br>
+ param widgetLostFocus  The widget which lose its focus<br>
+ param widgetGetFocus  The widget which get its focus</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getTouchMovePosition">getTouchMovePosition (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getSizeType">getSizeType (self)</a></td>
+	<td class="summary">Gets the size type of widget.<br>
+ see `SizeType`</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCallbackType">getCallbackType (self)</a></td>
+	<td class="summary">Query callback type.<br>
+ return Callback type string.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getTouchEndPosition">getTouchEndPosition (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getPositionPercent">getPositionPercent (self)</a></td>
+	<td class="summary">Gets the percent (x,y) of the widget in OpenGL coordinates<br>
+ see setPosition(const Vec2&)<br>
+ return The percent (x,y) of the widget in OpenGL coordinates</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#propagateTouchEvent">propagateTouchEvent (self, int)</a></td>
+	<td class="summary">brief Propagate touch events to its parents</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isFlippedX">isFlippedX (self)</a></td>
+	<td class="summary">Returns the flag which indicates whether the widget is flipped horizontally or not.<br>
+ It not only flips the texture of the widget, but also the texture of the widget's children.<br>
+ Also, flipping relies on widget's anchor point.<br>
+ Internally, it just use setScaleX(-1) to flip the widget.<br>
+ return true if the widget is flipped horizontally, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isFlippedY">isFlippedY (self)</a></td>
+	<td class="summary">Return the flag which indicates whether the widget is flipped vertically or not.<br>
+ It not only flips the texture of the widget, but also the texture of the widget's children.<br>
+ Also, flipping relies on widget's anchor point.<br>
+ Internally, it just use setScaleY(-1) to flip the widget.<br>
+ return true if the widget is flipped vertically, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isClippingParentContainsPoint">isClippingParentContainsPoint (self, vec2_table)</a></td>
+	<td class="summary">Checks a point if in parent's area.<br>
+ param pt A point in `Vec2`.<br>
+ return true if the point is in parent's area, false otherwise.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setSizeType">setSizeType (self, int)</a></td>
+	<td class="summary">Changes the size type of widget.<br>
+ see `SizeType`<br>
+ param type that is widget's size type</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#interceptTouchEvent">interceptTouchEvent (self, int)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setBright">setBright (self, bool)</a></td>
+	<td class="summary">Sets whether the widget is bright<br>
+ The default value is true, a widget is default to bright<br>
+ param bright   true if the widget is bright, false if the widget is dark.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setCallbackType">setCallbackType (self, string)</a></td>
+	<td class="summary">Set callback type.<br>
+ param callbackType A string representation of callback type.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#isSwallowTouches">isSwallowTouches (self)</a></td>
+	<td class="summary">Return whether the widget is swallowing touch or not<br>
+ return Whether touch is swallowed.<br>
+ since v3.3</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#enableDpadNavigation">enableDpadNavigation (self, bool)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getCurrentFocusedWidget">getCurrentFocusedWidget (self)</a></td>
+	<td class="summary">Return a current focused widget in your UI scene.<br>
+ No matter what widget object you call this method on , it will return you the exact one focused widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#create">create (self)</a></td>
+	<td class="summary">Create and return a empty Widget instance pointer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScaleY">setScaleY (self, float)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScaleX">setScaleX (self, float)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaleY">getScaleY (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScaleX">getScaleX (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getDescription">getDescription (self)</a></td>
+	<td class="summary">Returns the string representation of widget class name<br>
+ return get the class description.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setScale">setScale (self, float, float)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#init">init (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setPosition">setPosition (self, vec2_table)</a></td>
+	<td class="summary">Changes the position (x,y) of the widget in OpenGL coordinates<br>
+ Usually we use p(x,y) to compose a Vec2 object.<br>
+ The original point (0,0) is at the left-bottom corner of screen.<br>
+ param pos  The position (x,y) of the widget in OpenGL coordinates</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setContentSize">setContentSize (self, size_table)</a></td>
+	<td class="summary">Changes the size that is widget's size<br>
+ param contentSize A content size in `Size`.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getScale">getScale (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget">Widget (self)</a></td>
+	<td class="summary">Default constructor<br>
+ js ctor<br>
+ lua new</td>
+	</tr>
+</table>
+<script>
+  sortTable("function_list");
+</script>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "setLayoutComponentEnabled"></a>
+    <strong>setLayoutComponentEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    Toggle layout component enable.<br>
+ param enable Layout Component of a widget
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         enable
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setSizePercent"></a>
+    <strong>setSizePercent (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Changes the percent that is widget's percent size<br>
+ param percent that is widget's percent size
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         percent
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getCustomSize"></a>
+    <strong>getCustomSize (self)</strong>
+    </dt>
+    <dd>
+    Get the user defined widget size.<br>
+ return User defined size.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        size_table#size_table ret (return value: size_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getLeftBoundary"></a>
+    <strong>getLeftBoundary (self)</strong>
+    </dt>
+    <dd>
+    Gets the left boundary position of this widget in parent's coordination system.<br>
+ return The left boundary position of this widget.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setFlippedX"></a>
+    <strong>setFlippedX (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the widget should be flipped horizontally or not.<br>
+ param flippedX true if the widget should be flipped horizontally, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         flippedX
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setCallbackName"></a>
+    <strong>setCallbackName (self, string)</strong>
+    </dt>
+    <dd>
+    Set callback name.<br>
+ param callbackName A string representation of callback name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         callbackName
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getVirtualRenderer"></a>
+    <strong>getVirtualRenderer (self)</strong>
+    </dt>
+    <dd>
+    Gets the inner Renderer node of widget.<br>
+ For example, a button's Virtual Renderer is it's texture renderer.<br>
+ return Node pointer.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node ret (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPropagateTouchEvents"></a>
+    <strong>setPropagateTouchEvents (self, bool)</strong>
+    </dt>
+    <dd>
+    brief Allow widget touch events to propagate to its parents.  Set false will disable propagation<br>
+ param isPropagate  True to allow propagation, false otherwise.<br>
+ since v3.3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         isPropagate
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isUnifySizeEnabled"></a>
+    <strong>isUnifySizeEnabled (self)</strong>
+    </dt>
+    <dd>
+    Query whether unify size enable state.  <br>
+ return true represent the widget use Unify Size, false represent the widget couldn't use Unify Size
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getSizePercent"></a>
+    <strong>getSizePercent (self)</strong>
+    </dt>
+    <dd>
+    Get size percent of widget.<br>
+ return Percent size.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPositionPercent"></a>
+    <strong>setPositionPercent (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Set the percent(x,y) of the widget in OpenGL coordinates<br>
+ param percent  The percent (x,y) of the widget in OpenGL coordinates
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         percent
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setSwallowTouches"></a>
+    <strong>setSwallowTouches (self, bool)</strong>
+    </dt>
+    <dd>
+    Toggle widget swallow touch option.<br>
+ brief Specify widget to swallow touches or not<br>
+ param swallow True to swallow touch, false otherwise.<br>
+ since v3.3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         swallow
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getLayoutSize"></a>
+    <strong>getLayoutSize (self)</strong>
+    </dt>
+    <dd>
+    Get the content size of widget.<br>
+ warning This API exists mainly for keeping back compatibility.<br>
+ return
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        size_table#size_table ret (return value: size_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setHighlighted"></a>
+    <strong>setHighlighted (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the widget is highlighted<br>
+ The default value is false, a widget is default to not highlighted<br>
+ param highlight   true if the widget is highlighted, false if the widget is not highlighted.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         highlight
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPositionType"></a>
+    <strong>setPositionType (self, int)</strong>
+    </dt>
+    <dd>
+    Changes the position type of the widget<br>
+ see `PositionType`<br>
+ param type  the position type of widget
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         type
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isIgnoreContentAdaptWithSize"></a>
+    <strong>isIgnoreContentAdaptWithSize (self)</strong>
+    </dt>
+    <dd>
+    Query whether the widget ignores user defined content size or not<br>
+ return True means ignore user defined content size, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getVirtualRendererSize"></a>
+    <strong>getVirtualRendererSize (self)</strong>
+    </dt>
+    <dd>
+    Get the virtual renderer's size<br>
+ return Widget virtual renderer size.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        size_table#size_table ret (return value: size_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isHighlighted"></a>
+    <strong>isHighlighted (self)</strong>
+    </dt>
+    <dd>
+    Determines if the widget is highlighted<br>
+ return true if the widget is highlighted, false if the widget is not highlighted.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getLayoutParameter"></a>
+    <strong>getLayoutParameter (self)</strong>
+    </dt>
+    <dd>
+    Gets LayoutParameter of widget.<br>
+ see LayoutParameter<br>
+ return LayoutParameter
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        LayoutParameter#LayoutParameter ret (return value: ccui.LayoutParameter)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPositionType"></a>
+    <strong>getPositionType (self)</strong>
+    </dt>
+    <dd>
+    Gets the position type of the widget<br>
+ see `PositionType`<br>
+ return type  the position type of widget
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getTopBoundary"></a>
+    <strong>getTopBoundary (self)</strong>
+    </dt>
+    <dd>
+    Gets the top boundary position of this widget in parent's coordination system.<br>
+ return The top boundary position of this widget.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ignoreContentAdaptWithSize"></a>
+    <strong>ignoreContentAdaptWithSize (self, bool)</strong>
+    </dt>
+    <dd>
+    Toggle whether ignore user defined content size for widget.<br>
+ Set true will ignore user defined content size which means <br>
+ the widget size is always equal to the return value of `getVirtualRendererSize`.<br>
+ param ignore set member variable _ignoreSize to ignore
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         ignore
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "findNextFocusedWidget"></a>
+    <strong>findNextFocusedWidget (self, int)</strong>
+    </dt>
+    <dd>
+    When a widget is in a layout, you could call this method to get the next focused widget within a specified direction.  <br>
+ If the widget is not in a layout, it will return itself<br>
+ param direction the direction to look for the next focused widget in a layout<br>
+ param current  the current focused widget<br>
+ return the next focused widget in a layout
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         direction
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget ret (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isEnabled"></a>
+    <strong>isEnabled (self)</strong>
+    </dt>
+    <dd>
+    Determines if the widget is enabled or not.<br>
+ return true if the widget is enabled, false if the widget is disabled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isFocused"></a>
+    <strong>isFocused (self)</strong>
+    </dt>
+    <dd>
+    Query whether widget is focused or not.<br>
+ return  whether the widget is focused or not
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getTouchBeganPosition"></a>
+    <strong>getTouchBeganPosition (self)</strong>
+    </dt>
+    <dd>
+    Gets the touch began point of widget when widget is selected.<br>
+ return the touch began point.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isTouchEnabled"></a>
+    <strong>isTouchEnabled (self)</strong>
+    </dt>
+    <dd>
+    Determines if the widget is touch enabled<br>
+ return true if the widget is touch enabled, false if the widget is touch disabled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getCallbackName"></a>
+    <strong>getCallbackName (self)</strong>
+    </dt>
+    <dd>
+    Query callback name.<br>
+ return The callback name.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getActionTag"></a>
+    <strong>getActionTag (self)</strong>
+    </dt>
+    <dd>
+    Get the action tag.<br>
+ return Action tag.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getWorldPosition"></a>
+    <strong>getWorldPosition (self)</strong>
+    </dt>
+    <dd>
+    Gets position of widget in world space.<br>
+ return Position of widget in world space.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isFocusEnabled"></a>
+    <strong>isFocusEnabled (self)</strong>
+    </dt>
+    <dd>
+    Query widget's focus enable state.<br>
+ return true represent the widget could accept focus, false represent the widget couldn't accept focus
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setFocused"></a>
+    <strong>setFocused (self, bool)</strong>
+    </dt>
+    <dd>
+    Toggle widget focus status.<br>
+ param focus  pass true to let the widget get focus or pass false to let the widget lose focus
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         focus
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setActionTag"></a>
+    <strong>setActionTag (self, int)</strong>
+    </dt>
+    <dd>
+    Set the tag of action.<br>
+ param tag  A integer tag value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         tag
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setTouchEnabled"></a>
+    <strong>setTouchEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the widget is touch enabled.<br>
+ The default value is false, a widget is default to touch disabled.<br>
+ param enabled   True if the widget is touch enabled, false if the widget is touch disabled.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         enabled
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setFlippedY"></a>
+    <strong>setFlippedY (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the widget should be flipped vertically or not.<br>
+ param flippedY true if the widget should be flipped vertically, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         flippedY
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setEnabled"></a>
+    <strong>setEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the widget is enabled<br>
+ true if the widget is enabled, widget may be touched , false if the widget is disabled, widget cannot be touched.<br>
+ Note: If you want to change the widget's appearance  to disabled state, you should also call  `setBright(false)`.<br>
+ The default value is true, a widget is default to enable touch.<br>
+ param enabled Set to true to enable touch, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         enabled
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getRightBoundary"></a>
+    <strong>getRightBoundary (self)</strong>
+    </dt>
+    <dd>
+    Gets the right boundary position of this widget in parent's coordination system.<br>
+ return The right boundary position of this widget.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setBrightStyle"></a>
+    <strong>setBrightStyle (self, int)</strong>
+    </dt>
+    <dd>
+    To set the bright style of widget.<br>
+ see BrightStyle<br>
+ param style   BrightStyle::NORMAL means the widget is in normal state, BrightStyle::HIGHLIGHT means the widget is in highlight state.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         style
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setLayoutParameter"></a>
+    <strong>setLayoutParameter (self)</strong>
+    </dt>
+    <dd>
+    Sets a LayoutParameter to widget.<br>
+ see LayoutParameter<br>
+ param parameter LayoutParameter pointer
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "clone"></a>
+    <strong>clone (self)</strong>
+    </dt>
+    <dd>
+    Create a new widget copy of the original one.<br>
+ return A cloned widget copy of original.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget ret (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setFocusEnabled"></a>
+    <strong>setFocusEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    Allow widget to accept focus.<br>
+ param enable pass true/false to enable/disable the focus ability of a widget
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         enable
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getBottomBoundary"></a>
+    <strong>getBottomBoundary (self)</strong>
+    </dt>
+    <dd>
+    Gets the bottom boundary position of this widget in parent's coordination system.<br>
+ return The bottom boundary position of this widget.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isBright"></a>
+    <strong>isBright (self)</strong>
+    </dt>
+    <dd>
+    Determines if the widget is bright<br>
+ return true if the widget is bright, false if the widget is dark.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "dispatchFocusEvent"></a>
+    <strong>dispatchFocusEvent (self)</strong>
+    </dt>
+    <dd>
+    Dispatch a EventFocus through a EventDispatcher<br>
+ param widgetLoseFocus  The widget which lose its focus<br>
+ param widgetGetFocus he widget which get its focus
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setUnifySizeEnabled"></a>
+    <strong>setUnifySizeEnabled (self, bool)</strong>
+    </dt>
+    <dd>
+    Toggle use unify size.<br>
+ param enable True to use unify size, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         enable
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isPropagateTouchEvents"></a>
+    <strong>isPropagateTouchEvents (self)</strong>
+    </dt>
+    <dd>
+    Return whether the widget is propagate touch events to its parents or not<br>
+ return whether touch event propagation is allowed or not.<br>
+ since v3.3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "hitTest"></a>
+    <strong>hitTest (self, vec2_table, vec3_table)</strong>
+    </dt>
+    <dd>
+    Checks a point is in widget's content space.<br>
+ This function is used for determining touch area of widget.<br>
+ param pt        The point in `Vec2`.<br>
+ param camera    The camera look at widget, used to convert GL screen point to near/far plane.<br>
+ param p         Point to a Vec3 for store the intersect point, if don't need them set to nullptr.<br>
+ return true if the point is in widget's content space, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         pt
+        </li>
+        <li><span class="parameter">vec3_table</span>
+         p
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isLayoutComponentEnabled"></a>
+    <strong>isLayoutComponentEnabled (self)</strong>
+    </dt>
+    <dd>
+    Query whether layout component is enabled or not.  <br>
+ return true represent the widget use Layout Component, false represent the widget couldn't use Layout Component.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "requestFocus"></a>
+    <strong>requestFocus (self)</strong>
+    </dt>
+    <dd>
+    when a widget calls this method, it will get focus immediately.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateSizeAndPosition"></a>
+    <strong>updateSizeAndPosition (self, size_table)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">size_table</span>
+         parentSize
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "onFocusChange"></a>
+    <strong>onFocusChange (self)</strong>
+    </dt>
+    <dd>
+    This method is called when a focus change event happens<br>
+ param widgetLostFocus  The widget which lose its focus<br>
+ param widgetGetFocus  The widget which get its focus
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getTouchMovePosition"></a>
+    <strong>getTouchMovePosition (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getSizeType"></a>
+    <strong>getSizeType (self)</strong>
+    </dt>
+    <dd>
+    Gets the size type of widget.<br>
+ see `SizeType`
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getCallbackType"></a>
+    <strong>getCallbackType (self)</strong>
+    </dt>
+    <dd>
+    Query callback type.<br>
+ return Callback type string.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getTouchEndPosition"></a>
+    <strong>getTouchEndPosition (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getPositionPercent"></a>
+    <strong>getPositionPercent (self)</strong>
+    </dt>
+    <dd>
+    Gets the percent (x,y) of the widget in OpenGL coordinates<br>
+ see setPosition(const Vec2&)<br>
+ return The percent (x,y) of the widget in OpenGL coordinates
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        vec2_table#vec2_table ret (return value: vec2_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "propagateTouchEvent"></a>
+    <strong>propagateTouchEvent (self, int)</strong>
+    </dt>
+    <dd>
+    brief Propagate touch events to its parents
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isFlippedX"></a>
+    <strong>isFlippedX (self)</strong>
+    </dt>
+    <dd>
+    Returns the flag which indicates whether the widget is flipped horizontally or not.<br>
+ It not only flips the texture of the widget, but also the texture of the widget's children.<br>
+ Also, flipping relies on widget's anchor point.<br>
+ Internally, it just use setScaleX(-1) to flip the widget.<br>
+ return true if the widget is flipped horizontally, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isFlippedY"></a>
+    <strong>isFlippedY (self)</strong>
+    </dt>
+    <dd>
+    Return the flag which indicates whether the widget is flipped vertically or not.<br>
+ It not only flips the texture of the widget, but also the texture of the widget's children.<br>
+ Also, flipping relies on widget's anchor point.<br>
+ Internally, it just use setScaleY(-1) to flip the widget.<br>
+ return true if the widget is flipped vertically, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isClippingParentContainsPoint"></a>
+    <strong>isClippingParentContainsPoint (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Checks a point if in parent's area.<br>
+ param pt A point in `Vec2`.<br>
+ return true if the point is in parent's area, false otherwise.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         pt
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setSizeType"></a>
+    <strong>setSizeType (self, int)</strong>
+    </dt>
+    <dd>
+    Changes the size type of widget.<br>
+ see `SizeType`<br>
+ param type that is widget's size type
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         type
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "interceptTouchEvent"></a>
+    <strong>interceptTouchEvent (self, int)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">int</span>
+         event
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setBright"></a>
+    <strong>setBright (self, bool)</strong>
+    </dt>
+    <dd>
+    Sets whether the widget is bright<br>
+ The default value is true, a widget is default to bright<br>
+ param bright   true if the widget is bright, false if the widget is dark.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         bright
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setCallbackType"></a>
+    <strong>setCallbackType (self, string)</strong>
+    </dt>
+    <dd>
+    Set callback type.<br>
+ param callbackType A string representation of callback type.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         callbackType
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "isSwallowTouches"></a>
+    <strong>isSwallowTouches (self)</strong>
+    </dt>
+    <dd>
+    Return whether the widget is swallowing touch or not<br>
+ return Whether touch is swallowed.<br>
+ since v3.3
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "enableDpadNavigation"></a>
+    <strong>enableDpadNavigation (self, bool)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">bool</span>
+         enable
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getCurrentFocusedWidget"></a>
+    <strong>getCurrentFocusedWidget (self)</strong>
+    </dt>
+    <dd>
+    Return a current focused widget in your UI scene.<br>
+ No matter what widget object you call this method on , it will return you the exact one focused widget.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget ret (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "create"></a>
+    <strong>create (self)</strong>
+    </dt>
+    <dd>
+    Create and return a empty Widget instance pointer.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget ret (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScaleY"></a>
+    <strong>setScaleY (self, float)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaleY
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScaleX"></a>
+    <strong>setScaleX (self, float)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaleX
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScaleY"></a>
+    <strong>getScaleY (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScaleX"></a>
+    <strong>getScaleX (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getDescription"></a>
+    <strong>getDescription (self)</strong>
+    </dt>
+    <dd>
+    Returns the string representation of widget class name<br>
+ return get the class description.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setScale"></a>
+    <strong>setScale (self, float, float)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">float</span>
+         scaley
+        </li>
+        <li><span class="parameter">float</span>
+         scaley
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "init"></a>
+    <strong>init (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bool#bool ret (return value: bool)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setPosition"></a>
+    <strong>setPosition (self, vec2_table)</strong>
+    </dt>
+    <dd>
+    Changes the position (x,y) of the widget in OpenGL coordinates<br>
+ Usually we use p(x,y) to compose a Vec2 object.<br>
+ The original point (0,0) is at the left-bottom corner of screen.<br>
+ param pos  The position (x,y) of the widget in OpenGL coordinates
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">vec2_table</span>
+         pos
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setContentSize"></a>
+    <strong>setContentSize (self, size_table)</strong>
+    </dt>
+    <dd>
+    Changes the size that is widget's size<br>
+ param contentSize A content size in `Size`.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">size_table</span>
+         contentSize
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getScale"></a>
+    <strong>getScale (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        float#float ret (return value: float)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget"></a>
+    <strong>Widget (self)</strong>
+    </dt>
+    <dd>
+    Default constructor<br>
+ js ctor<br>
+ lua new
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Widget#Widget self (return value: ccui.Widget)
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2018-06-30 21:43:43 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

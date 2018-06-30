@@ -1,0 +1,1041 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+
+
+<script>
+    function sortList(id) {
+        var list, i, switching, b, shouldSwitch;
+        list = document.getElementById(id);
+        switching = true;
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        b = list.getElementsByTagName("LI");
+        // Loop through all list items:
+        for (i = 0; i < (b.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Check if the next item should
+            switch place with the current item: */
+            if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+            /* If next item is alphabetically lower than current item,
+            mark as a switch and break the loop: */
+            shouldSwitch = true;
+            break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark the switch as done: */
+            b[i].parentNode.insertBefore(b[i + 1], b[i]);
+            switching = true;
+        }
+        }
+    };
+
+
+    function sortTable(id) {
+      var n=0;
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById(id);
+      switching = true;
+      // Set the sorting direction to ascending:
+      dir = "asc";
+      /* Make a loop that will continue until
+      no switching has been done: */
+      while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 0; i < (rows.length - 1); i++) {
+          // Start by saying there should be no switching:
+          shouldSwitch = false;
+          /* Get the two elements you want to compare,
+          one from current row and one from the next: */
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          /* Check if the two rows should switch place,
+          based on the direction, asc or desc: */
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              // If so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /* If a switch has been marked, make the switch
+          and mark that a switch has been done: */
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          // Each time a switch is done, increase this count by 1:
+          switchcount ++;
+        } else {
+          /* If no switching has been done AND the direction is "asc",
+          set the direction to "desc" and run the while loop again. */
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+
+</script>
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul id="id01">
+<li><a href="#Functions">Functions</a></li>
+</ul>
+<script>
+  sort_list('id01');
+</script>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/AbstractCheckButton.html">AbstractCheckButton</a></li>
+  <li><a href="../modules/Action.html">Action</a></li>
+  <li><a href="../modules/ActionCamera.html">ActionCamera</a></li>
+  <li><a href="../modules/ActionEase.html">ActionEase</a></li>
+  <li><a href="../modules/ActionFadeFrame.html">ActionFadeFrame</a></li>
+  <li><a href="../modules/ActionFloat.html">ActionFloat</a></li>
+  <li><a href="../modules/ActionFrame.html">ActionFrame</a></li>
+  <li><a href="../modules/ActionInstant.html">ActionInstant</a></li>
+  <li><a href="../modules/ActionInterval.html">ActionInterval</a></li>
+  <li><a href="../modules/ActionManager.html">ActionManager</a></li>
+  <li><a href="../modules/ActionManagerEx.html">ActionManagerEx</a></li>
+  <li><a href="../modules/ActionMoveFrame.html">ActionMoveFrame</a></li>
+  <li><a href="../modules/ActionObject.html">ActionObject</a></li>
+  <li><a href="../modules/ActionRotationFrame.html">ActionRotationFrame</a></li>
+  <li><a href="../modules/ActionScaleFrame.html">ActionScaleFrame</a></li>
+  <li><a href="../modules/ActionTimeline.html">ActionTimeline</a></li>
+  <li><a href="../modules/ActionTimelineCache.html">ActionTimelineCache</a></li>
+  <li><a href="../modules/ActionTimelineData.html">ActionTimelineData</a></li>
+  <li><a href="../modules/ActionTimelineNode.html">ActionTimelineNode</a></li>
+  <li><a href="../modules/ActionTintFrame.html">ActionTintFrame</a></li>
+  <li><a href="../modules/ActionTween.html">ActionTween</a></li>
+  <li><a href="../modules/AlphaFrame.html">AlphaFrame</a></li>
+  <li><a href="../modules/AmbientLight.html">AmbientLight</a></li>
+  <li><a href="../modules/AnchorPointFrame.html">AnchorPointFrame</a></li>
+  <li><a href="../modules/Animate.html">Animate</a></li>
+  <li><a href="../modules/Animate3D.html">Animate3D</a></li>
+  <li><a href="../modules/Animation.html">Animation</a></li>
+  <li><a href="../modules/Animation3D.html">Animation3D</a></li>
+  <li><a href="../modules/AnimationCache.html">AnimationCache</a></li>
+  <li><a href="../modules/AnimationData.html">AnimationData</a></li>
+  <li><a href="../modules/AnimationFrame.html">AnimationFrame</a></li>
+  <li><a href="../modules/Application.html">Application</a></li>
+  <li><a href="../modules/Armature.html">Armature</a></li>
+  <li><a href="../modules/ArmatureAnimation.html">ArmatureAnimation</a></li>
+  <li><a href="../modules/ArmatureData.html">ArmatureData</a></li>
+  <li><a href="../modules/ArmatureDataManager.html">ArmatureDataManager</a></li>
+  <li><a href="../modules/ArmatureDisplayData.html">ArmatureDisplayData</a></li>
+  <li><a href="../modules/AssetsManager.html">AssetsManager</a></li>
+  <li><a href="../modules/AssetsManagerEx.html">AssetsManagerEx</a></li>
+  <li><a href="../modules/AsyncTaskPool.html">AsyncTaskPool</a></li>
+  <li><a href="../modules/AtlasNode.html">AtlasNode</a></li>
+  <li><a href="../modules/AttachNode.html">AttachNode</a></li>
+  <li><a href="../modules/AudioEngine.html">AudioEngine</a></li>
+  <li><a href="../modules/AudioProfile.html">AudioProfile</a></li>
+  <li><a href="../modules/AutoPolygon.html">AutoPolygon</a></li>
+  <li><a href="../modules/BaseData.html">BaseData</a></li>
+  <li><a href="../modules/BaseLight.html">BaseLight</a></li>
+  <li><a href="../modules/BatchNode.html">BatchNode</a></li>
+  <li><a href="../modules/BezierBy.html">BezierBy</a></li>
+  <li><a href="../modules/BezierTo.html">BezierTo</a></li>
+  <li><a href="../modules/BillBoard.html">BillBoard</a></li>
+  <li><a href="../modules/BlendFuncFrame.html">BlendFuncFrame</a></li>
+  <li><a href="../modules/Blink.html">Blink</a></li>
+  <li><a href="../modules/Bone.html">Bone</a></li>
+  <li><a href="../modules/BoneData.html">BoneData</a></li>
+  <li><a href="../modules/BoneNode.html">BoneNode</a></li>
+  <li><a href="../modules/Bundle3D.html">Bundle3D</a></li>
+  <li><a href="../modules/Button.html">Button</a></li>
+  <li><a href="../modules/CCBAnimationManager.html">CCBAnimationManager</a></li>
+  <li><a href="../modules/CCBReader.html">CCBReader</a></li>
+  <li><a href="../modules/CSLoader.html">CSLoader</a></li>
+  <li><a href="../modules/CallFunc.html">CallFunc</a></li>
+  <li><a href="../modules/Camera.html">Camera</a></li>
+  <li><a href="../modules/CameraBackgroundBrush.html">CameraBackgroundBrush</a></li>
+  <li><a href="../modules/CameraBackgroundColorBrush.html">CameraBackgroundColorBrush</a></li>
+  <li><a href="../modules/CameraBackgroundDepthBrush.html">CameraBackgroundDepthBrush</a></li>
+  <li><a href="../modules/CameraBackgroundSkyBoxBrush.html">CameraBackgroundSkyBoxBrush</a></li>
+  <li><a href="../modules/CardinalSplineBy.html">CardinalSplineBy</a></li>
+  <li><a href="../modules/CardinalSplineTo.html">CardinalSplineTo</a></li>
+  <li><a href="../modules/CatmullRomBy.html">CatmullRomBy</a></li>
+  <li><a href="../modules/CatmullRomTo.html">CatmullRomTo</a></li>
+  <li><a href="../modules/CheckBox.html">CheckBox</a></li>
+  <li><a href="../modules/ClippingNode.html">ClippingNode</a></li>
+  <li><a href="../modules/ClippingRectangleNode.html">ClippingRectangleNode</a></li>
+  <li><a href="../modules/ColorFrame.html">ColorFrame</a></li>
+  <li><a href="../modules/ComAttribute.html">ComAttribute</a></li>
+  <li><a href="../modules/ComAudio.html">ComAudio</a></li>
+  <li><a href="../modules/ComController.html">ComController</a></li>
+  <li><a href="../modules/ComExtensionData.html">ComExtensionData</a></li>
+  <li><a href="../modules/ComRender.html">ComRender</a></li>
+  <li><a href="../modules/Component.html">Component</a></li>
+  <li><a href="../modules/ComponentLua.html">ComponentLua</a></li>
+  <li><a href="../modules/Console.html">Console</a></li>
+  <li><a href="../modules/ContourData.html">ContourData</a></li>
+  <li><a href="../modules/Control.html">Control</a></li>
+  <li><a href="../modules/ControlButton.html">ControlButton</a></li>
+  <li><a href="../modules/ControlColourPicker.html">ControlColourPicker</a></li>
+  <li><a href="../modules/ControlHuePicker.html">ControlHuePicker</a></li>
+  <li><a href="../modules/ControlPotentiometer.html">ControlPotentiometer</a></li>
+  <li><a href="../modules/ControlSaturationBrightnessPicker.html">ControlSaturationBrightnessPicker</a></li>
+  <li><a href="../modules/ControlSlider.html">ControlSlider</a></li>
+  <li><a href="../modules/ControlStepper.html">ControlStepper</a></li>
+  <li><a href="../modules/ControlSwitch.html">ControlSwitch</a></li>
+  <li><a href="../modules/Controller.html">Controller</a></li>
+  <li><a href="../modules/DelayTime.html">DelayTime</a></li>
+  <li><a href="../modules/Device.html">Device</a></li>
+  <li><a href="../modules/DirectionLight.html">DirectionLight</a></li>
+  <li><a href="../modules/Director.html">Director</a></li>
+  <li><a href="../modules/DisplayData.html">DisplayData</a></li>
+  <li><a href="../modules/DisplayManager.html">DisplayManager</a></li>
+  <li><a href="../modules/DrawNode.html">DrawNode</a></li>
+  <li><a href="../modules/EaseBackIn.html">EaseBackIn</a></li>
+  <li><a href="../modules/EaseBackInOut.html">EaseBackInOut</a></li>
+  <li><a href="../modules/EaseBackOut.html">EaseBackOut</a></li>
+  <li><a href="../modules/EaseBezierAction.html">EaseBezierAction</a></li>
+  <li><a href="../modules/EaseBounce.html">EaseBounce</a></li>
+  <li><a href="../modules/EaseBounceIn.html">EaseBounceIn</a></li>
+  <li><a href="../modules/EaseBounceInOut.html">EaseBounceInOut</a></li>
+  <li><a href="../modules/EaseBounceOut.html">EaseBounceOut</a></li>
+  <li><a href="../modules/EaseCircleActionIn.html">EaseCircleActionIn</a></li>
+  <li><a href="../modules/EaseCircleActionInOut.html">EaseCircleActionInOut</a></li>
+  <li><a href="../modules/EaseCircleActionOut.html">EaseCircleActionOut</a></li>
+  <li><a href="../modules/EaseCubicActionIn.html">EaseCubicActionIn</a></li>
+  <li><a href="../modules/EaseCubicActionInOut.html">EaseCubicActionInOut</a></li>
+  <li><a href="../modules/EaseCubicActionOut.html">EaseCubicActionOut</a></li>
+  <li><a href="../modules/EaseElastic.html">EaseElastic</a></li>
+  <li><a href="../modules/EaseElasticIn.html">EaseElasticIn</a></li>
+  <li><a href="../modules/EaseElasticInOut.html">EaseElasticInOut</a></li>
+  <li><a href="../modules/EaseElasticOut.html">EaseElasticOut</a></li>
+  <li><a href="../modules/EaseExponentialIn.html">EaseExponentialIn</a></li>
+  <li><a href="../modules/EaseExponentialInOut.html">EaseExponentialInOut</a></li>
+  <li><a href="../modules/EaseExponentialOut.html">EaseExponentialOut</a></li>
+  <li><a href="../modules/EaseIn.html">EaseIn</a></li>
+  <li><a href="../modules/EaseInOut.html">EaseInOut</a></li>
+  <li><a href="../modules/EaseOut.html">EaseOut</a></li>
+  <li><a href="../modules/EaseQuadraticActionIn.html">EaseQuadraticActionIn</a></li>
+  <li><a href="../modules/EaseQuadraticActionInOut.html">EaseQuadraticActionInOut</a></li>
+  <li><a href="../modules/EaseQuadraticActionOut.html">EaseQuadraticActionOut</a></li>
+  <li><a href="../modules/EaseQuarticActionIn.html">EaseQuarticActionIn</a></li>
+  <li><a href="../modules/EaseQuarticActionInOut.html">EaseQuarticActionInOut</a></li>
+  <li><a href="../modules/EaseQuarticActionOut.html">EaseQuarticActionOut</a></li>
+  <li><a href="../modules/EaseQuinticActionIn.html">EaseQuinticActionIn</a></li>
+  <li><a href="../modules/EaseQuinticActionInOut.html">EaseQuinticActionInOut</a></li>
+  <li><a href="../modules/EaseQuinticActionOut.html">EaseQuinticActionOut</a></li>
+  <li><a href="../modules/EaseRateAction.html">EaseRateAction</a></li>
+  <li><a href="../modules/EaseSineIn.html">EaseSineIn</a></li>
+  <li><a href="../modules/EaseSineInOut.html">EaseSineInOut</a></li>
+  <li><a href="../modules/EaseSineOut.html">EaseSineOut</a></li>
+  <li><a href="../modules/EditBox.html">EditBox</a></li>
+  <li><a href="../modules/Event.html">Event</a></li>
+  <li><a href="../modules/EventAcceleration.html">EventAcceleration</a></li>
+  <li><a href="../modules/EventAssetsManagerEx.html">EventAssetsManagerEx</a></li>
+  <li><a href="../modules/EventController.html">EventController</a></li>
+  <li><a href="../modules/EventCustom.html">EventCustom</a></li>
+  <li><a href="../modules/EventDispatcher.html">EventDispatcher</a></li>
+  <li><a href="../modules/EventFocus.html">EventFocus</a></li>
+  <li><a href="../modules/EventFrame.html">EventFrame</a></li>
+  <li><a href="../modules/EventKeyboard.html">EventKeyboard</a></li>
+  <li><a href="../modules/EventListener.html">EventListener</a></li>
+  <li><a href="../modules/EventListenerAcceleration.html">EventListenerAcceleration</a></li>
+  <li><a href="../modules/EventListenerAssetsManagerEx.html">EventListenerAssetsManagerEx</a></li>
+  <li><a href="../modules/EventListenerController.html">EventListenerController</a></li>
+  <li><a href="../modules/EventListenerCustom.html">EventListenerCustom</a></li>
+  <li><a href="../modules/EventListenerFocus.html">EventListenerFocus</a></li>
+  <li><a href="../modules/EventListenerKeyboard.html">EventListenerKeyboard</a></li>
+  <li><a href="../modules/EventListenerMouse.html">EventListenerMouse</a></li>
+  <li><a href="../modules/EventListenerPhysicsContact.html">EventListenerPhysicsContact</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithBodies.html">EventListenerPhysicsContactWithBodies</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithGroup.html">EventListenerPhysicsContactWithGroup</a></li>
+  <li><a href="../modules/EventListenerPhysicsContactWithShapes.html">EventListenerPhysicsContactWithShapes</a></li>
+  <li><a href="../modules/EventListenerTouchAllAtOnce.html">EventListenerTouchAllAtOnce</a></li>
+  <li><a href="../modules/EventListenerTouchOneByOne.html">EventListenerTouchOneByOne</a></li>
+  <li><a href="../modules/EventMouse.html">EventMouse</a></li>
+  <li><a href="../modules/EventTouch.html">EventTouch</a></li>
+  <li><a href="../modules/FadeIn.html">FadeIn</a></li>
+  <li><a href="../modules/FadeOut.html">FadeOut</a></li>
+  <li><a href="../modules/FadeOutBLTiles.html">FadeOutBLTiles</a></li>
+  <li><a href="../modules/FadeOutDownTiles.html">FadeOutDownTiles</a></li>
+  <li><a href="../modules/FadeOutTRTiles.html">FadeOutTRTiles</a></li>
+  <li><a href="../modules/FadeOutUpTiles.html">FadeOutUpTiles</a></li>
+  <li><a href="../modules/FadeTo.html">FadeTo</a></li>
+  <li><a href="../modules/FileUtils.html">FileUtils</a></li>
+  <li><a href="../modules/FiniteTimeAction.html">FiniteTimeAction</a></li>
+  <li><a href="../modules/FlipX.html">FlipX</a></li>
+  <li><a href="../modules/FlipX3D.html">FlipX3D</a></li>
+  <li><a href="../modules/FlipY.html">FlipY</a></li>
+  <li><a href="../modules/FlipY3D.html">FlipY3D</a></li>
+  <li><a href="../modules/Follow.html">Follow</a></li>
+  <li><a href="../modules/Frame.html">Frame</a></li>
+  <li><a href="../modules/FrameData.html">FrameData</a></li>
+  <li><a href="../modules/GLProgram.html">GLProgram</a></li>
+  <li><a href="../modules/GLProgramCache.html">GLProgramCache</a></li>
+  <li><a href="../modules/GLProgramState.html">GLProgramState</a></li>
+  <li><a href="../modules/GLView.html">GLView</a></li>
+  <li><a href="../modules/GLViewImpl.html">GLViewImpl</a></li>
+  <li><a href="../modules/GUIReader.html">GUIReader</a></li>
+  <li><a href="../modules/Grid3D.html">Grid3D</a></li>
+  <li><a href="../modules/Grid3DAction.html">Grid3DAction</a></li>
+  <li><a href="../modules/GridAction.html">GridAction</a></li>
+  <li><a href="../modules/GridBase.html">GridBase</a></li>
+  <li><a href="../modules/HBox.html">HBox</a></li>
+  <li><a href="../modules/Helper.html">Helper</a></li>
+  <li><a href="../modules/Hide.html">Hide</a></li>
+  <li><a href="../modules/Image.html">Image</a></li>
+  <li><a href="../modules/ImageView.html">ImageView</a></li>
+  <li><a href="../modules/InnerActionFrame.html">InnerActionFrame</a></li>
+  <li><a href="../modules/JumpBy.html">JumpBy</a></li>
+  <li><a href="../modules/JumpTiles3D.html">JumpTiles3D</a></li>
+  <li><a href="../modules/JumpTo.html">JumpTo</a></li>
+  <li><a href="../modules/Label.html">Label</a></li>
+  <li><a href="../modules/LabelAtlas.html">LabelAtlas</a></li>
+  <li><a href="../modules/Layer.html">Layer</a></li>
+  <li><a href="../modules/LayerColor.html">LayerColor</a></li>
+  <li><a href="../modules/LayerGradient.html">LayerGradient</a></li>
+  <li><a href="../modules/LayerMultiplex.html">LayerMultiplex</a></li>
+  <li><a href="../modules/Layout.html">Layout</a></li>
+  <li><a href="../modules/LayoutComponent.html">LayoutComponent</a></li>
+  <li><a href="../modules/LayoutParameter.html">LayoutParameter</a></li>
+  <li><a href="../modules/Lens3D.html">Lens3D</a></li>
+  <li><a href="../modules/LinearLayoutParameter.html">LinearLayoutParameter</a></li>
+  <li><a href="../modules/Liquid.html">Liquid</a></li>
+  <li><a href="../modules/ListView.html">ListView</a></li>
+  <li><a href="../modules/LoadingBar.html">LoadingBar</a></li>
+  <li><a href="../modules/Manifest.html">Manifest</a></li>
+  <li><a href="../modules/Material.html">Material</a></li>
+  <li><a href="../modules/Menu.html">Menu</a></li>
+  <li><a href="../modules/MenuItem.html">MenuItem</a></li>
+  <li><a href="../modules/MenuItemAtlasFont.html">MenuItemAtlasFont</a></li>
+  <li><a href="../modules/MenuItemFont.html">MenuItemFont</a></li>
+  <li><a href="../modules/MenuItemImage.html">MenuItemImage</a></li>
+  <li><a href="../modules/MenuItemLabel.html">MenuItemLabel</a></li>
+  <li><a href="../modules/MenuItemSprite.html">MenuItemSprite</a></li>
+  <li><a href="../modules/MenuItemToggle.html">MenuItemToggle</a></li>
+  <li><a href="../modules/Mesh.html">Mesh</a></li>
+  <li><a href="../modules/MotionStreak.html">MotionStreak</a></li>
+  <li><a href="../modules/MotionStreak3D.html">MotionStreak3D</a></li>
+  <li><a href="../modules/MoveBy.html">MoveBy</a></li>
+  <li><a href="../modules/MoveTo.html">MoveTo</a></li>
+  <li><a href="../modules/MovementBoneData.html">MovementBoneData</a></li>
+  <li><a href="../modules/MovementData.html">MovementData</a></li>
+  <li><a href="../modules/NavMesh.html">NavMesh</a></li>
+  <li><a href="../modules/NavMeshAgent.html">NavMeshAgent</a></li>
+  <li><a href="../modules/NavMeshObstacle.html">NavMeshObstacle</a></li>
+  <li><a href="../modules/Node.html">Node</a></li>
+  <li><a href="../modules/NodeGrid.html">NodeGrid</a></li>
+  <li><a href="../modules/OrbitCamera.html">OrbitCamera</a></li>
+  <li><a href="../modules/PUParticleSystem3D.html">PUParticleSystem3D</a></li>
+  <li><a href="../modules/PageTurn3D.html">PageTurn3D</a></li>
+  <li><a href="../modules/PageView.html">PageView</a></li>
+  <li><a href="../modules/ParallaxNode.html">ParallaxNode</a></li>
+  <li><a href="../modules/ParticleBatchNode.html">ParticleBatchNode</a></li>
+  <li><a href="../modules/ParticleData.html">ParticleData</a></li>
+  <li><a href="../modules/ParticleDisplayData.html">ParticleDisplayData</a></li>
+  <li><a href="../modules/ParticleExplosion.html">ParticleExplosion</a></li>
+  <li><a href="../modules/ParticleFire.html">ParticleFire</a></li>
+  <li><a href="../modules/ParticleFireworks.html">ParticleFireworks</a></li>
+  <li><a href="../modules/ParticleFlower.html">ParticleFlower</a></li>
+  <li><a href="../modules/ParticleGalaxy.html">ParticleGalaxy</a></li>
+  <li><a href="../modules/ParticleMeteor.html">ParticleMeteor</a></li>
+  <li><a href="../modules/ParticleRain.html">ParticleRain</a></li>
+  <li><a href="../modules/ParticleSmoke.html">ParticleSmoke</a></li>
+  <li><a href="../modules/ParticleSnow.html">ParticleSnow</a></li>
+  <li><a href="../modules/ParticleSpiral.html">ParticleSpiral</a></li>
+  <li><a href="../modules/ParticleSun.html">ParticleSun</a></li>
+  <li><a href="../modules/ParticleSystem.html">ParticleSystem</a></li>
+  <li><a href="../modules/ParticleSystem3D.html">ParticleSystem3D</a></li>
+  <li><a href="../modules/ParticleSystemQuad.html">ParticleSystemQuad</a></li>
+  <li><a href="../modules/Pass.html">Pass</a></li>
+  <li><a href="../modules/Physics3D6DofConstraint.html">Physics3D6DofConstraint</a></li>
+  <li><a href="../modules/Physics3DComponent.html">Physics3DComponent</a></li>
+  <li><a href="../modules/Physics3DConeTwistConstraint.html">Physics3DConeTwistConstraint</a></li>
+  <li><a href="../modules/Physics3DConstraint.html">Physics3DConstraint</a></li>
+  <li><a href="../modules/Physics3DHingeConstraint.html">Physics3DHingeConstraint</a></li>
+  <li><a href="../modules/Physics3DObject.html">Physics3DObject</a></li>
+  <li><a href="../modules/Physics3DPointToPointConstraint.html">Physics3DPointToPointConstraint</a></li>
+  <li><a href="../modules/Physics3DRigidBody.html">Physics3DRigidBody</a></li>
+  <li><a href="../modules/Physics3DShape.html">Physics3DShape</a></li>
+  <li><a href="../modules/Physics3DSliderConstraint.html">Physics3DSliderConstraint</a></li>
+  <li><a href="../modules/Physics3DWorld.html">Physics3DWorld</a></li>
+  <li><a href="../modules/PhysicsBody.html">PhysicsBody</a></li>
+  <li><a href="../modules/PhysicsContact.html">PhysicsContact</a></li>
+  <li><a href="../modules/PhysicsContactPostSolve.html">PhysicsContactPostSolve</a></li>
+  <li><a href="../modules/PhysicsContactPreSolve.html">PhysicsContactPreSolve</a></li>
+  <li><a href="../modules/PhysicsJoint.html">PhysicsJoint</a></li>
+  <li><a href="../modules/PhysicsJointDistance.html">PhysicsJointDistance</a></li>
+  <li><a href="../modules/PhysicsJointFixed.html">PhysicsJointFixed</a></li>
+  <li><a href="../modules/PhysicsJointGear.html">PhysicsJointGear</a></li>
+  <li><a href="../modules/PhysicsJointGroove.html">PhysicsJointGroove</a></li>
+  <li><a href="../modules/PhysicsJointLimit.html">PhysicsJointLimit</a></li>
+  <li><a href="../modules/PhysicsJointMotor.html">PhysicsJointMotor</a></li>
+  <li><a href="../modules/PhysicsJointPin.html">PhysicsJointPin</a></li>
+  <li><a href="../modules/PhysicsJointRatchet.html">PhysicsJointRatchet</a></li>
+  <li><a href="../modules/PhysicsJointRotaryLimit.html">PhysicsJointRotaryLimit</a></li>
+  <li><a href="../modules/PhysicsJointRotarySpring.html">PhysicsJointRotarySpring</a></li>
+  <li><a href="../modules/PhysicsJointSpring.html">PhysicsJointSpring</a></li>
+  <li><a href="../modules/PhysicsShape.html">PhysicsShape</a></li>
+  <li><a href="../modules/PhysicsShapeBox.html">PhysicsShapeBox</a></li>
+  <li><a href="../modules/PhysicsShapeCircle.html">PhysicsShapeCircle</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeBox.html">PhysicsShapeEdgeBox</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeChain.html">PhysicsShapeEdgeChain</a></li>
+  <li><a href="../modules/PhysicsShapeEdgePolygon.html">PhysicsShapeEdgePolygon</a></li>
+  <li><a href="../modules/PhysicsShapeEdgeSegment.html">PhysicsShapeEdgeSegment</a></li>
+  <li><a href="../modules/PhysicsShapePolygon.html">PhysicsShapePolygon</a></li>
+  <li><a href="../modules/PhysicsSprite3D.html">PhysicsSprite3D</a></li>
+  <li><a href="../modules/PhysicsWorld.html">PhysicsWorld</a></li>
+  <li><a href="../modules/Place.html">Place</a></li>
+  <li><a href="../modules/PlayableFrame.html">PlayableFrame</a></li>
+  <li><a href="../modules/PointLight.html">PointLight</a></li>
+  <li><a href="../modules/PolygonInfo.html">PolygonInfo</a></li>
+  <li><a href="../modules/PositionFrame.html">PositionFrame</a></li>
+  <li><a href="../modules/ProgressFromTo.html">ProgressFromTo</a></li>
+  <li><a href="../modules/ProgressTimer.html">ProgressTimer</a></li>
+  <li><a href="../modules/ProgressTo.html">ProgressTo</a></li>
+  <li><a href="../modules/Properties.html">Properties</a></li>
+  <li><a href="../modules/ProtectedNode.html">ProtectedNode</a></li>
+  <li><a href="../modules/RadioButton.html">RadioButton</a></li>
+  <li><a href="../modules/RadioButtonGroup.html">RadioButtonGroup</a></li>
+  <li><a href="../modules/Ref.html">Ref</a></li>
+  <li><a href="../modules/RelativeBox.html">RelativeBox</a></li>
+  <li><a href="../modules/RelativeLayoutParameter.html">RelativeLayoutParameter</a></li>
+  <li><a href="../modules/RemoveSelf.html">RemoveSelf</a></li>
+  <li><a href="../modules/RenderState.html">RenderState</a></li>
+  <li><a href="../modules/RenderTexture.html">RenderTexture</a></li>
+  <li><a href="../modules/Repeat.html">Repeat</a></li>
+  <li><a href="../modules/RepeatForever.html">RepeatForever</a></li>
+  <li><a href="../modules/ReuseGrid.html">ReuseGrid</a></li>
+  <li><a href="../modules/RichElement.html">RichElement</a></li>
+  <li><a href="../modules/RichElementCustomNode.html">RichElementCustomNode</a></li>
+  <li><a href="../modules/RichElementImage.html">RichElementImage</a></li>
+  <li><a href="../modules/RichElementNewLine.html">RichElementNewLine</a></li>
+  <li><a href="../modules/RichElementText.html">RichElementText</a></li>
+  <li><a href="../modules/RichText.html">RichText</a></li>
+  <li><a href="../modules/Ripple3D.html">Ripple3D</a></li>
+  <li><a href="../modules/RotateBy.html">RotateBy</a></li>
+  <li><a href="../modules/RotateTo.html">RotateTo</a></li>
+  <li><a href="../modules/RotationFrame.html">RotationFrame</a></li>
+  <li><a href="../modules/RotationSkewFrame.html">RotationSkewFrame</a></li>
+  <li><a href="../modules/Scale9Sprite.html">Scale9Sprite</a></li>
+  <li><a href="../modules/ScaleBy.html">ScaleBy</a></li>
+  <li><a href="../modules/ScaleFrame.html">ScaleFrame</a></li>
+  <li><a href="../modules/ScaleTo.html">ScaleTo</a></li>
+  <li><a href="../modules/Scene.html">Scene</a></li>
+  <li><a href="../modules/SceneReader.html">SceneReader</a></li>
+  <li><a href="../modules/Scheduler.html">Scheduler</a></li>
+  <li><a href="../modules/ScrollView.html">ScrollView</a></li>
+  <li><a href="../modules/Sequence.html">Sequence</a></li>
+  <li><a href="../modules/Shaky3D.html">Shaky3D</a></li>
+  <li><a href="../modules/ShakyTiles3D.html">ShakyTiles3D</a></li>
+  <li><a href="../modules/ShatteredTiles3D.html">ShatteredTiles3D</a></li>
+  <li><a href="../modules/Show.html">Show</a></li>
+  <li><a href="../modules/ShuffleTiles.html">ShuffleTiles</a></li>
+  <li><a href="../modules/SimpleAudioEngine.html">SimpleAudioEngine</a></li>
+  <li><a href="../modules/Skeleton3D.html">Skeleton3D</a></li>
+  <li><a href="../modules/SkeletonAnimation.html">SkeletonAnimation</a></li>
+  <li><a href="../modules/SkeletonNode.html">SkeletonNode</a></li>
+  <li><a href="../modules/SkeletonRenderer.html">SkeletonRenderer</a></li>
+  <li><a href="../modules/SkewBy.html">SkewBy</a></li>
+  <li><a href="../modules/SkewFrame.html">SkewFrame</a></li>
+  <li><a href="../modules/SkewTo.html">SkewTo</a></li>
+  <li><a href="../modules/Skin.html">Skin</a></li>
+  <li><a href="../modules/Skybox.html">Skybox</a></li>
+  <li><a href="../modules/Slider.html">Slider</a></li>
+  <li><a href="../modules/Spawn.html">Spawn</a></li>
+  <li><a href="../modules/Speed.html">Speed</a></li>
+  <li><a href="../modules/SplitCols.html">SplitCols</a></li>
+  <li><a href="../modules/SplitRows.html">SplitRows</a></li>
+  <li><a href="../modules/SpotLight.html">SpotLight</a></li>
+  <li><a href="../modules/Sprite.html">Sprite</a></li>
+  <li><a href="../modules/Sprite3D.html">Sprite3D</a></li>
+  <li><a href="../modules/Sprite3DCache.html">Sprite3DCache</a></li>
+  <li><a href="../modules/Sprite3DMaterial.html">Sprite3DMaterial</a></li>
+  <li><a href="../modules/SpriteBatchNode.html">SpriteBatchNode</a></li>
+  <li><a href="../modules/SpriteDisplayData.html">SpriteDisplayData</a></li>
+  <li><a href="../modules/SpriteFrame.html">SpriteFrame</a></li>
+  <li><a href="../modules/SpriteFrameCache.html">SpriteFrameCache</a></li>
+  <li><a href="../modules/StopGrid.html">StopGrid</a></li>
+  <li><a href="../modules/TMXLayer.html">TMXLayer</a></li>
+  <li><a href="../modules/TMXLayerInfo.html">TMXLayerInfo</a></li>
+  <li><a href="../modules/TMXMapInfo.html">TMXMapInfo</a></li>
+  <li><a href="../modules/TMXObjectGroup.html">TMXObjectGroup</a></li>
+  <li><a href="../modules/TMXTiledMap.html">TMXTiledMap</a></li>
+  <li><a href="../modules/TMXTilesetInfo.html">TMXTilesetInfo</a></li>
+  <li><a href="../modules/TabControl.html">TabControl</a></li>
+  <li><a href="../modules/TabHeader.html">TabHeader</a></li>
+  <li><a href="../modules/TableView.html">TableView</a></li>
+  <li><a href="../modules/TableViewCell.html">TableViewCell</a></li>
+  <li><a href="../modules/TargetedAction.html">TargetedAction</a></li>
+  <li><a href="../modules/Technique.html">Technique</a></li>
+  <li><a href="../modules/Terrain.html">Terrain</a></li>
+  <li><a href="../modules/Text.html">Text</a></li>
+  <li><strong>TextAtlas</strong></li>
+  <li><a href="../modules/TextBMFont.html">TextBMFont</a></li>
+  <li><a href="../modules/TextField.html">TextField</a></li>
+  <li><a href="../modules/Texture2D.html">Texture2D</a></li>
+  <li><a href="../modules/TextureCache.html">TextureCache</a></li>
+  <li><a href="../modules/TextureCube.html">TextureCube</a></li>
+  <li><a href="../modules/TextureData.html">TextureData</a></li>
+  <li><a href="../modules/TextureFrame.html">TextureFrame</a></li>
+  <li><a href="../modules/TileMapAtlas.html">TileMapAtlas</a></li>
+  <li><a href="../modules/TiledGrid3D.html">TiledGrid3D</a></li>
+  <li><a href="../modules/TiledGrid3DAction.html">TiledGrid3DAction</a></li>
+  <li><a href="../modules/Timeline.html">Timeline</a></li>
+  <li><a href="../modules/Timer.html">Timer</a></li>
+  <li><a href="../modules/TintBy.html">TintBy</a></li>
+  <li><a href="../modules/TintTo.html">TintTo</a></li>
+  <li><a href="../modules/ToggleVisibility.html">ToggleVisibility</a></li>
+  <li><a href="../modules/Touch.html">Touch</a></li>
+  <li><a href="../modules/TransitionCrossFade.html">TransitionCrossFade</a></li>
+  <li><a href="../modules/TransitionEaseScene.html">TransitionEaseScene</a></li>
+  <li><a href="../modules/TransitionFade.html">TransitionFade</a></li>
+  <li><a href="../modules/TransitionFadeBL.html">TransitionFadeBL</a></li>
+  <li><a href="../modules/TransitionFadeDown.html">TransitionFadeDown</a></li>
+  <li><a href="../modules/TransitionFadeTR.html">TransitionFadeTR</a></li>
+  <li><a href="../modules/TransitionFadeUp.html">TransitionFadeUp</a></li>
+  <li><a href="../modules/TransitionFlipAngular.html">TransitionFlipAngular</a></li>
+  <li><a href="../modules/TransitionFlipX.html">TransitionFlipX</a></li>
+  <li><a href="../modules/TransitionFlipY.html">TransitionFlipY</a></li>
+  <li><a href="../modules/TransitionJumpZoom.html">TransitionJumpZoom</a></li>
+  <li><a href="../modules/TransitionMoveInB.html">TransitionMoveInB</a></li>
+  <li><a href="../modules/TransitionMoveInL.html">TransitionMoveInL</a></li>
+  <li><a href="../modules/TransitionMoveInR.html">TransitionMoveInR</a></li>
+  <li><a href="../modules/TransitionMoveInT.html">TransitionMoveInT</a></li>
+  <li><a href="../modules/TransitionPageTurn.html">TransitionPageTurn</a></li>
+  <li><a href="../modules/TransitionProgress.html">TransitionProgress</a></li>
+  <li><a href="../modules/TransitionProgressHorizontal.html">TransitionProgressHorizontal</a></li>
+  <li><a href="../modules/TransitionProgressInOut.html">TransitionProgressInOut</a></li>
+  <li><a href="../modules/TransitionProgressOutIn.html">TransitionProgressOutIn</a></li>
+  <li><a href="../modules/TransitionProgressRadialCCW.html">TransitionProgressRadialCCW</a></li>
+  <li><a href="../modules/TransitionProgressRadialCW.html">TransitionProgressRadialCW</a></li>
+  <li><a href="../modules/TransitionProgressVertical.html">TransitionProgressVertical</a></li>
+  <li><a href="../modules/TransitionRotoZoom.html">TransitionRotoZoom</a></li>
+  <li><a href="../modules/TransitionScene.html">TransitionScene</a></li>
+  <li><a href="../modules/TransitionSceneOriented.html">TransitionSceneOriented</a></li>
+  <li><a href="../modules/TransitionShrinkGrow.html">TransitionShrinkGrow</a></li>
+  <li><a href="../modules/TransitionSlideInB.html">TransitionSlideInB</a></li>
+  <li><a href="../modules/TransitionSlideInL.html">TransitionSlideInL</a></li>
+  <li><a href="../modules/TransitionSlideInR.html">TransitionSlideInR</a></li>
+  <li><a href="../modules/TransitionSlideInT.html">TransitionSlideInT</a></li>
+  <li><a href="../modules/TransitionSplitCols.html">TransitionSplitCols</a></li>
+  <li><a href="../modules/TransitionSplitRows.html">TransitionSplitRows</a></li>
+  <li><a href="../modules/TransitionTurnOffTiles.html">TransitionTurnOffTiles</a></li>
+  <li><a href="../modules/TransitionZoomFlipAngular.html">TransitionZoomFlipAngular</a></li>
+  <li><a href="../modules/TransitionZoomFlipX.html">TransitionZoomFlipX</a></li>
+  <li><a href="../modules/TransitionZoomFlipY.html">TransitionZoomFlipY</a></li>
+  <li><a href="../modules/TurnOffTiles.html">TurnOffTiles</a></li>
+  <li><a href="../modules/Tween.html">Tween</a></li>
+  <li><a href="../modules/Twirl.html">Twirl</a></li>
+  <li><a href="../modules/UserDefault.html">UserDefault</a></li>
+  <li><a href="../modules/VBox.html">VBox</a></li>
+  <li><a href="../modules/VideoPlayer.html">VideoPlayer</a></li>
+  <li><a href="../modules/VisibleFrame.html">VisibleFrame</a></li>
+  <li><a href="../modules/Waves.html">Waves</a></li>
+  <li><a href="../modules/Waves3D.html">Waves3D</a></li>
+  <li><a href="../modules/WavesTiles3D.html">WavesTiles3D</a></li>
+  <li><a href="../modules/WebView.html">WebView</a></li>
+  <li><a href="../modules/Widget.html">Widget</a></li>
+  <li><a href="../modules/ZOrderFrame.html">ZOrderFrame</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/ccexp.html">ccexp</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/cc.html">cc</a></li>
+  <li><a href="../modules/sp.html">sp</a></li>
+  <li><a href="../modules/ccs.html">ccs</a></li>
+  <li><a href="../modules/ccui.html">ccui</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>TextAtlas</code></h1>
+<p></p>
+<p></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Parent</strong>: _module ccui</li>
+        <li><strong>Extend</strong>: Widget</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list" id="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#getStringLength">getStringLength (self)</a></td>
+	<td class="summary">Gets the string length of the label.<br>
+ Note: This length will be larger than the raw string length,<br>
+ if you want to get the raw string length, you should call this->getString().size() instead<br>
+ return  string length.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getString">getString (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setString">setString (self, string)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getRenderFile">getRenderFile (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setProperty">setProperty (self, string, string, int, int, string)</a></td>
+	<td class="summary">Initializes the LabelAtlas with a string, a char map file(the atlas), the width and height of each element and the starting char of the atlas.<br>
+ param stringValue A given string needs to be displayed.<br>
+ param charMapFile A given char map file name.<br>
+ param itemWidth The element width.<br>
+ param itemHeight The element height.<br>
+ param startCharMap The starting char of the atlas.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#adaptRenderers">adaptRenderers (self)</a></td>
+	<td class="summary">js NA</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#create">create (self, string, string, int, int, string)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#createInstance">createInstance (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getVirtualRenderer">getVirtualRenderer (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getDescription">getDescription (self)</a></td>
+	<td class="summary">Returns the "class name" of widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#getVirtualRendererSize">getVirtualRendererSize (self)</a></td>
+	<td class="summary"></td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TextAtlas">TextAtlas (self)</a></td>
+	<td class="summary">Default constructor.<br>
+ lua new</td>
+	</tr>
+</table>
+<script>
+  sortTable("function_list");
+</script>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "getStringLength"></a>
+    <strong>getStringLength (self)</strong>
+    </dt>
+    <dd>
+    Gets the string length of the label.<br>
+ Note: This length will be larger than the raw string length,<br>
+ if you want to get the raw string length, you should call this->getString().size() instead<br>
+ return  string length.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        int#int ret (return value: int)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getString"></a>
+    <strong>getString (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setString"></a>
+    <strong>setString (self, string)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        TextAtlas#TextAtlas self (return value: ccui.TextAtlas)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getRenderFile"></a>
+    <strong>getRenderFile (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        ResourceData#ResourceData ret (return value: cc.ResourceData)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setProperty"></a>
+    <strong>setProperty (self, string, string, int, int, string)</strong>
+    </dt>
+    <dd>
+    Initializes the LabelAtlas with a string, a char map file(the atlas), the width and height of each element and the starting char of the atlas.<br>
+ param stringValue A given string needs to be displayed.<br>
+ param charMapFile A given char map file name.<br>
+ param itemWidth The element width.<br>
+ param itemHeight The element height.<br>
+ param startCharMap The starting char of the atlas.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         startCharMap
+        </li>
+        <li><span class="parameter">string</span>
+         startCharMap
+        </li>
+        <li><span class="parameter">int</span>
+         itemHeight
+        </li>
+        <li><span class="parameter">int</span>
+         itemHeight
+        </li>
+        <li><span class="parameter">string</span>
+         startCharMap
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        TextAtlas#TextAtlas self (return value: ccui.TextAtlas)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "adaptRenderers"></a>
+    <strong>adaptRenderers (self)</strong>
+    </dt>
+    <dd>
+    js NA
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        TextAtlas#TextAtlas self (return value: ccui.TextAtlas)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "create"></a>
+    <strong>create (self, string, string, int, int, string)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+        <li><span class="parameter">string</span>
+         startCharMap
+        </li>
+        <li><span class="parameter">string</span>
+         startCharMap
+        </li>
+        <li><span class="parameter">int</span>
+         itemHeight
+        </li>
+        <li><span class="parameter">int</span>
+         itemHeight
+        </li>
+        <li><span class="parameter">string</span>
+         startCharMap
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        TextAtlas#TextAtlas ret (return value: ccui.TextAtlas)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "createInstance"></a>
+    <strong>createInstance (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Ref#Ref ret (return value: cc.Ref)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getVirtualRenderer"></a>
+    <strong>getVirtualRenderer (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Node#Node ret (return value: cc.Node)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getDescription"></a>
+    <strong>getDescription (self)</strong>
+    </dt>
+    <dd>
+    Returns the "class name" of widget.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        string#string ret (return value: string)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "getVirtualRendererSize"></a>
+    <strong>getVirtualRendererSize (self)</strong>
+    </dt>
+    <dd>
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        size_table#size_table ret (return value: size_table)
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "TextAtlas"></a>
+    <strong>TextAtlas (self)</strong>
+    </dt>
+    <dd>
+    Default constructor.<br>
+ lua new
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        TextAtlas#TextAtlas self (return value: ccui.TextAtlas)
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2018-06-30 21:43:43 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
